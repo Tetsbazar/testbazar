@@ -1,71 +1,260 @@
-# testbazar<!DOCTYPE html>
+# testbazar
+<!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>History MCQ Quiz</title>
-<style>
-body{font-family:Arial,sans-serif;background:#f4f4f4;max-width:800px;margin:auto;padding:20px}
-.card{background:#fff;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,.1)}
-button{display:block;width:100%;margin:8px 0;padding:10px}
-.correct{background:#c8f7c5}
-.wrong{background:#f7c5c5}
-#nextBtn{display:none}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ভূগোল কুইজ (Geography Quiz)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .quiz-wrapper {
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            color: #1a73e8;
+            margin-bottom: 30px;
+        }
+        .question-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .question-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        .option-btn {
+            background-color: #f8f9fa;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            padding: 12px;
+            text-align: left;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option-btn:hover {
+            background-color: #f1f3f4;
+            border-color: #bdc1c6;
+        }
+        /* সঠিক উত্তরের স্টাইল */
+        .option-btn.correct {
+            background-color: #d4edda !important;
+            border-color: #c3e6cb !important;
+            color: #155724 !important;
+            font-weight: bold;
+        }
+        /* ভুল উত্তরের স্টাইল */
+        .option-btn.wrong {
+            background-color: #f8d7da !important;
+            border-color: #f5c6cb !important;
+            color: #721c24 !important;
+        }
+        /* ব্যাখ্যা বা সঠিক উত্তরের বক্স */
+        .explanation-box {
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #e8f0fe;
+            border-left: 4px solid #1a73e8;
+            border-radius: 4px;
+            font-size: 15px;
+            color: #3c4043;
+            display: none; /* প্রথমে লুকিয়ে রাখা হবে */
+            line-height: 1.5;
+        }
+    </style>
 </head>
 <body>
-<div class="card" id="quiz"></div>
+
+<div class="quiz-wrapper">
+    <h1>ভূগোল মক টেস্ট</h1>
+
+    <div class="question-card">
+        <p class="question-text">১. পাখির पैरों মতো বদ্বীপ দেখা যায় যে নদীর মোহানায়-</p>
+        <div class="options-container">
+            <button class="option-btn" onclick="checkAns(this, true, 1)">(ক) মিসিসিপি-মিসৌরি</button>
+            <button class="option-btn" onclick="checkAns(this, false, 1)">(খ) হোয়াংহো</button>
+            <button class="option-btn" onclick="checkAns(this, false, 1)">(গ) ইরাবতী</button>
+            <button class="option-btn" onclick="checkAns(this, false, 1)">(ঘ) তাইবার</button>
+        </div>
+        <div class="explanation-box" id="exp-1">
+            <strong>সঠিক উত্তর: (ক) মিসিসিপি-মিসৌরি</strong><br>
+            ব্যাখ্যা: মিসিসিপি-মিসৌরি নদীর মোহানায় নদীস্রোত ও সমুদ্রস্রোতের পারস্পরিক প্রভাবে পলি সঞ্চিত হয়ে ঠিক পাখির পায়ের মতো দেখতে একটি বদ্বীপ গঠিত হয়েছে।
+        </div>
+    </div>
+
+    <div class="question-card">
+        <p class="question-text">২. বায়ুমণ্ডলের যে স্তরে আবহাওয়ার গোলযোগ দেখা যায় সেই স্তরটি হলো-</p>
+        <div class="options-container">
+            <button class="option-btn" onclick="checkAns(this, false, 2)">(ক) স্ট্র্যাটোস্ফিয়ার</button>
+            <button class="option-btn" onclick="checkAns(this, false, 2)">(খ) মেসোস্ফিয়ার</button>
+            <button class="option-btn" onclick="checkAns(this, true, 2)">(গ) ট্রপোস্ফিয়ার</button>
+            <button class="option-btn" onclick="checkAns(this, false, 2)">(ঘ) আয়নোস্ফিয়ার</button>
+        </div>
+        <div class="explanation-box" id="exp-2">
+            <strong>সঠিক উত্তর: (গ) ট্রপোস্ফিয়ার</strong><br>
+            ব্যাখ্যা: ট্রপোস্ফিয়ার হলো বায়ুমণ্ডলের সবচেয়ে নীচের স্তর। ধূলিকণা ও জলীয় বাষ্পের প্রায় পুরোটাই এই স্তরে থাকায় মেঘ, ঝড়, বৃষ্টি, বজ্রপাত ইত্যাদি যাবতীয় আবহাওয়াগত গোলযোগ বা অশান্ত অবস্থা এই স্তরেই ঘটে। এই কারণে একে 'ক্ষুব্ধমণ্ডল' বলা হয়।
+        </div>
+    </div>
+
+    <div class="question-card">
+        <p class="question-text">৩. সমুদ্রের যে স্থানে উষ্ণ ও শীতল স্রোত উভয়ে মিলিত হয় তাকে বলে-</p>
+        <div class="options-container">
+            <button class="option-btn" onclick="checkAns(this, false, 3)">(ক) হিমানী সম্প্রপাত</button>
+            <button class="option-btn" onclick="checkAns(this, false, 3)">(খ) হিমশৈল</button>
+            <button class="option-btn" onclick="checkAns(this, true, 3)">(গ) হিমপ্রাচীর</button>
+            <button class="option-btn" onclick="checkAns(this, false, 3)">(ঘ) হিমগুল্ম</button>
+        </div>
+        <div class="explanation-box" id="exp-3">
+            <strong>সঠিক উত্তর: (গ) হিমপ্রাচীর</strong><br>
+            ব্যাখ্যা: সমুদ্রের যেখানে উষ্ণ ও শীতল স্রোত মিলিত হয়, সেখানে দুই স্রোতের জলের রং ও ঘনত্বের পার্থক্যের জন্য একটি স্পষ্ট সীমারেখা বা প্রাচীরের মতো অংশ দেখা যায়। একেই হিমপ্রাচীর বলে। যেমন, আটলান্টিক মহাসাগরে উষ্ণ উপসাগরীয় স্রোত (গাঢ় নীল) ও শীতল ল্যাব্রাডর স্রোতের (সবুজ) মাঝে এটি দেখা যায়।
+        </div>
+    </div>
+
+    <div class="question-card">
+        <p class="question-text">৪. ল্যান্ডফিল বা ভরাটকরণ থেকে উৎপন্ন গ্যাসটি হল-</p>
+        <div class="options-container">
+            <button class="option-btn" onclick="checkAns(this, false, 4)">(ক) অক্সিজেন</button>
+            <button class="option-btn" onclick="checkAns(this, false, 4)">(খ) কার্বন মনোঅক্সাইড</button>
+            <button class="option-btn" onclick="checkAns(this, false, 4)">(গ) অ্যামোনিয়া</button>
+            <button class="option-btn" onclick="checkAns(this, true, 4)">(ঘ) মিথেন</button>
+        </div>
+        <div class="explanation-box" id="exp-4">
+            <strong>সঠিক উত্তর: (ঘ) মিথেন</strong><br>
+            ব্যাখ্যা: বর্জ্য ভরাটকরণ বা ল্যান্ডফিল পদ্ধতিতে নিচু জমিতে জমা করা জৈব বর্জ্যগুলি মাটির নীচে অবায়বীয় ব্যাকটেরিয়া দ্বারা পচে গিয়ে প্রধানত মিথেন গ্যাস উৎপন্ন করে, যা অত্যন্ত দাহ্য এবং গ্রিনহাউস গ্যাস হিসেবে পরিচিত।
+        </div>
+    </div>
+
+    <div class="question-card">
+        <p class="question-text">৫. ভারতের 'সিলিকন ভ্যালি' বলা হয়-</p>
+        <div class="options-container">
+            <button class="option-btn" onclick="checkAns(this, false, 5)">(ক) কলকাতা</button>
+            <button class="option-btn" onclick="checkAns(this, false, 5)">(খ) মুম্বাই</button>
+            <button class="option-btn" onclick="checkAns(this, true, 5)">(গ) বেঙ্গালুরু</button>
+            <button class="option-btn" onclick="checkAns(this, false, 5)">(ঘ) দিল্লি</button>
+        </div>
+        <div class="explanation-box" id="exp-5">
+            <strong>সঠিক উত্তর: (গ) বেঙ্গালুরু</strong><br>
+            ব্যাখ্যা: মার্কিন যুক্তরাষ্ট্রের ক্যালিফোর্নিয়ার সিলিকন ভ্যালির মতো ভারতের কর্ণাটক রাজ্যের বেঙ্গালুরু শহরে সিলিকন ভিত্তিক তথ্যপ্রযুক্তি ও ইলেকট্রনিকস শিল্পের সর্বাধিক বিকাশ ঘটেছে। তাই একে ভারতের সিলিকন ভ্যালি বলা হয়।
+        </div>
+    </div>
+
+    <div class="question-card">
+        <p class="question-text">৬. ভারতের দীর্ঘতম সেচখাল কোনটি?</p>
+        <div class="options-container">
+            <button class="option-btn" onclick="checkAns(this, false, 6)">(ক) উচ্চ গঙ্গা খাল</button>
+            <button class="option-btn" onclick="checkAns(this, false, 6)">(খ) সিরহিন্দ খাল</button>
+            <button class="option-btn" onclick="checkAns(this, true, 6)">(গ) ইন্দিরা গান্ধী খাল</button>
+            <button class="option-btn" onclick="checkAns(this, false, 6)">(ঘ) দামোদর খাল</button>
+        </div>
+        <div class="explanation-box" id="exp-6">
+            <strong>সঠিক উত্তর: (গ) ইন্দিরা গান্ধী খাল</strong><br>
+            ব্যাখ্যা: রাজস্থানের ইন্দিরা গান্ধী খাল (যার দৈর্ঘ্য প্রায় ৫৮২ কিমি) হলো ভারতের দীর্ঘতম সেচখাল। এর সাহায্যে রাজস্থানের শুষ্ক ও মরু অঞ্চলে কৃষিকাজে জলসেচ করা সম্ভব হয়েছে।
+        </div>
+    </div>
+
+    <div class="question-card">
+        <p class="question-text">৭. দক্ষিণ ভারতের সর্বোচ্চ পর্বতশৃঙ্গ হলো-</p>
+        <div class="options-container">
+            <button class="option-btn" onclick="checkAns(this, false, 7)">(ক) দোদাবেতা</button>
+            <button class="option-btn" onclick="checkAns(this, false, 7)">(খ) অমরকণ্টক</button>
+            <button class="option-btn" onclick="checkAns(this, true, 7)">(গ) আনাইমুদি</button>
+            <button class="option-btn" onclick="checkAns(this, false, 7)">(ঘ) মহেন্দ্রগিরি</button>
+        </div>
+        <div class="explanation-box" id="exp-7">
+            <strong>সঠিক উত্তর: (গ) আনাইমুদি</strong><br>
+            ব্যাখ্যা: আনাইমুদি (২৬৯০ মিটার) আন্নামালাই পর্বতে অবস্থিত, যা সমগ্র দক্ষিণ ভারতের সর্বোচ্চ শৃঙ্গ। অন্যদিকে দোদাবেতা হলো নীলগিরি পর্বতের সর্বোচ্চ শৃঙ্গ।
+        </div>
+    </div>
+
+    <div class="question-card">
+        <p class="question-text">৮. উপগ্রহ চিত্রে গভীর বনভূমি বা উদ্ভিদ বোঝাতে কোন ছদ্ম রং (False Colour) ব্যবহার করা হয়?</p>
+        <div class="options-container">
+            <button class="option-btn" onclick="checkAns(this, false, 8)">(ক) সবুজ</button>
+            <button class="option-btn" onclick="checkAns(this, true, 8)">(খ) লাল বা গাঢ় লাল</button>
+            <button class="option-btn" onclick="checkAns(this, false, 8)">(গ) গাঢ় নীল</button>
+            <button class="option-btn" onclick="checkAns(this, false, 8)">(ঘ) হলুদ</button>
+        </div>
+        <div class="explanation-box" id="exp-8">
+            <strong>সঠিক উত্তর: (খ) লাল বা গাঢ় লাল</strong><br>
+            ব্যাখ্যা: উপগ্রহ চিত্রে (FCC) বস্তুর প্রকৃত রঙের পরিবর্তে ছদ্ম রং ব্যবহার করা হয়। এখানে সেন্সরে ইনফ্রারেড বা অবলোহিত রশ্মির প্রতিফলনের কারণে সবুজ উদ্ভিদ বা গভীর অরণ্যকে লাল বা গাঢ় লাল রঙে দেখানো হয়।
+        </div>
+    </div>
+
+    <div class="question-card">
+        <p class="question-text">৯. মরা কোটাল বা মরা জোয়ার কোন তিথিতে সৃষ্টি হয়?</p>
+        <div class="options-container">
+            <button class="option-btn" onclick="checkAns(this, false, 9)">(ক) পূর্ণিমা</button>
+            <button class="option-btn" onclick="checkAns(this, false, 9)">(খ) অমাবস্যা</button>
+            <button class="option-btn" onclick="checkAns(this, true, 9)">(গ) শুক্ল ও কৃষ্ণপক্ষের অষ্টমী</button>
+            <button class="option-btn" onclick="checkAns(this, false, 9)">(ঘ) একাদশী</button>
+        </div>
+        <div class="explanation-box" id="exp-9">
+            <strong>সঠিক উত্তর: (গ) শুক্ল ও কৃষ্ণপক্ষের অষ্টমী</strong><br>
+            ব্যাখ্যা: শুক্ল ও কৃষ্ণপক্ষের অষ্টমী তিথিতে চাঁদ ও সূর্য পৃথিবীর সাপেক্ষে সমকোণে (৯০° কোণে) অবস্থান করে। এর ফলে চাঁদ ও সূর্যের আকর্ষণ বল পরস্পর বিরোধী হয় এবং সমুদ্রের জলস্ফীতি অনেক কম হয়, যাকে মরা কোটাল বলে।
+        </div>
+    </div>
+
+    <div class="question-card">
+        <p class="question-text">১০. ভারতের মহাকাশ গবেষণা সংস্থা (ISRO)-এর সদর দপ্তর কোথায় অবস্থিত?</p>
+        <div class="options-container">
+            <button class="option-btn" onclick="checkAns(this, false, 10)">(ক) দিল্লি</button>
+            <button class="option-btn" onclick="checkAns(this, false, 10)">(খ) চেন্নাই</button>
+            <button class="option-btn" onclick="checkAns(this, true, 10)">(গ) বেঙ্গালুরু</button>
+            <button class="option-btn" onclick="checkAns(this, false, 10)">(ঘ) কলকাতা</button>
+        </div>
+        <div class="explanation-box" id="exp-10">
+            <strong>সঠিক উত্তর: (গ) বেঙ্গালুরু</strong><br>
+            ব্যাখ্যা: ভারতের মহাকাশ গবেষণা সংস্থা ISRO (Indian Space Research Organisation)-এর প্রধান কার্যালয় বা সদর দপ্তর কর্ণাটকের বেঙ্গালুরু শহরে অবস্থিত। এখান থেকেই ভারতের উপগ্রহ চিত্র এবং মহাকাশ সংক্রান্ত গবেষণা পরিচালিত হয়।
+        </div>
+    </div>
+
+</div>
 
 <script>
-const questions=[
-{q:"বাংলায় মুদ্রিত প্রথম সংবাদপত্র কোনটি?",opts:["সমাচার দর্পণ","সংবাদ প্রভাকর","সোমপ্রকাশ","বঙ্গদর্শন"],ans:0,exp:"সমাচার দর্পণ ১৮১৮ সালে প্রকাশিত হয়।"},
-{q:"হিন্দু কলেজ প্রতিষ্ঠিত হয় কত সালে?",opts:["১৮১৭","১৮২০","১৮৩৫","১৮৫৭"],ans:0,exp:"হিন্দু কলেজ ১৮১৭ সালে প্রতিষ্ঠিত হয়।"},
-{q:"বিধবা বিবাহ আইন পাশ হয় কত সালে?",opts:["১৮৫৬","১৮৫৭","১৮৬১","১৮৪৮"],ans:0,exp:"১৮৫৬ সালে বিধবা বিবাহ আইন পাশ হয়।"},
-{q:"সাঁওতাল বিদ্রোহ শুরু হয় কত সালে?",opts:["১৮৫৫","১৮৫৭","১৮৩১","১৮৭৫"],ans:0,exp:"১৮৫৫ সালে সাঁওতাল বিদ্রোহ শুরু হয়।"},
-{q:"আনন্দমঠ গ্রন্থের রচয়িতা কে?",opts:["রবীন্দ্রনাথ","বঙ্কিমচন্দ্র","বিদ্যাসাগর","মাইকেল"],ans:1,exp:"বঙ্কিমচন্দ্র চট্টোপাধ্যায় আনন্দমঠ রচনা করেন।"},
-{q:"বঙ্গভঙ্গ হয় কত সালে?",opts:["১৯০৫","১৯০৬","১৯১১","১৯০১"],ans:0,exp:"১৯০৫ সালে বঙ্গভঙ্গ কার্যকর হয়।"},
-{q:"জালিয়ানওয়ালা বাগ হত্যাকাণ্ড সংঘটিত হয় কত সালে?",opts:["১৯১৫","১৯১৯","১৯২০","১৯২২"],ans:1,exp:"১৩ এপ্রিল ১৯১৯ সালে।"},
-{q:"সীমান্ত গান্ধী নামে কে পরিচিত?",opts:["গান্ধীজি","গফ্ফর খান","নেহরু","আজাদ"],ans:1,exp:"খান আবদুল গফ্ফর খান।"},
-{q:"ভারত স্বাধীনতা লাভ করে কত সালে?",opts:["১৯৪৫","১৯৪৬","১৯৪৭","১৯৫০"],ans:2,exp:"১৫ আগস্ট ১৯৪৭।"},
-{q:"ভারতের প্রথম গভর্নর জেনারেল কে?",opts:["কর্নওয়ালিস","ওয়ারেন হেস্টিংস","বেন্টিঙ্ক","ডালহৌসি"],ans:1,exp:"ওয়ারেন হেস্টিংস ছিলেন প্রথম গভর্নর জেনারেল।"}
-];
-
-let current=0,score=0;
-
-function showQuestion(){
-const q=questions[current];
-document.getElementById("quiz").innerHTML=`
-<h2>ইতিহাস MCQ টেস্ট</h2>
-<p>প্রশ্ন ${current+1}/${questions.length}</p>
-<h3>${q.q}</h3>
-${q.opts.map((o,i)=>`<button onclick="check(${i})" id="b${i}">${o}</button>`).join("")}
-<p id="exp"></p>
-<button id="nextBtn" onclick="nextQ()">পরের প্রশ্ন</button>`;
-}
-
-function check(i){
-const q=questions[current];
-for(let j=0;j<q.opts.length;j++){
-document.getElementById("b"+j).disabled=true;
-if(j===q.ans) document.getElementById("b"+j).classList.add("correct");
-}
-if(i!==q.ans) document.getElementById("b"+i).classList.add("wrong");
-if(i===q.ans) score++;
-document.getElementById("exp").innerHTML="<b>ব্যাখ্যা:</b> "+q.exp;
-document.getElementById("nextBtn").style.display="block";
-}
-
-function nextQ(){
-current++;
-if(current<questions.length) showQuestion();
-else{
-document.getElementById("quiz").innerHTML=`
-<h2>ফলাফল</h2>
-<h1>${score}/${questions.length}</h1>
-<p>আপনার স্কোর: ${Math.round(score/questions.length*100)}%</p>`;
-}
-}
-showQuestion();
+    function checkAns(button, isCorrect, qNum) {
+        // প্রশ্নকার্ডের ভেতরের সব বাটন সিলেক্ট করা
+        const container = button.parentElement;
+        const buttons = container.getElementsByClassName('option-btn');
+        
+        // একবার ক্লিক করার পর ওই প্রশ্নের বাকি বাটন লক করে দেওয়া
+        for (let btn of buttons) {
+            btn.disabled = true;
+            // ব্যবহারকারী ক্লিক না করলেও যদি ওটা সঠিক উত্তর হয়, তবে চিহ্নিত করার জন্য
+            if (btn.getAttribute('onclick').includes('true')) {
+                btn.classList.add('correct');
+            }
+        }
+        
+        // ব্যবহারকারী ভুল ক্লিক করলে লাল রঙ দেখানো
+        if (!isCorrect) {
+            button.classList.add('wrong');
+        }
+        
+        // ব্যাখ্যা (Explanation) বক্সটি ওপেন করা
+        const expBox = document.getElementById('exp-' + qNum);
+        expBox.style.display = 'block';
+    }
 </script>
+
 </body>
 </html>
