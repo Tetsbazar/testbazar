@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ভূগোল মক টেস্ট (Geography Mock Test)</title>
+    <title>ইতিহাস মক টেস্ট (History Mock Test)</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -82,6 +82,7 @@
             color: #333;
             margin-top: 0;
             margin-bottom: 15px;
+            line-height: 1.5;
         }
         .options-container {
             display: grid;
@@ -142,7 +143,7 @@
             border-radius: 4px;
             font-size: 15px;
             color: #3c4043;
-            display: none; /* প্রথমে লুকিয়ে রাখা হবে */
+            display: none;
             line-height: 1.5;
         }
         /* Result Dashboard */
@@ -161,11 +162,262 @@
 <body>
 
 <div class="quiz-wrapper">
-    <h1>ভূগোল মক টেস্ট</h1>
+    <h1>ইতিহাস অনলাইন মক টেস্ট</h1>
 
     <div id="start-screen" class="start-screen">
         <h3>পরীক্ষার্থীর নাম লিখুন:</h3>
         <input type="text" id="student-name-input" class="input-field" placeholder="আপনার সম্পূর্ণ নাম..." autocomplete="off">
+        <br>
+        <button class="btn" onclick="startExam()">পরীক্ষা শুরু করো</button>
+    </div>
+
+    <div id="exam-screen" style="display: none;">
+        <div class="exam-header">
+            <div>পরীক্ষার্থী: <span id="display-student-name" style="color: #1a73e8;"></span></div>
+            <div class="timer-box">সময় বাকি: <span id="timer">10:00</span></div>
+        </div>
+
+        <div id="result-box" class="result-box">
+            <h2>🎉 পরীক্ষার ফলাফল 🎉</h2>
+            <p style="font-size: 18px;">পরীক্ষার্থী: <span id="res-name" style="font-weight: bold;"></span></p>
+            <p style="font-size: 24px; font-weight: bold;">মোট স্কোর: <span id="score">0</span> / ১০</p>
+            <p style="font-size: 16px; color: #5f6368;">নিচে আপনার উত্তরপত্র পর্যালোচনা করুন।</p>
+        </div>
+
+        <form id="quiz-form">
+            <div class="question-card" data-qnum="1">
+                <p class="question-text">১. ভারতের 'জাতীয় মহাফেজখানা' (National Archives of India) কোথায় অবস্থিত?</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q1" value="wrong">(ক) কলকাতা</label>
+                    <label class="option-label"><input type="radio" name="q1" value="correct">(খ) নতুন দিল্লি</label>
+                    <label class="option-label"><input type="radio" name="q1" value="wrong">(গ) মুম্বাই</label>
+                    <label class="option-label"><input type="radio" name="q1" value="wrong">(ঘ) চেন্নাই</label>
+                </div>
+                <div class="explanation-box" id="exp-1">
+                    <strong>সঠিক উত্তর: (খ) নতুন দিল্লি</strong><br>
+                    ব্যাখ্যা: ভারতের জাতীয় মহাফেজখানা বা ন্যাশনাল আর্কাইভস অফ ইন্ডিয়া নতুন দিল্লিতে অবস্থিত। এখানে সরকারি নথিপত্র ও ঐতিহাসিক দলিল সংরক্ষিত থাকে। এটি নতুন ইতিহাস চর্চার অন্যতম প্রধান উপাদান।
+                </div>
+            </div>
+
+            <div class="question-card" data-qnum="2">
+                <p class="question-text">২. 'বামাবোধিনী' পত্রিকার সম্পাদক কে ছিলেন?</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q2" value="correct">(ক) উমেশচন্দ্র দত্ত</label>
+                    <label class="option-label"><input type="radio" name="q2" value="wrong">(খ) হরিশচন্দ্র মুখোপাধ্যায়</label>
+                    <label class="option-label"><input type="radio" name="q2" value="wrong">(গ) দেবেন্দ্রনাথ ঠাকুর</label>
+                    <label class="option-label"><input type="radio" name="q2" value="wrong">(ঘ) ঈশ্বরচন্দ্র বিদ্যাসাগর</label>
+                </div>
+                <div class="explanation-box" id="exp-2">
+                    <strong>সঠিক উত্তর: (ক) উমেশচন্দ্র দত্ত</strong><br>
+                    ব্যাখ্যা: ১৮৬৩ খ্রিস্টাব্দে উমেশচন্দ্র দত্তের সম্পাদনায় 'বামাবোধিনী' পত্রিকা প্রকাশিত হয়। এটি ছিল তৎকালীন বাঙালি সমাজের নারীদের বা বামাকুলের চেতনা ও শিক্ষার প্রসারের জন্য একটি অত্যন্ত গুরুত্বপূর্ণ পত্রিকা।
+                </div>
+            </div>
+
+            <div class="question-card" data-qnum="3">
+                <p class="question-text">৩. কলকাতা মেডিকেল কলেজ কত খ্রিস্টাব্দে প্রতিষ্ঠিত হয়েছিল?</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q3" value="wrong">(ক) ১৮১৭ খ্রিস্টাব্দে</label>
+                    <label class="option-label"><input type="radio" name="q3" value="wrong">(খ) ১৮২৩ খ্রিস্টাব্দে</label>
+                    <label class="option-label"><input type="radio" name="q3" value="correct">(গ) ১৮৩৫ খ্রিস্টাব্দে</label>
+                    <label class="option-label"><input type="radio" name="q3" value="wrong">(ঘ) ১৮৫৭ খ্রিস্টাব্দে</label>
+                </div>
+                <div class="explanation-box" id="exp-3">
+                    <strong>সঠিক উত্তর: (গ) ১৮৩৫ খ্রিস্টাব্দে</strong><br>
+                    ব্যাখ্যা: লর্ড উইলিয়াম বেন্টিঙ্কের উদ্যোগে ১৮৩৫ খ্রিস্টাব্দে কলকাতা মেডিকেল কলেজ প্রতিষ্ঠিত হয়। এটি এশিয়ায় পাশ্চাত্য চিকিৎসা শিক্ষার ক্ষেত্রে একটি যুগান্তকারী পদক্ষেপ ছিল।
+                </div>
+            </div>
+
+            <div class="question-card" data-qnum="4">
+                <p class="question-text">৪. উলগুলান (Ulgulan) বলতে কোন্ বিদ্রোহকে বোঝায়?</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q4" value="wrong">(ক) সাঁওতাল বিদ্রোহ</label>
+                    <label class="option-label"><input type="radio" name="q4" value="correct">(খ) মুণ্ডা বিদ্রোহ</label>
+                    <label class="option-label"><input type="radio" name="q4" value="wrong">(গ) কোল বিদ্রোহ</label>
+                    <label class="option-label"><input type="radio" name="q4" value="wrong">(ঘ) চুয়াড় বিদ্রোহ</label>
+                </div>
+                <div class="explanation-box" id="exp-4">
+                    <strong>সঠিক উত্তর: (খ) মুণ্ডা বিদ্রোহ</strong><br>
+                    \ব্যাখ্যা: বিরসা মুণ্ডার নেতৃত্বে ১৮৯৯-১৯০০ খ্রিস্টাব্দে সংঘটিত মুণ্ডা বিদ্রোহকে 'উলগুলান' বলা হয়। উলগুলান শব্দের অর্থ হলো 'প্রবল আলোড়ন' বা 'মহা গোলযোগ'।
+                </div>
+            </div>
+
+            <div class="question-card" data-qnum="5">
+                <p class="question-text">৫. ১৮৫৭ খ্রিস্টাব্দের মহাবিদ্রোহের সময় ভারতের গভর্নর জেনারেল কে ছিলেন?</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q5" value="wrong">(ক) লর্ড ডালহৌসি</label>
+                    <label class="option-label"><input type="radio" name="q5" value="correct">(খ) লর্ড ক্যানিং</label>
+                    <label class="option-label"><input type="radio" name="q5" value="wrong">(গ) লর্ড উইলিয়াম বেন্টিঙ্ক</label>
+                    <label class="option-label"><input type="radio" name="q5" value="wrong">(ঘ) লর্ড কার্জন</label>
+                </div>
+                <div class="explanation-box" id="exp-5">
+                    <strong>সঠিক উত্তর: (খ) লর্ড ক্যানিং</strong><br>
+                    ব্যাখ্যা: ১৮NT৭ খ্রিস্টাব্দের সিপাহি বিদ্রোহ বা মহাবিদ্রোহের সময় লর্ড ক্যানিং ভারতের গভর্নর জেনারেল ছিলেন। বিদ্রোহের পর ১৮৫৮ খ্রিস্টাব্দের রানি ভিক্টোরিয়ার ঘোষণার দ্বারা তিনি ভারতের প্রথম 'ভাইসরয়' নিযুক্ত হন।
+                </div>
+            </div>
+
+            <div class="question-card" data-qnum="6">
+                <p class="question-text">৬. 'বন্দে মাতরম্' সঙ্গীতটি কোন্ উপন্যাসের অন্তর্গত?</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q6" value="wrong">(ক) গোরা</label>
+                    <label class="option-label"><input type="radio" name="q6" value="wrong">(খ) পথের দাবী</label>
+                    <label class="option-label"><input type="radio" name="q6" value="correct">(গ) আনন্দমঠ</label>
+                    <label class="option-label"><input type="radio" name="q6" value="wrong">(ঘ) বর্তমান ভারত</label>
+                </div>
+                <div class="explanation-box" id="exp-6">
+                    <strong>সঠিক উত্তর: (গ) আনন্দমঠ</strong><br>
+                    ব্যাখ্যা: বঙ্কিমচন্দ্র চট্টোপাধ্যায়ের বিখ্যাত রাজনৈতিক উপন্যাস 'आनন্দমঠ' (১৮৮২ খ্রি.) থেকে 'বন্দে মাতরম্' সঙ্গীতটি নেওয়া হয়েছে। এই গানটি ভারতীয় জাতীয়তাবাদের বিকাশে প্রধান উদ্দীপক হিসেবে কাজ করেছিল।
+                </div>
+            </div>
+
+            <div class="question-card" data-qnum="7">
+                <p class="question-text">৭. ভারতে প্রথম ছাপাখানা কারা প্রতিষ্ঠা করেছিল?</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q7" value="correct">(ক) পর্তুগিজরা</label>
+                    <label class="option-label"><input type="radio" name="q7" value="wrong">(খ) ইংরেজরা</label>
+                    <label class="option-label"><input type="radio" name="q7" value="wrong">(গ) ওলন্দাজরা</label>
+                    <label class="option-label"><input type="radio" name="q7" value="wrong">(ঘ) ফরাসিরা</label>
+                </div>
+                <div class="explanation-box" id="exp-7">
+                    <strong>সঠিক উত্তর: (ক) পর্তুগিজরা</strong><br>
+                    ব্যাখ্যা: ১৫৫৬ খ্রিস্টাব্দে পর্তুগিজরা ভারতের গোয়াতে প্রথম ছাপাখানা বা প্রিন্টিং প্রেস স্থাপন করে। বাংলায় প্রথম ছাপাখানা হুগলিতে ইংরেজদের উদ্যোগে স্থাপিত হয়েছিল।
+                </div>
+            </div>
+
+            <div class="question-card" data-qnum="8">
+                <p class="question-text">৮. 'একা আন্দোলন' বা একতা আন্দোলনের নেতা কে ছিলেন?</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q8" value="wrong">(ক) বাবা রামচন্দ্র</label>
+                    <label class="option-label"><input type="radio" name="q8" value="correct">(খ) মাদারি পাসি</label>
+                    <label class="option-label"><input type="radio" name="q8" value="wrong">(গ) অল্লুরি সিতারাম রাজু</label>
+                    <label class="option-label"><input type="radio" name="q8" value="wrong">(ঘ) বল্লভভাই প্যাটেল</label>
+                </div>
+                <div class="explanation-box" id="exp-8">
+                    <strong>সঠিক উত্তর: (খ) মাদারি পাসি</strong><br>
+                    ব্যাখ্যা: ১৯২১-২২ খ্রিস্টাব্দে উত্তরপ্রদেশের হরদোই, বারবাঁকি প্রভৃতি অঞ্চলে অতিরিক্ত খাজনা আদায়ের বিরুদ্ধে 'একা আন্দোলন' গড়ে ওঠে। এই কৃষক আন্দোলনের প্রধান নেতা ছিলেন মাদারি পাসি।
+                </div>
+            </div>
+
+            <div class="question-card" data-qnum="9">
+                <p class="question-text">৯. 'দিপালী সংঘ' কে প্রতিষ্ঠা করেছিলেন?</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q9" value="wrong">(ক) কল্পনা দত্ত</label>
+                    <label class="option-label"><input type="radio" name="q9" value="wrong">(খ) প্রীতিলতা ওয়াদ্দেদার</label>
+                    <label class="option-label"><input type="radio" name="q9" value="correct">(গ) লীলা নাগ (রায়)</label>
+                    <label class="option-label"><input type="radio" name="q9" value="wrong">(ঘ) বীণা দাস</label>
+                </div>
+                <div class="explanation-box" id="exp-9">
+                    <strong>সঠিক উত্তর: (গ) লীলা নাগ (রায়)</strong><br>
+                    ব্যাখ্যা: ১৯২৩ খ্রিস্টাব্দে ঢাকায় লীলা নাগ (পরবর্তীকালে লীলা রায়) 'দিপালী সংঘ' প্রতিষ্ঠা করেন। এটি ছিল নারী শিক্ষার প্রসার ও বিপ্লবীবাদী ভাবধারায় নারীদের আত্মরক্ষার শিক্ষা দেওয়ার একটি অন্যতম প্রধান বিপ্লবী নারী সংগঠন।
+                </div>
+            </div>
+
+            <div class="question-card" data-qnum="10">
+                <p class="question-text">১০. ভারতের স্বাধীনতাকালে কাশ্মীরের মহারাজা কে ছিলেন?</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q10" value="wrong">(ক) শেখ আবদুল্লা</label>
+                    <label class="option-label"><input type="radio" name="q10" value="correct">(খ) হরি সিং</label>
+                    <label class="option-label"><input type="radio" name="q10" value="wrong">(গ) করণ সিং</label>
+                    <label class="option-label"><input type="radio" name="q10" value="wrong">(ঘ) গুলাব সিং</label>
+                </div>
+                <div class="explanation-box" id="exp-10">
+                    <strong>সঠিক উত্তর: (খ) হরি সিং</strong><br>
+                    ব্যাখ্যা: ১৯৪৭ খ্রিস্টাব্দে ভারতের স্বাধীনতাপ্রাপ্তি ও দেশভাগের সময় কাশ্মীরের মহারাজা ছিলেন হরি সিং। পরবর্তীকালে পাকিস্তানি হানাদারদের আক্রমণের মুখে তিনি ভারতের সাথে 'ভারতভুক্তি দলিল'-এ স্বাক্ষর করেন।
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px; margin-bottom: 5px;">
+                <button type="button" id="submit-btn" class="btn" style="background-color: #34a853;" onclick="submitExam()">খাতা জমা দিন (Submit)</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    let totalTime = 600; // ১০ মিনিট সেকেন্ডে
+    let timerInterval;
+
+    function startExam() {
+        const nameInput = document.getElementById('student-name-input').value.trim();
+        if (nameInput === "") {
+            alert("দয়া করে পরীক্ষা শুরু করার আগে আপনার নাম লিখুন!");
+            return;
+        }
+
+        document.getElementById('start-screen').style.display = 'none';
+        document.getElementById('exam-screen').style.display = 'block';
+        document.getElementById('display-student-name').innerText = nameInput;
+
+        timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    function updateTimer() {
+        let minutes = Math.floor(totalTime / 60);
+        let seconds = totalTime % 60;
+
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+
+        document.getElementById('timer').innerText = minutes + ":" + seconds;
+
+        if (totalTime <= 0) {
+            clearInterval(timerInterval);
+            alert("সময় শেষ! আপনার উত্তরপত্রটি স্বয়ংক্রিয়ভাবে জমা নেওয়া হলো।");
+            submitExam();
+        }
+        totalTime--;
+    }
+
+    function submitExam() {
+        clearInterval(timerInterval);
+        document.getElementById('submit-btn').style.display = 'none';
+        document.getElementById('timer').innerText = "00:00 (জমা দেওয়া হয়েছে)";
+
+        const form = document.getElementById('quiz-form');
+        let totalScore = 0;
+
+        const cards = document.getElementsByClassName('question-card');
+        
+        for (let card of cards) {
+            const qNum = card.getAttribute('data-qnum');
+            const radioButtons = form.elements['q' + qNum];
+            const labels = card.getElementsByClassName('option-label');
+            
+            let selectedValue = "";
+
+            for (let i = 0; i < radioButtons.length; i++) {
+                radioButtons[i].disabled = true;
+                
+                if (radioButtons[i].checked) {
+                    selectedValue = radioButtons[i].value;
+                }
+
+                if (radioButtons[i].value === "correct") {
+                    labels[i].classList.add('correct');
+                }
+                
+                if (radioButtons[i].checked && radioButtons[i].value === "wrong") {
+                    labels[i].classList.add('wrong');
+                }
+            }
+
+            if (selectedValue === "correct") {
+                totalScore++;
+            }
+
+            document.getElementById('exp-' + qNum).style.display = 'block';
+        }
+
+        document.getElementById('res-name').innerText = document.getElementById('student-name-input').value;
+        document.getElementById('score').innerText = totalScore;
+        document.getElementById('result-box').style.display = 'block';
+
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+</script>
+
+</body>
+</html>
+
         <br>
         <button class="btn" onclick="startExam()">পরীক্ষা শুরু করো</button>
     </div>
