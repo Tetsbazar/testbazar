@@ -4,42 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ইতিহাস মক টেস্ট (History Mock Test)</title>
+    <title>ভূগোল মক টেস্ট (Geography Mock Test)</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f2f5;
             margin: 0;
-            padding: 20px;
+            padding: 10px;
             display: flex;
             justify-content: center;
+            box-sizing: border-box;
         }
         .quiz-wrapper {
-            max-width: 600px;
             width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
         }
         h1 {
             text-align: center;
             color: #1a73e8;
-            margin-bottom: 20px;
+            margin: 15px 0;
+            font-size: 22px;
         }
         /* Login Screen */
         .start-screen {
             background-color: #fff;
-            padding: 30px;
+            padding: 25px 15px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             text-align: center;
-            margin-top: 50px;
+            margin-top: 30px;
         }
         .input-field {
-            width: 80%;
+            width: 90%;
+            max-width: 400px;
             padding: 12px;
-            margin: 20px 0;
+            margin: 15px 0;
             border: 2px solid #dadce0;
             border-radius: 6px;
             font-size: 16px;
             outline: none;
+            box-sizing: border-box;
         }
         .input-field:focus {
             border-color: #1a73e8;
@@ -50,43 +55,47 @@
             justify-content: space-between;
             align-items: center;
             background: #e8f0fe;
-            padding: 12px 15px;
+            padding: 12px;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 14px;
             color: #1c3d5a;
             position: sticky;
-            top: 10px;
+            top: 5px;
             z-index: 100;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-sizing: border-box;
         }
         .timer-box {
             color: #d93025;
             background: #fce8e6;
-            padding: 5px 10px;
+            padding: 5px 8px;
             border-radius: 4px;
             border: 1px solid #fad2cf;
+            white-space: nowrap;
         }
         /* Question Cards */
         .question-card {
             background-color: #fff;
-            padding: 20px;
+            padding: 15px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            margin-bottom: 15px;
+            box-sizing: border-box;
         }
         .question-text {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             color: #333;
             margin-top: 0;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             line-height: 1.5;
+            word-wrap: break-word;
         }
         .options-container {
-            display: grid;
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 10px;
         }
         .option-label {
@@ -94,18 +103,22 @@
             border: 1px solid #dadce0;
             border-radius: 6px;
             padding: 12px;
-            font-size: 16px;
+            font-size: 15px;
             cursor: pointer;
             display: flex;
             align-items: center;
             transition: all 0.2s ease;
+            word-break: break-word;
+            line-height: 1.4;
+            box-sizing: border-box;
         }
         .option-label:hover {
             background-color: #f1f3f4;
         }
         .option-label input {
-            margin-right: 12px;
+            margin-right: 10px;
             transform: scale(1.2);
+            flex-shrink: 0;
         }
         /* Button Style */
         .btn {
@@ -118,6 +131,8 @@
             cursor: pointer;
             font-weight: bold;
             transition: background 0.2s;
+            width: 100%;
+            max-width: 300px;
         }
         .btn:hover {
             background-color: #1557b0;
@@ -136,40 +151,308 @@
         }
         /* Explanation Box */
         .explanation-box {
-            margin-top: 15px;
+            margin-top: 12px;
             padding: 12px;
             background-color: #e8f0fe;
             border-left: 4px solid #1a73e8;
             border-radius: 4px;
-            font-size: 15px;
+            font-size: 14px;
             color: #3c4043;
             display: none;
             line-height: 1.5;
+            word-wrap: break-word;
         }
         /* Result Dashboard */
         .result-box {
             text-align: center;
-            padding: 25px;
+            padding: 20px 15px;
             background: #e6f4ea;
             border-radius: 8px;
             color: #137333;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             display: none;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+        }
+
+        /* 📱 মোবাইলের জন্য স্পেশাল অটো-অ্যাডজাস্টমেন্ট স্ক্রিন সেটিংস */
+        @media (max-width: 480px) {
+            body { padding: 5px; }
+            h1 { font-size: 18px; }
+            .exam-header { font-size: 13px; padding: 10px; }
+            .question-text { font-size: 15px; }
+            .option-label { font-size: 14px; padding: 10px; }
         }
     </style>
 </head>
 <body>
 
 <div class="quiz-wrapper">
-    <h1>ইতিহাস অনলাইন মক টেস্ট</h1>
+    <h1>ভূগোল মক টেস্ট</h1>
 
     <div id="start-screen" class="start-screen">
         <h3>পরীক্ষার্থীর নাম লিখুন:</h3>
         <input type="text" id="student-name-input" class="input-field" placeholder="আপনার সম্পূর্ণ নাম..." autocomplete="off">
-        <br>
+        <br><br>
         <button class="btn" onclick="startExam()">পরীক্ষা শুরু করো</button>
     </div>
+
+    <div id="exam-screen" style="display: none;">
+        <div class="exam-header">
+            <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 65%;">পরীক্ষার্থী: <span id="display-student-name" style="color: #1a73e8;"></span></div>
+            <div class="timer-box">সময় বাকি: <span id="timer">10:00</span></div>
+        </div>
+
+        <div id="result-box" class="result-box">
+            <h2>🎉 পরীক্ষার ফলাফল 🎉</h2>
+            <p style="font-size: 16px;">পরীক্ষার্থী: <span id="res-name" style="font-weight: bold;"></span></p>
+            <p style="font-size: 22px; font-weight: bold;">মোট স্কোর: <span id="score">0</span> / ১০</p>
+            <p style="font-size: 14px; color: #5f6368;">নিচে আপনার উত্তরপত্র পর্যালোচনা করুন।</p>
+        </div>
+
+        <form id="quiz-form">
+            <div class="question-card" data-qnum="1">
+                <p class="question-text">১. পাখির পায়ের মতো বদ্বীপ দেখা যায় যে নদীর মোহানায়-</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q1" value="A">(ক) মিসিসিপি-মিসৌরি</label>
+                    <label class="option-label"><input type="radio" name="q1" value="B">(খ) হোয়াংহো</label>
+                    <label class="option-label"><input type="radio" name="q1" value="C">(গ) ইরাবতী</label>
+                    <label class="option-label"><input type="radio" name="q1" value="D">(ঘ) তাইবার</label>
+                </div>
+                <div class="explanation-box" id="exp-1">
+                    <strong>সঠিক উত্তর: (ক) মিসিসিপি-মিসৌরি</strong><br>
+                    ব্যাখ্যা: মিসিসিপি-মিসৌরি নদীর মোহানায় নদীস্রোত ও সমুদ্রস্রোতের পারস্পরিক প্রভাবে পলি সঞ্চিত হয়ে ঠিক পাখির পায়ের মতো দেখতে একটি বদ্বীপ গঠিত হয়েছে।
+                </div>
+            </div>
+
+            <div class="question-card" data-qnum="2">
+                <p class="question-text">২. বায়ুমণ্ডলের যে স্তরে আবহাওয়ার গোলযোগ দেখা যায় সেই স্তরটি হলো-</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q2" value="A">(ক) স্ট্র্যাটোস্ফিয়ার</label>
+                    <label class="option-label"><input type="radio" name="q2" value="B">(খ) মেসোস্ফিয়ার</label>
+                    <label class="option-label"><input type="radio" name="q2" value="C">(গ) ট্রপোস্ফিয়ার</label>
+                    <label class="option-label"><input type="radio" name="q2" value="D">(ঘ) আইনোস্ফিয়ার</label>
+                </div>
+                <div class="explanation-box" id="exp-2">
+                    <strong>সঠিক উত্তর: (গ) ট্রপোস্ফিয়ার</strong><br>
+                    ব্যাখ্যা: ট্রপোস্ফিয়ার হলো বায়ুমণ্ডলের সবচেয়ে নীচের স্তর। ধূলিকণা ও জলীয় বাষ্পের প্রায় পুরোটাই এই স্তরে থাকায় মেঘ, ঝড়, বৃষ্টি, বজ্রপাত ইত্যাদি যাবতীয় আবহাওয়াগত গোলযোগ বা অশান্ত অবস্থা এই স্তরেই ঘটে। এই কারণে একে 'ক্ষুব্ধমণ্ডল' বলা হয়।
+                </div>
+            </div>
+
+            <div class="question-card" data-qnum="3">
+                <p class="question-text">৩. সমুদ্রের যে স্থানে উষ্ণ ও শীতল স্রোত উভয়ে মিলিত হয় তাকে বলে-</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q3" value="A">(ক) হিমানী সম্প্রপাত</label>
+                    <label class="option-label"><input type="radio" name="q3" value="B">(খ) হিমশৈল</label>
+                    <label class="option-label"><input type="radio" name="q3" value="C">(গ) হিমপ্রাচীর</label>
+                    <label class="option-label"><input type="radio" name="q3" value="D">(ঘ) হিমগুল্ম</label>
+                </div>
+                <div class="explanation-box" id="exp-3">
+                    <strong>সঠিক উত্তর: (গ) হিমপ্রাচীর</strong><br>
+                    ব্যাখ্যা: সমুদ্রের যেখানে উষ্ণ ও শীতল স্রোত মিলিত হয়, সেখানে দুই স্রোতের জলের রং ও ঘনত্বের পার্থক্যের জন্য একটি স্পষ্ট সীমারেখা বা প্রাচীরের মতো অংশ দেখা যায়। একেই হিমপ্রাচীর বলে।
+                </div>
+            </div>
+
+            <div class="question-card" data-qnum="4">
+                <p class="question-text">৪. ল্যান্ডফিল বা ভরাটকরণ থেকে উৎপন্ন গ্যাসটি হল-</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q4" value="A">(ক) অক্সিজেন</label>
+                    <label class="option-label"><input type="radio" name="q4" value="B">(খ) কার্বন মনোঅক্সাইড</label>
+                    <label class="option-label"><input type="radio" name="q4" value="C">(গ) অ্যামোনিয়া</label>
+                    <label class="option-label"><input type="radio" name="q4" value="D">(ঘ) মিথেন</label>
+                </div>
+                <div class="explanation-box" id="exp-4">
+                    <strong>সঠিক উত্তর: (ঘ) মিথেন</strong><br>
+                    ব্যাখ্যা: বর্জ্য ভরাটকরণ বা ল্যান্ডফিল পদ্ধতিতে নিচু জমিতে জমা করা জৈব বর্জ্যগুলি মাটির নীচে অবায়বীয় ব্যাকটেরিয়া দ্বারা পচে গিয়ে প্রধানত মিথেন গ্যাস উৎপন্ন করে।
+                </div>
+            </div>
+
+            <div class="question-card" data-qnum="5">
+                <p class="question-text">৫. ভারতের 'সিলিকন ভ্যালি' বলা হয়-</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q5" value="A">(ক) কলকাতা</label>
+                    <label class="option-label"><input type="radio" name="q5" value="B">(খ) মুম্বাই</label>
+                    <label class="option-label"><input type="radio" name="q5" value="C">(গ) বেঙ্গালুরু</label>
+                    <label class="option-label"><input type="radio" name="q5" value="D">(ঘ) delhi</label>
+                </div>
+                <div class="explanation-box" id="exp-5">
+                    <strong>সঠিক উত্তর: (গ) বেঙ্গালুরু</strong><br>
+                    ব্যাখ্যা: মার্কিন যুক্তরাষ্ট্রের ক্যালিফোর্নিয়ার সিলিকন ভ্যালির মতো ভারতের কর্ণাটক রাজ্যের বেঙ্গালুরু শহরে সিলিকন ভিত্তিক তথ্যপ্রযুক্তি শিল্পের সর্বাধিক বিকাশ ঘটেছে।
+                </div>
+            </div>
+
+            <div class="question-card" data-qnum="6">
+                <p class="question-text">৬. ভারতের দীর্ঘতম সেচখাল কোনটি?</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q6" value="A">(ক) উচ্চ গঙ্গা খাল</label>
+                    <label class="option-label"><input type="radio" name="q6" value="B">(খ) সিরহিন্দ খাল</label>
+                    <label class="option-label"><input type="radio" name="q6" value="C">(গ) |ন্দিরা গান্ধী খাল</label>
+                    <label class="option-label"><input type="radio" name="q6" value="D">(ঘ) দামোদর খাল</label>
+                </div>
+                <div class="explanation-box" id="exp-6">
+                    <strong>সঠিক উত্তর: (গ) ইন্দিরা গান্ধী খাল</strong><br>
+                    ব্যাখ্যা: রাজস্থানের ইন্দিরা গান্ধী খাল (যার দৈর্ঘ্য প্রায় ৫৮২ কিমি) হলো ভারতের দীর্ঘতম সেচখাল।
+                </div>
+            </div>
+
+            <div class="question-card" data-qnum="7">
+                <p class="question-text">৭. দক্ষিণ ভারতের সর্বোচ্চ পর্বতশৃঙ্গ হলো-</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q7" value="A">(ক) দোদাবেতা</label>
+                    <label class="option-label"><input type="radio" name="q7" value="B">(খ) অমরকণ্টক</label>
+                    <label class="option-label"><input type="radio" name="q7" value="C">(গ) আনাইমুদি</label>
+                    <label class="option-label"><input type="radio" name="q7" value="D">(ঘ) মহেন্দ্রগিরি</label>
+                </div>
+                <div class="explanation-box" id="exp-7">
+                    <strong>সঠিক উত্তর: (গ) আনাইমুদি</strong><br>
+                    ব্যাখ্যা: আনাইমুদি (২৬৯০ মিটার) আন্নামালাই পর্বতে অবস্থিত, যা সমগ্র দক্ষিণ ভারতের সর্বোচ্চ শৃঙ্গ।
+                </div>
+            </div>
+
+            <div class="question-card" data-qnum="8">
+                <p class="question-text">৮. উপগ্রহ চিত্রে গভীর বনভূমি বা উদ্ভিদ বোঝাতে কোন ছদ্ম রং (False Colour) ব্যবহার করা হয়?</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q8" value="A">(ক) সবুজ</label>
+                    <label class="option-label"><input type="radio" name="q8" value="B">(খ) লাল বা গাঢ় লাল</label>
+                    <label class="option-label"><input type="radio" name="q8" value="C">(গ) গাঢ় নীল</label>
+                    <label class="option-label"><input type="radio" name="q8" value="D">(ঘ) হলুদ</label>
+                </div>
+                <div class="explanation-box" id="exp-8">
+                    <strong>সঠিক উত্তর: (খ) লাল বা গাঢ় লাল</strong><br>
+                    ব্যাখ্যা: উপগ্রহ চিত্রে সেন্সরে ইনফ্রারেড রশ্মির প্রতিফলনের কারণে সবুজ উদ্ভিদ বা গভীর অরণ্যকে লাল বা গাঢ় লাল রঙে দেখানো হয়।
+                </div>
+            </div>
+
+            <div class="question-card" data-qnum="9">
+                <p class="question-text">৯. মরা কোটাল বা মরা জোয়ার কোন তিথিতে সৃষ্টি হয়?</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q9" value="A">(ক) পূর্ণিমা</label>
+                    <label class="option-label"><input type="radio" name="q9" value="B">(খ) অমাবস্যা</label>
+                    <label class="option-label"><input type="radio" name="q9" value="C">(গ) শুক্ল ও কৃষ্ণপক্ষের অষ্টমী</label>
+                    <label class="option-label"><input type="radio" name="q9" value="D">(ঘ) একাদশী</label>
+                </div>
+                <div class="explanation-box" id="exp-9">
+                    <strong>সঠিক উত্তর: (গ) শুক্ল ও কৃষ্ণপক্ষের অষ্টমী</strong><br>
+                    ব্যাখ্যা: শুক্ল ও কৃষ্ণপক্ষের অষ্টমী তিথিতে চাঁদ ও সূর্য পৃথিবীর সাপেক্ষে সমকোণে অবস্থান করে। এর ফলে সমুদ্রের জলস্ফীতি অনেক কম হয়, যাকে মরা কোটাল বলে।
+                </div>
+            </div>
+
+            <div class="question-card" data-qnum="10">
+                <p class="question-text">১০. ভারতের মহাকাশ গবেষণা সংস্থা (ISRO)-এর সদর দপ্তর কোথায় অবস্থিত?</p>
+                <div class="options-container">
+                    <label class="option-label"><input type="radio" name="q10" value="A">(ক) দিল্লি</label>
+                    <label class="option-label"><input type="radio" name="q10" value="B">(খ) চেন্নাই</label>
+                    <label class="option-label"><input type="radio" name="q10" value="C">(গ) বেঙ্গালুরু</label>
+                    <label class="option-label"><input type="radio" name="q10" value="D">(ঘ) কলকাতা</label>
+                </div>
+                <div class="explanation-box" id="exp-10">
+                    <strong>সঠিক উত্তর: (গ) বেঙ্গালুরু</strong><br>
+                    ব্যাখ্যা: ভারতের মহাকাশ গবেষণা সংস্থা ISRO-এর প্রধান কার্যালয় বা সদর দপ্তর কর্ণাটকের বেঙ্গালুরু শহরে অবস্থিত।
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 25px; margin-bottom: 20px;">
+                <button type="button" id="submit-btn" class="btn" style="background-color: #34a853;" onclick="submitExam()">খাতা জমা দিন (Submit)</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    // 🔒 সিকিউরড অ্যানসার কি (কোডের ভেতরে উত্তর লুকিয়ে রাখা হলো)
+    const secureAnswers = {
+        q1: "A", q2: "C", q3: "C", q4: "D", q5: "C",
+        q6: "C", q7: "C", q8: "B", q9: "C", q10: "C"
+    };
+
+    let totalTime = 600; // ১০ মিনিট
+    let timerInterval;
+
+    function startExam() {
+        const nameInput = document.getElementById('student-name-input').value.trim();
+        if (nameInput === "") {
+            alert("দয়া করে পরীক্ষা শুরু করার আগে আপনার নাম লিখুন!");
+            return;
+        }
+
+        document.getElementById('start-screen').style.display = 'none';
+        document.getElementById('exam-screen').style.display = 'block';
+        document.getElementById('display-student-name').innerText = nameInput;
+
+        timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    function updateTimer() {
+        let minutes = Math.floor(totalTime / 60);
+        let seconds = totalTime % 60;
+
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+
+        document.getElementById('timer').innerText = minutes + ":" + seconds;
+
+        if (totalTime <= 0) {
+            clearInterval(timerInterval);
+            alert("সময় শেষ! আপনার উত্তরপত্রটি স্বয়ংক্রিয়ভাবে জমা নেওয়া হলো।");
+            submitExam();
+        }
+        totalTime--;
+    }
+
+    function submitExam() {
+        clearInterval(timerInterval);
+        document.getElementById('submit-btn').style.display = 'none';
+        document.getElementById('timer').innerText = "00:00 (জমা দেওয়া হয়েছে)";
+
+        const form = document.getElementById('quiz-form');
+        let totalScore = 0;
+
+        const cards = document.getElementsByClassName('question-card');
+        
+        for (let card of cards) {
+            const qNum = card.getAttribute('data-qnum');
+            const radioButtons = form.elements['q' + qNum];
+            const labels = card.getElementsByClassName('option-label');
+            const correctAnswer = secureAnswers['q' + qNum];
+            
+            let studentAnswer = "";
+
+            for (let i = 0; i < radioButtons.length; i++) {
+                radioButtons[i].disabled = true; // বাটন লক করা
+                
+                if (radioButtons[i].checked) {
+                    studentAnswer = radioButtons[i].value;
+                }
+
+                // জাভাস্ক্রিপ্ট সিকিউরড উত্তর মিলিয়ে এখানে সঠিক অপশনটিকে সবুজ করবে
+                if (radioButtons[i].value === correctAnswer) {
+                    labels[i].classList.add('correct');
+                }
+                
+                // ছাত্র ভুল দিয়ে থাকলে সেটা লাল হবে
+                if (radioButtons[i].checked && radioButtons[i].value !== correctAnswer) {
+                    labels[i].classList.add('wrong');
+                }
+            }
+
+            if (studentAnswer === correctAnswer) {
+                totalScore++;
+            }
+
+            document.getElementById('exp-' + qNum).style.display = 'block';
+        }
+
+        document.getElementById('res-name').innerText = document.getElementById('student-name-input').value;
+        document.getElementById('score').innerText = totalScore;
+        document.getElementById('result-box').style.display = 'block';
+
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+</script>
+
+</body>
+</html>
+
 
     <div id="exam-screen" style="display: none;">
         <div class="exam-header">
