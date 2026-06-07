@@ -497,6 +497,399 @@ async function submitReg() {
 }
 </script>
 </body>
+</html>.payment-box{background:#e8f7ef;border:1.5px solid #1a7a4a;border-radius:12px;padding:1.2rem;margin-bottom:1.1rem;text-align:center}
+.payment-box p{font-family:'Tiro Bangla',serif;font-size:0.88rem;color:#2c4035;margin-bottom:0.3rem}
+.upi-id{font-size:1rem;font-weight:700;color:#1a7a4a;background:white;padding:0.4rem 1rem;border-radius:8px;display:inline-block;margin:0.3rem 0;letter-spacing:0.5px}
+.amount-show{font-size:1.3rem;font-weight:800;color:#1a7a4a;margin-top:0.3rem;display:none}
+.screenshot-box{background:#fdf6ee;border:1.5px solid #e8730a;border-radius:12px;padding:1.2rem;margin-bottom:1.1rem;display:none}
+.screenshot-box p{font-family:'Tiro Bangla',serif;font-size:0.88rem;color:#633806;line-height:1.7}
+.whatsapp-num{font-size:1.1rem;font-weight:700;color:#e8730a}
+.txn-box{display:none}
+.submit-btn{width:100%;padding:0.9rem;background:#1a7a4a;color:white;border:none;border-radius:10px;font-family:'Tiro Bangla',serif;font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 15px rgba(26,122,74,0.3);margin-top:0.5rem}
+.submit-btn:hover{background:#2aad68;transform:translateY(-2px)}
+.submit-btn:disabled{background:#ccc;cursor:default;transform:none;box-shadow:none}
+.back-link{display:block;text-align:center;font-family:'Tiro Bangla',serif;font-size:0.85rem;color:#5a7a66;margin-top:1rem;cursor:pointer}
+.back-link:hover{color:#1a7a4a}
+.form-error{background:#fdf0f0;border:1px solid #dc3545;border-radius:8px;padding:0.7rem 1rem;font-family:'Tiro Bangla',serif;font-size:0.85rem;color:#dc3545;margin-bottom:1rem;display:none}
+.form-error.show{display:block}
+.success-msg{display:none;text-align:center;padding:1rem 0}
+.success-msg.show{display:block}
+.success-icon{font-size:3rem;margin-bottom:1rem}
+.success-msg h3{font-family:'Tiro Bangla',serif;font-size:1.3rem;color:#1a7a4a;margin-bottom:0.8rem}
+.success-msg p{font-family:'Tiro Bangla',serif;font-size:0.9rem;color:#5a7a66;line-height:1.8}
+.confirm-box{background:#e8f7ef;border-radius:10px;padding:1rem;margin-top:1rem;text-align:left}
+.confirm-row{font-family:'Tiro Bangla',serif;font-size:0.88rem;color:#2c4035;padding:0.25rem 0}
+.sending-msg{font-family:'Tiro Bangla',serif;font-size:0.85rem;color:#5a7a66;text-align:center;margin-top:0.5rem;display:none}
+footer{background:var(--dark);padding:2.5rem 2rem;text-align:center}
+footer p{font-family:'Tiro Bangla',serif;font-size:0.85rem;color:rgba(255,255,255,0.4);margin:0.3rem 0}
+@media(max-width:768px){.hero-inner{grid-template-columns:1fr;gap:2rem}.stats-inner{grid-template-columns:repeat(2,1fr)}.pricing-grid{grid-template-columns:1fr;max-width:360px;margin:0 auto}.steps{grid-template-columns:repeat(2,1fr)}.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo" onclick="showPage('landing')">Test <span>Bazar</span></div>
+  <div class="nav-links">
+    <a href="#" onclick="showPage('landing')">বিষয়সমূহ</a>
+    <a href="#" onclick="showPage('landing')">মূল্য</a>
+    <a href="#" onclick="showPage('register')" class="nav-cta">Registration করুন</a>
+  </div>
+</nav>
+
+<!-- LANDING PAGE -->
+<div id="page-landing" class="page active">
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">Class 10 · HS Sem 1 · HS Sem 3</div>
+        <h1>পরীক্ষার প্রস্তুতি নাও <em>সঠিকভাবে</em></h1>
+        <p class="hero-sub">Test Bazar এ Chapter-wise MCQ Test, Mock Test — সব বাংলায়। Class 10, একাদশ ও দ্বাদশ শ্রেণির জন্য।</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="showPage('register')">এখনই শুরু করো →</button>
+          <button class="btn-secondary" onclick="document.getElementById('classes').scrollIntoView({behavior:'smooth'})">বিষয় দেখো</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="card-tag">কোন Class এর জন্য?</div>
+        <div class="class-grid">
+          <div class="class-card active" onclick="showClass(this,'c10')"><div class="class-num">10</div><div class="class-label">মাধ্যমিক</div></div>
+          <div class="class-card" onclick="showClass(this,'c11')"><div class="class-num">11</div><div class="class-label">Sem 1</div></div>
+          <div class="class-card" onclick="showClass(this,'c12')"><div class="class-num">12</div><div class="class-label">Sem 3</div></div>
+        </div>
+        <div class="subjects-show active" id="c10"><div class="subj-item">বাংলা · ইংরেজি</div><div class="subj-item">গণিত · ইতিহাস</div><div class="subj-item">ভূগোল · জীবন বিজ্ঞান</div><div class="subj-item">ভৌত বিজ্ঞান</div></div>
+        <div class="subjects-show" id="c11"><div class="subj-item">বাংলা (Sem 1)</div><div class="subj-item">ইতিহাস · রাষ্ট্রবিজ্ঞান</div><div class="subj-item">ভূগোল · দর্শন</div></div>
+        <div class="subjects-show" id="c12"><div class="subj-item">বাংলা (Sem 3)</div><div class="subj-item">ইতিহাস · রাষ্ট্রবিজ্ঞান</div><div class="subj-item">ভূগোল · দর্শন</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stats-inner">
+      <div><div class="stat-num">৩টি</div><div class="stat-label">Class উপলব্ধ</div></div>
+      <div><div class="stat-num">১০+</div><div class="stat-label">বিষয়</div></div>
+      <div><div class="stat-num">Chapter-wise</div><div class="stat-label">MCQ Test</div></div>
+      <div><div class="stat-num">Mock Test</div><div class="stat-label">প্রতি বিষয়ে</div></div>
+    </div>
+  </div>
+
+  <section class="classes" id="classes">
+    <div class="section-inner">
+      <div class="section-label">বিষয়সমূহ</div>
+      <h2>Chapter-wise Test যা পাবে</h2>
+      <p class="section-sub">প্রতিটি chapter আলাদা test · শেষে Mock Test</p>
+      <div class="class-tabs">
+        <button class="tab active" onclick="switchTab(this,'tab10')">Class 10</button>
+        <button class="tab" onclick="switchTab(this,'tab11')">Class 11 (Sem 1 · Arts)</button>
+        <button class="tab" onclick="switchTab(this,'tab12')">Class 12 (Sem 3 · Arts)</button>
+      </div>
+      <div id="tab10" class="subject-grid">
+        <div class="subject-card"><div class="subject-icon">📖</div><div class="subject-name">বাংলা</div><div class="subject-info">Chapter-wise + Mock</div><div class="subject-badge">সব chapter</div></div>
+        <div class="subject-card"><div class="subject-icon">🔤</div><div class="subject-name">ইংরেজি</div><div class="subject-info">Grammar + Literature</div><div class="subject-badge">সব chapter</div></div>
+        <div class="subject-card"><div class="subject-icon">📐</div><div class="subject-name">গণিত</div><div class="subject-info">Chapter-wise + Mock</div><div class="subject-badge">সব chapter</div></div>
+        <div class="subject-card"><div class="subject-icon">🌿</div><div class="subject-name">জীবন বিজ্ঞান</div><div class="subject-info">Chapter-wise + Mock</div><div class="subject-badge">সব chapter</div></div>
+        <div class="subject-card"><div class="subject-icon">⚡</div><div class="subject-name">ভৌত বিজ্ঞান</div><div class="subject-info">Chapter-wise + Mock</div><div class="subject-badge">সব chapter</div></div>
+        <div class="subject-card"><div class="subject-icon">🌍</div><div class="subject-name">ভূগোল</div><div class="subject-info">Chapter-wise + Mock</div><div class="subject-badge">সব chapter</div></div>
+        <div class="subject-card"><div class="subject-icon">📜</div><div class="subject-name">ইতিহাস</div><div class="subject-info">Chapter-wise + Mock</div><div class="subject-badge">সব chapter</div></div>
+      </div>
+      <div id="tab11" class="subject-grid" style="display:none">
+        <div class="subject-card"><div class="subject-icon">📖</div><div class="subject-name">বাংলা</div><div class="subject-info">Sem 1 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
+        <div class="subject-card"><div class="subject-icon">📜</div><div class="subject-name">ইতিহাস</div><div class="subject-info">Sem 1 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
+        <div class="subject-card"><div class="subject-icon">🏛️</div><div class="subject-name">রাষ্ট্রবিজ্ঞান</div><div class="subject-info">Sem 1 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
+        <div class="subject-card"><div class="subject-icon">🌍</div><div class="subject-name">ভূগোল</div><div class="subject-info">Sem 1 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
+        <div class="subject-card"><div class="subject-icon">🧠</div><div class="subject-name">দর্শন</div><div class="subject-info">Sem 1 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
+        <div class="subject-card coming-soon"><div class="subject-icon">🔬</div><div class="subject-name">Science</div><div class="subject-info">শীঘ্রই আসছে</div><div class="subject-badge coming-badge">Coming Soon</div></div>
+      </div>
+      <div id="tab12" class="subject-grid" style="display:none">
+        <div class="subject-card"><div class="subject-icon">📖</div><div class="subject-name">বাংলা</div><div class="subject-info">Sem 3 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
+        <div class="subject-card"><div class="subject-icon">📜</div><div class="subject-name">ইতিহাস</div><div class="subject-info">Sem 3 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
+        <div class="subject-card"><div class="subject-icon">🏛️</div><div class="subject-name">রাষ্ট্রবিজ্ঞান</div><div class="subject-info">Sem 3 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
+        <div class="subject-card"><div class="subject-icon">🌍</div><div class="subject-name">ভূগোল</div><div class="subject-info">Sem 3 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
+        <div class="subject-card"><div class="subject-icon">🧠</div><div class="subject-name">দর্শন</div><div class="subject-info">Sem 3 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
+        <div class="subject-card coming-soon"><div class="subject-icon">🔬</div><div class="subject-name">Science</div><div class="subject-info">শীঘ্রই আসছে</div><div class="subject-badge coming-badge">Coming Soon</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="section-inner">
+      <div style="text-align:center;margin-bottom:2.5rem">
+        <div class="section-label">মূল্য পরিকল্পনা</div>
+        <h2>তোমার বাজেট অনুযায়ী বেছে নাও</h2>
+        <p class="section-sub">UPI / GPay / PhonePe / Paytm এ payment করা যাবে</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-plan">ফ্রি</div>
+          <div class="price-amount">₹০</div>
+          <hr class="price-divider">
+          <div class="price-feat">বিষয় দেখা</div>
+          <div class="price-feat no">Chapter-wise test</div>
+          <div class="price-feat no">Mock test</div>
+          <button class="price-btn outline" onclick="showPage('register')">শুরু করো</button>
+        </div>
+        <div class="price-card popular">
+          <div class="popular-badge">সবচেয়ে জনপ্রিয়</div>
+          <div class="price-plan">মাসিক</div>
+          <div class="price-amount">₹৯৯ <span>/ মাস</span></div>
+          <hr class="price-divider">
+          <div class="price-feat">সব class এর test</div>
+          <div class="price-feat">Chapter-wise MCQ</div>
+          <div class="price-feat">Mock test</div>
+          <div class="price-feat">Result analysis</div>
+          <button class="price-btn filled" onclick="showPage('register')">এখনই নাও</button>
+        </div>
+        <div class="price-card">
+          <div class="price-plan">বার্ষিক</div>
+          <div class="price-amount">₹৯৯৯ <span>/ বছর</span></div>
+          <hr class="price-divider">
+          <div class="price-feat">সব মাসিক সুবিধা</div>
+          <div class="price-feat">২ মাস ফ্রি</div>
+          <div class="price-feat">Priority support</div>
+          <div class="price-feat">New content আগে</div>
+          <button class="price-btn outline" onclick="showPage('register')">বার্ষিক নাও</button>
+        </div>
+      </div>
+      <p style="text-align:center;font-family:'Tiro Bangla',serif;font-size:0.85rem;color:var(--muted);margin-top:1.5rem">
+        💳 UPI: <strong style="color:var(--green)">ajsuajsu71@oksbi</strong> · WhatsApp: <strong style="color:var(--green)">+91 8710032880</strong>
+      </p>
+    </div>
+  </section>
+
+  <section class="howitworks">
+    <div class="section-inner">
+      <div style="text-align:center">
+        <div class="section-label">কীভাবে কাজ করে</div>
+        <h2>মাত্র ৪টা ধাপ</h2>
+        <p class="section-sub">Registration থেকে Test — সব সহজ</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-num">১</div><div class="step-title">Registration করো</div><div class="step-desc">নাম, email, mobile দিয়ে register করো</div></div>
+        <div class="step"><div class="step-num">২</div><div class="step-title">Payment করো</div><div class="step-desc">UPI তে payment করো, screenshot WhatsApp এ পাঠাও</div></div>
+        <div class="step"><div class="step-num">৩</div><div class="step-title">ID পাও</div><div class="step-desc">WhatsApp এ User ID ও Password পাবে</div></div>
+        <div class="step"><div class="step-num">৪</div><div class="step-title">Test দাও</div><div class="step-desc">Login করে chapter-wise ও mock test দাও</div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong style="color:#2aad68">Test Bazar</strong> — Class 10 · HS Sem 1 · HS Sem 3</p>
+    <p>UPI: ajsuajsu71@oksbi · WhatsApp: +91 8710032880</p>
+  </footer>
+</div>
+
+<!-- REGISTRATION PAGE -->
+<div id="page-register" class="page">
+  <div class="reg-page">
+    <div class="reg-container">
+      <div class="reg-header">
+        <h2>Test <span>Bazar</span></h2>
+        <p>Registration করুন এবং test শুরু করুন</p>
+      </div>
+      <div class="reg-body">
+        <div class="success-msg" id="successMsg">
+          <div class="success-icon">🎉</div>
+          <h3>Registration সফল!</h3>
+          <p>আপনার তথ্য পাওয়া গেছে।<br>Payment verify হলে WhatsApp এ<br><strong>User ID ও Password</strong> পাঠানো হবে।<br>সাধারণত ১-২ ঘণ্টার মধ্যে।</p>
+          <div class="confirm-box" id="confirmInfo"></div>
+          <button class="submit-btn" style="margin-top:1rem" onclick="showPage('landing')">← Home এ ফিরে যাও</button>
+        </div>
+
+        <div id="regForm">
+          <div class="form-error" id="errorMsg">সব তথ্য সঠিকভাবে পূরণ করুন।</div>
+          <div class="form-group">
+            <label>পূর্ণ নাম *</label>
+            <input type="text" id="regName" placeholder="আপনার নাম লিখুন">
+          </div>
+          <div class="form-group">
+            <label>Email Address * (এটাই আপনার User ID হবে)</label>
+            <input type="email" id="regEmail" placeholder="example@gmail.com">
+          </div>
+          <div class="form-group">
+            <label>Mobile নম্বর * (এটাই আপনার Password হবে)</label>
+            <input type="tel" id="regMobile" placeholder="আপনার mobile নম্বর">
+          </div>
+          <div class="form-group">
+            <label>Class *</label>
+            <select id="regClass" onchange="updateGroups()">
+              <option value="">বেছে নিন</option>
+              <option value="10">Class 10 (মাধ্যমিক)</option>
+              <option value="11">Class 11 (HS Sem 1)</option>
+              <option value="12">Class 12 (HS Sem 3)</option>
+            </select>
+          </div>
+          <div class="form-group" id="groupDiv" style="display:none">
+            <label>বিভাগ *</label>
+            <select id="regGroup">
+              <option value="">বেছে নিন</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Plan *</label>
+            <select id="regPlan" onchange="updateAmount()">
+              <option value="">বেছে নিন</option>
+              <option value="monthly|99">মাসিক — ₹৯৯</option>
+              <option value="yearly|999">বার্ষিক — ₹৯৯৯</option>
+            </select>
+          </div>
+
+          <div class="payment-box">
+            <p>নিচের বাটনে click করলেই payment app খুলবে:</p>
+            <div class="upi-id">ajsuajsu71@oksbi</div>
+            <div class="amount-show" id="amountShow"></div>
+            <a href="upi://pay?pa=ajsuajsu71@oksbi&pn=Test%20Bazar&cu=INR" id="upiBtn" class="upi-pay-btn" style="display:none">
+              📲 UPI তে Payment করুন
+            </a>
+            <p class="upi-text">GPay / PhonePe / Paytm — যেকোনো app এ কাজ করবে</p>
+          </div>
+
+          <div class="form-group">
+            <label>Payment Proof কীভাবে দেবেন? *</label>
+            <select id="proofType" onchange="toggleProof()">
+              <option value="">বেছে নিন</option>
+              <option value="txn">Transaction ID দেব</option>
+              <option value="screenshot">Screenshot WhatsApp এ পাঠাবো</option>
+              <option value="both">দুটোই দেব</option>
+            </select>
+          </div>
+          <div class="form-group txn-box" id="txnBox">
+            <label>Transaction ID</label>
+            <input type="text" id="txnId" placeholder="যেমন: T2401234567890">
+          </div>
+          <div class="screenshot-box" id="screenshotBox">
+            <p>📸 Payment screenshot পাঠান এই WhatsApp এ:<br>
+            <span class="whatsapp-num">+91 8710032880</span><br>
+            <small>Caption এ আপনার নাম ও email লিখুন</small></p>
+          </div>
+
+          <button class="submit-btn" id="submitBtn" onclick="submitReg()">Registration করুন →</button>
+          <div class="sending-msg" id="sendingMsg">⏳ তথ্য পাঠানো হচ্ছে...</div>
+          <div class="back-link" onclick="showPage('landing')">← Landing Page এ ফিরে যান</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BOT_TOKEN = '8985545033:AAEermxWkGUXFG4EsXmjXqdsRnDhmTiCSJo';
+const CHAT_ID = '8506538601';
+
+function showPage(p) {
+  document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
+  document.getElementById('page-' + p).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function showClass(el, id) {
+  document.querySelectorAll('.class-card').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.subjects-show').forEach(s => s.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+
+function switchTab(el, tabId) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.subject-grid').forEach(g => g.style.display = 'none');
+  el.classList.add('active');
+  document.getElementById(tabId).style.display = 'grid';
+}
+
+function updateGroups() {
+  const cls = document.getElementById('regClass').value;
+  const groupDiv = document.getElementById('groupDiv');
+  const group = document.getElementById('regGroup');
+  group.innerHTML = '<option value="">বেছে নিন</option>';
+  if (cls === '10') {
+    groupDiv.style.display = 'none';
+  } else {
+    groupDiv.style.display = 'block';
+    ['Arts (কলা বিভাগ)', 'Science (শীঘ্রই আসছে)'].forEach(o => {
+      const opt = document.createElement('option');
+      opt.value = o; opt.textContent = o;
+      group.appendChild(opt);
+    });
+  }
+}
+
+function updateAmount() {
+  const plan = document.getElementById('regPlan').value;
+  const amountShow = document.getElementById('amountShow');
+  const upiBtn = document.getElementById('upiBtn');
+  if (plan) {
+    const amount = plan.split('|')[1];
+    amountShow.textContent = '₹' + amount + ' পাঠান';
+    amountShow.style.display = 'block';
+    upiBtn.href = 'upi://pay?pa=ajsuajsu71@oksbi&pn=Test%20Bazar&am=' + amount + '&cu=INR';
+    upiBtn.style.display = 'block';
+  } else {
+    amountShow.style.display = 'none';
+    upiBtn.style.display = 'none';
+  }
+}
+
+function toggleProof() {
+  const val = document.getElementById('proofType').value;
+  document.getElementById('txnBox').style.display = (val === 'txn' || val === 'both') ? 'block' : 'none';
+  document.getElementById('screenshotBox').style.display = (val === 'screenshot' || val === 'both') ? 'block' : 'none';
+}
+
+async function submitReg() {
+  const name = document.getElementById('regName').value.trim();
+  const email = document.getElementById('regEmail').value.trim();
+  const mobile = document.getElementById('regMobile').value.trim();
+  const cls = document.getElementById('regClass').value;
+  const plan = document.getElementById('regPlan').value;
+  const proof = document.getElementById('proofType').value;
+  const txnId = document.getElementById('txnId').value.trim();
+
+  if (!name || !email || !mobile || !cls || !plan || !proof) {
+    document.getElementById('errorMsg').classList.add('show');
+    return;
+  }
+  document.getElementById('errorMsg').classList.remove('show');
+
+  const btn = document.getElementById('submitBtn');
+  const sending = document.getElementById('sendingMsg');
+  btn.disabled = true;
+  btn.textContent = '⏳ পাঠানো হচ্ছে...';
+  sending.style.display = 'block';
+
+  const planLabel = plan.includes('monthly') ? 'মাসিক — ₹৯৯' : 'বার্ষিক — ₹৯৯৯';
+  const clsLabel = cls === '10' ? 'Class 10' : cls === '11' ? 'Class 11 (Sem 1)' : 'Class 12 (Sem 3)';
+
+  const message = `🔔 নতুন Registration!
+
+👤 নাম: ${name}
+📧 Email: ${email}
+📱 Mobile: ${mobile}
+📚 Class: ${clsLabel}
+💳 Plan: ${planLabel}
+📋 Payment Proof: ${proof}
+🔖 Transaction ID: ${txnId || 'দেয়নি'}
+
+✅ UPI verify করুন: ajsuajsu71@oksbi
+💬 WhatsApp এ User ID ও Password পাঠান!`;
+
+  try {
+    await fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: CHAT_ID, text: message })
+    });
+  } catch(e) {}
+
+  document.getElementById('regForm').style.display = 'none';
+  document.getElementById('successMsg').classList.add('show');
+
+  document.getElementById('confirmInfo').innerHTML =
+    '<div class="confirm-row">👤 নাম: <strong>' + name + '</strong></div>' +
+    '<div class="confirm-row">📧 User ID: <strong>' + email + '</strong></div>' +
+    '<div class="confirm-row">🔑 Password: <strong>' + mobile + '</strong></div>' +
+    '<div class="confirm-row">📚 Class: <strong>' + clsLabel + '</strong></div>' +
+    '<div class="confirm-row">💳 Plan: <strong>' + planLabel + '</strong></div>';
+}
+</script>
+</body>
 </html>.subject-card:hover { border-color: var(--green); box-shadow: 0 8px 25px rgba(26,122,74,0.1); transform: translateY(-2px); }
 .subject-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
 .subject-name { font-family: 'Tiro Bangla', serif; font-size: 0.95rem; font-weight: 600; color: var(--dark); }
