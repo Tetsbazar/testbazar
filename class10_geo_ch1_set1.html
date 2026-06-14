@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Bazar — ভূগোল | বহির্জাত প্রক্রিয়া | Set 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Syne',sans-serif;background:#f0faf4;min-height:100vh;color:#1c2e24}
+.top-bar{background:#1a7a4a;padding:0.8rem 1.5rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.top-logo{font-size:1.1rem;font-weight:800;color:white}.top-logo span{color:#f9a825}
+.timer-box{background:rgba(255,255,255,0.15);border-radius:8px;padding:0.4rem 1rem;display:flex;align-items:center;gap:6px;font-size:1rem;font-weight:700;color:white}
+.timer-box.danger{background:#dc3545}
+.main{max-width:720px;margin:0 auto;padding:1.5rem 1rem}
+.quiz-info{background:white;border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.2rem;border:1px solid #c5dccb;display:flex;gap:1rem;flex-wrap:wrap}
+.info-item{font-family:'Tiro Bangla',serif;font-size:0.85rem;color:#5a7a66}
+.info-item strong{color:#1a7a4a}
+.progress-wrap{background:#c5dccb;border-radius:4px;height:6px;margin-bottom:1.2rem;overflow:hidden}
+.progress-fill{height:100%;background:#1a7a4a;border-radius:4px;transition:width 0.3s}
+.q-card{background:white;border-radius:14px;padding:1.4rem;margin-bottom:1rem;border:1px solid #c5dccb;box-shadow:0 2px 10px rgba(26,122,74,0.06)}
+.q-num{font-size:0.75rem;font-weight:700;color:#e8730a;letter-spacing:1px;text-transform:uppercase;margin-bottom:0.6rem}
+.q-text{font-family:'Tiro Bangla',serif;font-size:1rem;color:#1c2e24;line-height:1.7;margin-bottom:1.1rem}
+.opts{display:flex;flex-direction:column;gap:0.6rem}
+.opt{display:flex;align-items:flex-start;gap:10px;padding:0.7rem 1rem;border:1.5px solid #c5dccb;border-radius:10px;cursor:pointer;transition:all 0.15s;background:white;text-align:left}
+.opt:hover:not(.disabled){border-color:#1a7a4a;background:#f0faf4}
+.opt-circle{min-width:28px;height:28px;border-radius:50%;border:1.5px solid #c5dccb;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#5a7a66;flex-shrink:0;transition:all 0.15s}
+.opt-text{font-family:'Tiro Bangla',serif;font-size:0.92rem;color:#1c2e24;line-height:1.6;padding-top:2px}
+.opt.correct{border-color:#1a7a4a;background:#e8f7ef}
+.opt.correct .opt-circle{background:#1a7a4a;border-color:#1a7a4a;color:white}
+.opt.wrong{border-color:#dc3545;background:#fdf0f0}
+.opt.wrong .opt-circle{background:#dc3545;border-color:#dc3545;color:white}
+.opt.disabled{cursor:default}
+.explanation{background:#f0faf4;border-left:3px solid #1a7a4a;border-radius:0 8px 8px 0;padding:0.8rem 1rem;margin-top:0.8rem;display:none}
+.explanation.show{display:block}
+.explanation p{font-family:'Tiro Bangla',serif;font-size:0.88rem;color:#2c4035;line-height:1.7}
+.explanation strong{color:#1a7a4a}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:0.8rem}
+.score-show{font-family:'Tiro Bangla',serif;font-size:0.85rem;color:#5a7a66}
+.next-btn{background:#1a7a4a;color:white;border:none;padding:0.6rem 1.4rem;border-radius:8px;font-family:'Tiro Bangla',serif;font-size:0.9rem;cursor:pointer;transition:all 0.15s}
+.next-btn:hover{background:#2aad68}
+.next-btn:disabled{background:#c5dccb;cursor:default}
+.result-wrap{background:white;border-radius:14px;padding:2rem;text-align:center;border:1px solid #c5dccb;display:none}
+.result-wrap.show{display:block}
+.result-icon{font-size:3rem;margin-bottom:0.5rem}
+.result-score{font-size:3.5rem;font-weight:800;color:#1a7a4a}
+.result-total{font-size:1rem;color:#5a7a66;margin-bottom:0.5rem;font-family:'Tiro Bangla',serif}
+.result-grade{font-size:1.2rem;font-weight:600;color:#1c2e24;margin-bottom:1.5rem;font-family:'Tiro Bangla',serif}
+.result-bars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.8rem;margin-bottom:1.5rem}
+.result-bar{background:#f0faf4;border-radius:10px;padding:0.8rem;text-align:center}
+.rb-num{font-size:1.4rem;font-weight:800}
+.rb-label{font-family:'Tiro Bangla',serif;font-size:0.8rem;color:#5a7a66;margin-top:0.2rem}
+.retry-btn{background:#1a7a4a;color:white;border:none;padding:0.75rem 2rem;border-radius:8px;font-family:'Tiro Bangla',serif;font-size:1rem;cursor:pointer;margin-right:0.5rem}
+.review-btn{background:white;color:#1a7a4a;border:1.5px solid #1a7a4a;padding:0.75rem 2rem;border-radius:8px;font-family:'Tiro Bangla',serif;font-size:1rem;cursor:pointer}
+.back-btn{background:white;color:#5a7a66;border:1.5px solid #c5dccb;padding:0.75rem 2rem;border-radius:8px;font-family:'Tiro Bangla',serif;font-size:1rem;cursor:pointer;margin-top:0.6rem}
+.start-wrap{background:white;border-radius:14px;padding:2rem;text-align:center;border:1px solid #c5dccb}
+.start-wrap h2{font-family:'Tiro Bangla',serif;font-size:1.4rem;color:#1c2e24;margin-bottom:0.5rem}
+.start-wrap p{font-family:'Tiro Bangla',serif;font-size:0.9rem;color:#5a7a66;line-height:1.7;margin-bottom:1.2rem}
+.start-info{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:1.5rem}
+.si{background:#f0faf4;border-radius:10px;padding:0.8rem;text-align:center}
+.si-num{font-size:1.4rem;font-weight:800;color:#1a7a4a}
+.si-label{font-family:'Tiro Bangla',serif;font-size:0.8rem;color:#5a7a66}
+.start-btn{background:#1a7a4a;color:white;border:none;padding:0.85rem 2.5rem;border-radius:10px;font-family:'Tiro Bangla',serif;font-size:1.05rem;cursor:pointer;box-shadow:0 4px 15px rgba(26,122,74,0.3)}
+.start-btn:hover{background:#2aad68}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-logo">Test <span>Bazar</span></div>
+  <div class="timer-box" id="timerBox">⏱ <span id="timerDisplay">20:00</span></div>
+</div>
+
+<div class="main">
+
+  <!-- START SCREEN -->
+  <div class="start-wrap" id="startScreen">
+    <div style="font-size:2.5rem;margin-bottom:0.8rem">🌍</div>
+    <h2>ভূগোল — Chapter 1</h2>
+    <p>বহির্জাত প্রক্রিয়া ও তাদের দ্বারা সৃষ্ট ভূমিরূপ<br>প্র্যাকটিস সেট — ১</p>
+    <div class="start-info">
+      <div class="si"><div class="si-num">১৫</div><div class="si-label">প্রশ্ন</div></div>
+      <div class="si"><div class="si-num">২০</div><div class="si-label">মিনিট</div></div>
+      <div class="si"><div class="si-num">১৫</div><div class="si-label">পূর্ণমান</div></div>
+      <div class="si"><div class="si-num">MCQ</div><div class="si-label">ধরন</div></div>
+    </div>
+    <button class="start-btn" onclick="startQuiz()">Test শুরু করো →</button>
+  </div>
+
+  <!-- QUIZ AREA -->
+  <div id="quizArea" style="display:none">
+    <div class="quiz-info">
+      <div class="info-item">🌍 <strong>ভূগোল</strong> — বহির্জাত প্রক্রিয়া ও ভূমিরূপ</div>
+      <div class="info-item">📝 Set 1 | Class 10</div>
+    </div>
+    <div class="progress-wrap"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="q-card" id="qCard">
+      <div class="q-num" id="qNum">প্রশ্ন ১ / ১৫</div>
+      <div class="q-text" id="qText"></div>
+      <div class="opts" id="qOpts"></div>
+      <div class="explanation" id="explanation"><p id="explanationText"></p></div>
+      <div class="nav-row">
+        <div class="score-show" id="scoreShow">সঠিক: ০ | ভুল: ০</div>
+        <button class="next-btn" id="nextBtn" onclick="nextQ()" disabled>পরবর্তী →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="result-wrap" id="resultWrap">
+    <div class="result-icon" id="resultIcon"></div>
+    <div class="result-score" id="finalScore"></div>
+    <div class="result-total">/ ১৫</div>
+    <div class="result-grade" id="resultGrade"></div>
+    <div class="result-bars">
+      <div class="result-bar"><div class="rb-num" id="rbCorrect" style="color:#1a7a4a"></div><div class="rb-label">সঠিক</div></div>
+      <div class="result-bar"><div class="rb-num" id="rbWrong" style="color:#dc3545"></div><div class="rb-label">ভুল</div></div>
+      <div class="result-bar"><div class="rb-num" id="rbPct" style="color:#e8730a"></div><div class="rb-label">স্কোর</div></div>
+    </div>
+    <button class="retry-btn" onclick="startQuiz()">আবার চেষ্টা করো</button>
+    <button class="review-btn" onclick="showReview()">উত্তর দেখো</button>
+    <br>
+    <button class="back-btn" onclick="window.location.href='class10.html'">← Class 10 Hub এ ফিরে যাও</button>
+  </div>
+
+</div>
+
+<script>
+const questions = [
+  {
+    q: "যে প্রক্রিয়ায় অসমতল বন্ধুরভূমি অপসারিত হয়ে সমতল বা প্রায় সমতলে পরিণত হয় তাকে কী বলে?",
+    opts: ["নগ্নীভবন", "আরোহণ", "পর্যায়ন", "অবরোহণ"],
+    ans: 2,
+    exp: "বহির্জাত প্রক্রিয়াসমূহ ক্ষয়, বহন ও সঞ্চয়ের মাধ্যমে উঁচুনীচু ভূমিকে সমতল করে তোলার চেষ্টা করে, এই সমতলীকরণ প্রক্রিয়াকেই পর্যায়ন (Gradation) বলে।"
+  },
+  {
+    q: "মরুভূমিতে বায়ু দ্বারা বালুকণা উত্থিত এবং অপসারিত হয় যে প্রক্রিয়ার সাহায্যে তা হলো-",
+    opts: ["অপসারণ", "অবঘর্ষ", "ঘর্ষণ", "লম্ফদান"],
+    ans: 0,
+    exp: "প্রবল বায়ুপ্রবাহ মরুভূমির বালিকে এক জায়গা থেকে উড়িয়ে অন্য জায়গায় নিয়ে যায়, ক্ষয়ের এই প্রক্রিয়াটিকে অপসারণ বা Deflation বলে।"
+  },
+  {
+    q: "একটি বহির্জাত প্রক্রিয়ার উদাহরণ হলো-",
+    opts: ["ভূমিকম্প", "অগ্ন্যুৎপাত", "পাত সঞ্চালন", "আবহবিকার"],
+    ans: 3,
+    exp: "ভূমিকম্প, অগ্ন্যুৎপাত ও পাত সঞ্চালন হলো অন্তর্জাত প্রক্রিয়া, কিন্তু আবহবিকার ভূপৃষ্ঠের বাইরে ঘটে বলে এটি বহির্জাত প্রক্রিয়া।"
+  },
+  {
+    q: "যে প্রাকৃতিক প্রক্রিয়ায় মাটি ও শিলাস্তর অভিকর্ষের টানে উচ্চভূমির ঢাল বরাবর নীচে নেমে আসে তাকে বলে-",
+    opts: ["আবহবিকার", "আরোহণ", "পুঞ্জিত ক্ষয়", "সঞ্চয়"],
+    ans: 2,
+    exp: "পর্বতের ঢাল বরাবর মাধ্যাকর্ষণ শক্তির টানে শিলা বা মাটি নীচে নেমে আসার প্রক্রিয়াকে পুঞ্জিত ক্ষয় বা Mass wasting বলে।"
+  },
+  {
+    q: "পাখির পায়ের মতো বদ্বীপ দেখা যায় যে নদীর মোহানায়-",
+    opts: ["মিসিসিপি-মিসৌরি", "হোয়াংহো", "ইরাবতী", "তাইবার"],
+    ans: 0,
+    exp: "মার্কিন যুক্তরাষ্ট্রের মিসিসিপি-মিসৌরি নদীর মোহানায় সমুদ্রস্রোত ও নদীস্রোতের প্রভাবে পাখির পায়ের মতো (Bird's foot) বদ্বীপ গঠিত হয়েছে।"
+  },
+  {
+    q: "আরোহণ প্রক্রিয়ায় সৃষ্ট একটি ভূমিরূপ হলো-",
+    opts: ["গিরিখাত", "রসে মতানে", "বালিয়াড়ি", "গৌর"],
+    ans: 2,
+    exp: "আরোহণ মানে হলো সঞ্চয়ের মাধ্যমে ভূমির উচ্চতা বৃদ্ধি। বালিয়াড়ি হলো বায়ুর সঞ্চয়কার্যের ফলে গঠিত ভূমিরূপ।"
+  },
+  {
+    q: "ইনসেলবার্জ আরও ক্ষয় পেয়ে গম্বুজাকার ঢিবিতে পরিণত হলে তাকে বলে-",
+    opts: ["ক্যাসেল কপিজ", "বর্নহার্ড", "টর", "অ্যাকলে"],
+    ans: 1,
+    exp: "ইনসেলবার্জ দীর্ঘকাল ধরে বায়ুর দ্বারা ক্ষয়প্রাপ্ত হয়ে মসৃণ ও গম্বুজাকৃতি টিলা গঠন করলে তাকে বর্নহার্ড (Bornhardt) বলা হয়।"
+  },
+  {
+    q: "নিম্নভূমির উচ্চতা বৃদ্ধি পায় যে প্রক্রিয়ায়-",
+    opts: ["আরোহণ", "অবরোহণ", "অবঘর্ষ", "নগ্নীভবন"],
+    ans: 0,
+    exp: "অবরোহণ প্রক্রিয়ার সৃষ্ট পলি, বালি প্রভৃতি সঞ্চিত হয়ে নিম্নভূমি ভরাট হওয়ার প্রক্রিয়াকে আরোহণ বা Aggradation বলে।"
+  },
+  {
+    q: "জলপ্রপাতের পাদদেশে জলাঘাতে গঠিত গর্তকে বলে-",
+    opts: ["মন্থকূপ", "প্রপাত কূপ", "খরস্রোত", "পলল ব্যজনী"],
+    ans: 1,
+    exp: "জলপ্রপাতের জল যেখানে প্রবল বেগে ওপর থেকে নীচে পড়ে, সেখানে বিশালাকার গর্ত তৈরি হয়, একে প্রপাত কূপ বা Plunge pool বলে।"
+  },
+  {
+    q: "হিমালয় পর্বতের নীলকণ্ঠ শৃঙ্গ একটি-",
+    opts: ["ড্রামলিন", "করি হ্রদ", "প্লায়া", "পিরামিড চূড়া"],
+    ans: 3,
+    exp: "একটি পর্বতের বিভিন্ন দিকে ৩-৪টি সার্ক সৃষ্টি হলে মাঝখানের চূড়াটি তীক্ষ্ণ পিরামিডের মতো দেখায়, বদ্রীনাথের নীলকণ্ঠ এর একটি আদর্শ উদাহরণ।"
+  },
+  {
+    q: "মরু অঞ্চলে পর্বতের পাদদেশে প্রস্তরময় ঈষৎ ঢালু বিস্তীর্ণ সমভূমিকে বলা হয়-",
+    opts: ["ওয়াদি", "পেডিমেন্ট", "বাজাদা", "লোয়েস"],
+    ans: 1,
+    exp: "মরু অঞ্চলে উচ্চভূমির পাদদেশে জলধারা ও বায়ুর মিলিত ক্ষয়কার্যে যে প্রায় সমতল বা মৃদু ঢালু ভূমি সৃষ্টি হয়, তাকে পেডিমেন্ট বলে।"
+  },
+  {
+    q: "'Basket of egg topography' যে ভূমিরূপকে বলা হয়-",
+    opts: ["বাজাদা", "ক্রেভাস", "ড্রামলিন", "এসকার"],
+    ans: 2,
+    exp: "অনেকগুলি ড্রামলিন একসঙ্গে পাশাপাশি অবস্থান করলে দূর থেকে সেগুলিকে ঝুড়ি ভরতি ডিমের মতো দেখায় বলে একে এই নামে ডাকা হয়।"
+  },
+  {
+    q: "দুটি নদী অববাহিকাকে পৃথককারী উচ্চভূমিকে বলে-",
+    opts: ["দোয়াব", "উপত্যকা", "জলবিভাজিকা", "ধারণ অববাহিকা"],
+    ans: 2,
+    exp: "যে উচ্চভূমি বা পর্বতশিরা দুই বা তার বেশি নদী-ব্যবস্থাকে একে অপরের থেকে আলাদা করে, তাকে জলবিভাজিকা বা Watershed বলে।"
+  },
+  {
+    q: "বায়ুর সঞ্চয়কার্যের ফলে গঠিত হয়-",
+    opts: ["করি", "বার্খান বালিয়াড়ি", "গিরিখাত", "ড্রামলিন"],
+    ans: 1,
+    exp: "মরুভূমিতে বায়ুপ্রবাহের পথে বাধা পেয়ে বালি সঞ্চিত হয়ে আধখানা চাঁদের মতো যে বালিয়াড়ি সৃষ্টি হয় তাকে বার্খান বলে।"
+  },
+  {
+    q: "শুষ্ক অঞ্চলের গভীর গিরিখাতকে বলা হয়-",
+    opts: ["ক্যানিয়ন", "'V' আকৃতির উপত্যকা", "মন্থকূপ", "ধান্দ"],
+    ans: 0,
+    exp: "শুষ্ক মরুপ্রায় অঞ্চলে বৃষ্টির অভাবে নদীর পার্শ্বক্ষয় হয় না, কিন্তু প্রবল নিম্নক্ষয়ের ফলে 'I' আকৃতির গভীর গিরিখাত সৃষ্টি হয় যাকে ক্যানিয়ন বলে।"
+  }
+];
+
+const LABELS = ['ক', 'খ', 'গ', 'ঘ'];
+let cur = 0, score = 0, wrong = 0, answered = false, timerInterval, timeLeft = 20 * 60;
+let userAnswers = [];
+
+function startQuiz() {
+  cur = 0; score = 0; wrong = 0; answered = false;
+  timeLeft = 20 * 60; userAnswers = [];
+  document.getElementById('startScreen').style.display = 'none';
+  document.getElementById('resultWrap').classList.remove('show');
+  document.getElementById('quizArea').style.display = 'block';
+  document.getElementById('timerBox').classList.remove('danger');
+  clearInterval(timerInterval);
+  timerInterval = setInterval(tick, 1000);
+  loadQ();
+}
+
+function tick() {
+  timeLeft--;
+  const m = Math.floor(timeLeft / 60);
+  const s = timeLeft % 60;
+  document.getElementById('timerDisplay').textContent = m + ':' + (s < 10 ? '0' : '') + s;
+  if (timeLeft <= 60) document.getElementById('timerBox').classList.add('danger');
+  if (timeLeft <= 0) { clearInterval(timerInterval); showResult(); }
+}
+
+function loadQ() {
+  answered = false;
+  const q = questions[cur];
+  document.getElementById('qNum').textContent = 'প্রশ্ন ' + (cur + 1) + ' / ' + questions.length;
+  document.getElementById('qText').textContent = q.q;
+  document.getElementById('progressFill').style.width = ((cur + 1) / questions.length * 100) + '%';
+  document.getElementById('nextBtn').disabled = true;
+  document.getElementById('nextBtn').textContent = cur === questions.length - 1 ? 'ফলাফল দেখো' : 'পরবর্তী →';
+  document.getElementById('explanation').classList.remove('show');
+
+  const opts = document.getElementById('qOpts');
+  opts.innerHTML = '';
+  q.opts.forEach((o, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt';
+    btn.innerHTML = '<div class="opt-circle">' + LABELS[i] + '</div><div class="opt-text">' + o + '</div>';
+    btn.onclick = () => answer(i);
+    opts.appendChild(btn);
+  });
+}
+
+function answer(i) {
+  if (answered) return;
+  answered = true;
+  const q = questions[cur];
+  userAnswers[cur] = i;
+  const btns = document.querySelectorAll('.opt');
+  btns.forEach(b => b.classList.add('disabled'));
+  btns[q.ans].classList.add('correct');
+  if (i !== q.ans) { btns[i].classList.add('wrong'); wrong++; }
+  else score++;
+  document.getElementById('scoreShow').textContent = 'সঠিক: ' + score + ' | ভুল: ' + wrong;
+  document.getElementById('explanationText').innerHTML = '<strong>ব্যাখ্যা:</strong> ' + q.exp;
+  document.getElementById('explanation').classList.add('show');
+  document.getElementById('nextBtn').disabled = false;
+}
+
+function nextQ() {
+  cur++;
+  if (cur >= questions.length) { clearInterval(timerInterval); showResult(); return; }
+  loadQ();
+}
+
+function showResult() {
+  document.getElementById('quizArea').style.display = 'none';
+  const rw = document.getElementById('resultWrap');
+  rw.classList.add('show');
+  const pct = Math.round(score / questions.length * 100);
+  document.getElementById('finalScore').textContent = score;
+  document.getElementById('rbCorrect').textContent = score;
+  document.getElementById('rbWrong').textContent = wrong;
+  document.getElementById('rbPct').textContent = pct + '%';
+  const grades = [
+    [90, '🌟', 'অসাধারণ! তুমি এই chapter এ দুর্দান্ত!'],
+    [70, '👍', 'খুব ভালো! আরও একটু practice করো।'],
+    [50, '📚', 'ভালো চেষ্টা! Set 2 দিয়ে আরও practice করো।'],
+    [0, '💪', 'চেষ্টা চালিয়ে যাও! Notes পড়ে আবার দাও।']
+  ];
+  const g = grades.find(x => pct >= x[0]);
+  document.getElementById('resultIcon').textContent = g[1];
+  document.getElementById('resultGrade').textContent = g[2];
+}
+
+function showReview() {
+  document.getElementById('resultWrap').classList.remove('show');
+  document.getElementById('quizArea').style.display = 'block';
+  cur = 0;
+  loadReview();
+}
+
+function loadReview() {
+  if (cur >= questions.length) { document.getElementById('quizArea').style.display = 'none'; document.getElementById('resultWrap').classList.add('show'); return; }
+  const q = questions[cur];
+  document.getElementById('qNum').textContent = 'Review — প্রশ্ন ' + (cur + 1) + ' / ' + questions.length;
+  document.getElementById('qText').textContent = q.q;
+  document.getElementById('progressFill').style.width = ((cur + 1) / questions.length * 100) + '%';
+  document.getElementById('nextBtn').disabled = false;
+  document.getElementById('nextBtn').textContent = cur === questions.length - 1 ? 'শেষ করো' : 'পরবর্তী →';
+  document.getElementById('nextBtn').onclick = () => { cur++; loadReview(); };
+
+  const opts = document.getElementById('qOpts');
+  opts.innerHTML = '';
+  q.opts.forEach((o, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt disabled';
+    if (i === q.ans) btn.classList.add('correct');
+    else if (userAnswers[cur] === i) btn.classList.add('wrong');
+    btn.innerHTML = '<div class="opt-circle">' + LABELS[i] + '</div><div class="opt-text">' + o + '</div>';
+    opts.appendChild(btn);
+  });
+
+  document.getElementById('explanationText').innerHTML = '<strong>ব্যাখ্যা:</strong> ' + q.exp;
+  document.getElementById('explanation').classList.add('show');
+  document.getElementById('scoreShow').textContent = 'সবুজ = সঠিক উত্তর';
+}
+</script>
+</body>
+</html>
