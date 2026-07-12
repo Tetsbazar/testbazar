@@ -3,538 +3,894 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Test Bazar — অনলাইন পরীক্ষার প্রস্তুতি</title>
-<link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>Test Bazar — India's Trusted Online Test Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
 <style>
-:root{--green:#1a7a4a;--green-light:#2aad68;--green-pale:#e8f7ef;--saffron:#e8730a;--dark:#0f1a14;--text:#1c2e24;--muted:#5a7a66;--border:#c5dccb;--white:#f8fdf9}
+:root{
+  --primary:#5046e5;
+  --primary-dark:#3f37c9;
+  --primary-light:#818cf8;
+  --accent:#06b6d4;
+  --success:#10b981;
+  --warning:#f59e0b;
+  --danger:#ef4444;
+  --dark:#0f172a;
+  --dark-2:#1e293b;
+  --gray-900:#111827;
+  --gray-700:#374151;
+  --gray-500:#6b7280;
+  --gray-400:#9ca3af;
+  --gray-200:#e5e7eb;
+  --gray-100:#f3f4f6;
+  --gray-50:#f9fafb;
+  --white:#ffffff;
+  --gradient:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  --gradient-2:linear-gradient(135deg,#5046e5 0%,#8b5cf6 100%);
+  --shadow-sm:0 1px 2px 0 rgba(0,0,0,0.05);
+  --shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);
+  --shadow-md:0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);
+  --shadow-lg:0 20px 25px -5px rgba(0,0,0,0.1),0 10px 10px -5px rgba(0,0,0,0.04);
+  --shadow-xl:0 25px 50px -12px rgba(0,0,0,0.25);
+}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Syne',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:rgba(248,253,249,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-.logo{font-size:1.4rem;font-weight:800;color:var(--green);cursor:pointer}
-.logo span{color:var(--saffron)}
-.nav-links a{text-decoration:none;color:var(--text);font-size:0.85rem;font-weight:600;margin-left:1.5rem;transition:color 0.2s}
-.nav-links a:hover{color:var(--green)}
-.nav-cta{background:var(--green)!important;color:white!important;padding:0.45rem 1.1rem;border-radius:6px}
-.page{display:none}
-.page.active{display:block}
-.hero{min-height:100vh;display:flex;align-items:center;padding:7rem 2rem 4rem;background:linear-gradient(160deg,#f0faf4 0%,#fdf6ee 100%)}
-.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.hero-tag{display:inline-block;background:var(--green-pale);color:var(--green);font-size:0.75rem;font-weight:700;padding:0.3rem 0.9rem;border-radius:20px;border:1px solid rgba(26,122,74,0.2);margin-bottom:1.2rem;text-transform:uppercase;letter-spacing:1px}
-h1{font-family:'Tiro Bangla',serif;font-size:clamp(2rem,4vw,3rem);line-height:1.3;color:var(--dark);margin-bottom:1rem}
-h1 em{font-style:normal;color:var(--green)}
-.hero-sub{font-family:'Tiro Bangla',serif;font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:2rem}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-primary{background:var(--green);color:white;padding:0.8rem 1.8rem;border-radius:8px;font-size:0.95rem;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-block;transition:all 0.2s;box-shadow:0 4px 15px rgba(26,122,74,0.3);font-family:'Tiro Bangla',serif}
-.btn-primary:hover{background:var(--green-light);transform:translateY(-2px)}
-.btn-secondary{background:white;color:var(--green);padding:0.8rem 1.8rem;border-radius:8px;font-size:0.95rem;font-weight:700;cursor:pointer;border:2px solid var(--green);text-decoration:none;display:inline-block;transition:all 0.2s;font-family:'Tiro Bangla',serif}
-.btn-secondary:hover{background:var(--green-pale)}
-.hero-card{background:white;border-radius:16px;padding:1.8rem;box-shadow:0 20px 60px rgba(15,26,20,0.12);border:1px solid var(--border)}
-.card-tag{background:var(--green-pale);color:var(--green);font-size:0.75rem;font-weight:700;padding:0.25rem 0.7rem;border-radius:10px;display:inline-block;margin-bottom:1rem}
-.class-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.6rem}
-.class-card{border:1.5px solid var(--border);border-radius:10px;padding:0.8rem 0.6rem;text-align:center;cursor:pointer;transition:all 0.2s}
-.class-card:hover,.class-card.active{border-color:var(--green);background:var(--green-pale)}
-.class-num{font-size:1.2rem;font-weight:800;color:var(--green)}
-.class-label{font-family:'Tiro Bangla',serif;font-size:0.75rem;color:var(--muted);margin-top:0.2rem}
-.subjects-show{margin-top:1rem;background:var(--green-pale);border-radius:8px;padding:0.8rem;display:none}
-.subjects-show.active{display:block}
-.subj-item{font-family:'Tiro Bangla',serif;font-size:0.85rem;color:var(--text);padding:0.25rem 0}
-.subj-item::before{content:"✓ ";color:var(--green);font-weight:700}
-.stats{background:var(--dark);padding:3rem 2rem}
-.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
-.stat-num{font-size:2rem;font-weight:800;color:var(--green-light)}
-.stat-label{font-family:'Tiro Bangla',serif;font-size:0.85rem;color:rgba(255,255,255,0.6);margin-top:0.3rem}
-.classes{padding:5rem 2rem;background:white}
-.section-inner{max-width:1100px;margin:0 auto}
-.section-label{font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--saffron);margin-bottom:0.5rem}
-h2{font-family:'Tiro Bangla',serif;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--dark);margin-bottom:0.5rem}
-.section-sub{font-family:'Tiro Bangla',serif;color:var(--muted);font-size:1rem;margin-bottom:2.5rem}
-.class-tabs{display:flex;gap:0.5rem;margin-bottom:2rem;flex-wrap:wrap}
-.tab{padding:0.5rem 1.2rem;border-radius:20px;border:1.5px solid var(--border);font-family:'Tiro Bangla',serif;font-size:0.9rem;cursor:pointer;transition:all 0.2s;background:white;color:var(--text)}
-.tab.active{background:var(--green);color:white;border-color:var(--green)}
-.subject-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem}
-.subject-card{border:1.5px solid var(--border);border-radius:12px;padding:1.2rem;transition:all 0.2s}
-.subject-card:hover{border-color:var(--green);box-shadow:0 8px 25px rgba(26,122,74,0.1);transform:translateY(-2px)}
-.subject-icon{font-size:1.8rem;margin-bottom:0.5rem}
-.subject-name{font-family:'Tiro Bangla',serif;font-size:0.95rem;font-weight:600;color:var(--dark)}
-.subject-info{font-size:0.75rem;color:var(--muted);margin-top:0.3rem}
-.subject-badge{display:inline-block;font-size:0.7rem;background:var(--green-pale);color:var(--green);padding:0.15rem 0.5rem;border-radius:8px;margin-top:0.4rem}
-.coming-soon{border-style:dashed;opacity:0.6}
-.coming-badge{background:#faeeda;color:#633806}
-.pricing{padding:5rem 2rem;background:linear-gradient(180deg,#f0faf4 0%,white 100%)}
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:900px;margin:0 auto}
-.price-card{background:white;border:1.5px solid var(--border);border-radius:16px;padding:2rem 1.5rem;position:relative;transition:all 0.2s}
-.price-card:hover{box-shadow:0 12px 40px rgba(15,26,20,0.1);transform:translateY(-4px)}
-.price-card.popular{border-color:var(--green);box-shadow:0 8px 30px rgba(26,122,74,0.15)}
-.popular-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--green);color:white;font-size:0.7rem;font-weight:700;padding:0.25rem 0.9rem;border-radius:20px;white-space:nowrap}
-.price-plan{font-family:'Tiro Bangla',serif;font-size:1rem;color:var(--muted);margin-bottom:0.5rem}
-.price-amount{font-size:2.5rem;font-weight:800;color:var(--dark);line-height:1}
-.price-amount span{font-size:1rem;font-weight:400;color:var(--muted)}
-.price-divider{border:none;border-top:1px solid var(--border);margin:1.2rem 0}
-.price-feat{font-family:'Tiro Bangla',serif;font-size:0.88rem;color:var(--text);padding:0.35rem 0}
-.price-feat::before{content:"✓ ";color:var(--green);font-weight:700}
-.price-feat.no::before{content:"✗ ";color:#ccc}
-.price-feat.no{color:var(--muted)}
-.price-btn{width:100%;margin-top:1.5rem;padding:0.75rem;border-radius:8px;font-family:'Tiro Bangla',serif;font-size:0.95rem;font-weight:600;cursor:pointer;border:2px solid var(--green);transition:all 0.2s}
-.price-btn.filled{background:var(--green);color:white}
-.price-btn.filled:hover{background:var(--green-light)}
-.price-btn.outline{background:white;color:var(--green)}
-.price-btn.outline:hover{background:var(--green-pale)}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--gray-900);overflow-x:hidden;line-height:1.6}
+.bn{font-family:'Tiro Bangla',serif}
 
-/* UPI BUTTON */
-.upi-pay-btn{display:inline-block;background:#1a7a4a;color:white;padding:0.7rem 1.5rem;border-radius:10px;font-family:'Tiro Bangla',serif;font-size:1rem;font-weight:700;text-decoration:none;margin-top:0.5rem;transition:all 0.2s;border:none;cursor:pointer;width:100%;text-align:center}
-.upi-pay-btn:hover{background:#2aad68;transform:translateY(-2px)}
-.upi-text{font-size:0.75rem;color:#5a7a66;margin-top:0.4rem;font-family:'Tiro Bangla',serif}
+/* NAVBAR */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--gray-200);transition:all 0.3s}
+nav.scrolled{box-shadow:var(--shadow)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:0.5rem;font-size:1.5rem;font-weight:800;color:var(--primary);cursor:pointer}
+.logo-icon{width:36px;height:36px;background:var(--gradient-2);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:1.1rem}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{text-decoration:none;color:var(--gray-700);font-size:0.9rem;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--primary)}
+.nav-cta{background:var(--primary)!important;color:white!important;padding:0.6rem 1.4rem;border-radius:8px;font-weight:600!important;transition:all 0.2s}
+.nav-cta:hover{background:var(--primary-dark)!important;transform:translateY(-1px)}
+.mobile-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--gray-700)}
 
-.howitworks{padding:5rem 2rem;background:white}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2.5rem}
-.step{text-align:center;padding:1rem}
-.step-num{width:48px;height:48px;border-radius:50%;background:var(--green-pale);color:var(--green);font-size:1.2rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
-.step-title{font-family:'Tiro Bangla',serif;font-size:1rem;font-weight:600;color:var(--dark);margin-bottom:0.4rem}
-.step-desc{font-family:'Tiro Bangla',serif;font-size:0.85rem;color:var(--muted);line-height:1.6}
-.reg-page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:6rem 1rem 2rem;background:linear-gradient(160deg,#f0faf4 0%,#fdf6ee 100%)}
-.reg-container{background:white;border-radius:20px;box-shadow:0 20px 60px rgba(15,26,20,0.12);overflow:hidden;max-width:540px;width:100%}
-.reg-header{background:#1a7a4a;padding:2rem;text-align:center}
-.reg-header h2{color:white;font-size:1.8rem;font-weight:800;font-family:'Syne',sans-serif}
-.reg-header h2 span{color:#f9a825}
-.reg-header p{font-family:'Tiro Bangla',serif;color:rgba(255,255,255,0.8);font-size:0.9rem;margin-top:0.4rem}
-.reg-body{padding:2rem}
-.form-group{margin-bottom:1.1rem}
-label{display:block;font-family:'Tiro Bangla',serif;font-size:0.9rem;color:#2c4035;margin-bottom:0.4rem;font-weight:600}
-input,select{width:100%;padding:0.75rem 1rem;border:1.5px solid #c5dccb;border-radius:10px;font-family:'Tiro Bangla',serif;font-size:0.95rem;color:#1c2e24;outline:none;transition:border 0.2s;background:white;-webkit-appearance:none}
-input::placeholder{color:#aaa}
-input:focus,select:focus{border-color:#1a7a4a}
-.payment-box{background:#e8f7ef;border:1.5px solid #1a7a4a;border-radius:12px;padding:1.2rem;margin-bottom:1.1rem;text-align:center}
-.payment-box p{font-family:'Tiro Bangla',serif;font-size:0.88rem;color:#2c4035;margin-bottom:0.3rem}
-.upi-id{font-size:1rem;font-weight:700;color:#1a7a4a;background:white;padding:0.4rem 1rem;border-radius:8px;display:inline-block;margin:0.3rem 0;letter-spacing:0.5px}
-.amount-show{font-size:1.3rem;font-weight:800;color:#1a7a4a;margin-top:0.3rem;display:none}
-.screenshot-box{background:#fdf6ee;border:1.5px solid #e8730a;border-radius:12px;padding:1.2rem;margin-bottom:1.1rem;display:none}
-.screenshot-box p{font-family:'Tiro Bangla',serif;font-size:0.88rem;color:#633806;line-height:1.7}
-.whatsapp-num{font-size:1.1rem;font-weight:700;color:#e8730a}
-.txn-box{display:none}
-.submit-btn{width:100%;padding:0.9rem;background:#1a7a4a;color:white;border:none;border-radius:10px;font-family:'Tiro Bangla',serif;font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 15px rgba(26,122,74,0.3);margin-top:0.5rem}
-.submit-btn:hover{background:#2aad68;transform:translateY(-2px)}
-.submit-btn:disabled{background:#ccc;cursor:default;transform:none;box-shadow:none}
-.back-link{display:block;text-align:center;font-family:'Tiro Bangla',serif;font-size:0.85rem;color:#5a7a66;margin-top:1rem;cursor:pointer}
-.back-link:hover{color:#1a7a4a}
-.form-error{background:#fdf0f0;border:1px solid #dc3545;border-radius:8px;padding:0.7rem 1rem;font-family:'Tiro Bangla',serif;font-size:0.85rem;color:#dc3545;margin-bottom:1rem;display:none}
-.form-error.show{display:block}
-.success-msg{display:none;text-align:center;padding:1rem 0}
-.success-msg.show{display:block}
-.success-icon{font-size:3rem;margin-bottom:1rem}
-.success-msg h3{font-family:'Tiro Bangla',serif;font-size:1.3rem;color:#1a7a4a;margin-bottom:0.8rem}
-.success-msg p{font-family:'Tiro Bangla',serif;font-size:0.9rem;color:#5a7a66;line-height:1.8}
-.confirm-box{background:#e8f7ef;border-radius:10px;padding:1rem;margin-top:1rem;text-align:left}
-.confirm-row{font-family:'Tiro Bangla',serif;font-size:0.88rem;color:#2c4035;padding:0.25rem 0}
-.sending-msg{font-family:'Tiro Bangla',serif;font-size:0.85rem;color:#5a7a66;text-align:center;margin-top:0.5rem;display:none}
-footer{background:var(--dark);padding:2.5rem 2rem;text-align:center}
-footer p{font-family:'Tiro Bangla',serif;font-size:0.85rem;color:rgba(255,255,255,0.4);margin:0.3rem 0}
-@media(max-width:768px){.hero-inner{grid-template-columns:1fr;gap:2rem}.stats-inner{grid-template-columns:repeat(2,1fr)}.pricing-grid{grid-template-columns:1fr;max-width:360px;margin:0 auto}.steps{grid-template-columns:repeat(2,1fr)}.nav-links{display:none}}
+/* HERO */
+.hero{padding:8rem 2rem 5rem;background:linear-gradient(180deg,#f8fafc 0%,#ffffff 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(80,70,229,0.08) 0%,transparent 70%);border-radius:50%}
+.hero::after{content:'';position:absolute;bottom:-30%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(6,182,212,0.06) 0%,transparent 70%);border-radius:50%}
+.hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(80,70,229,0.08);color:var(--primary);font-size:0.8rem;font-weight:600;padding:0.5rem 1rem;border-radius:100px;margin-bottom:1.5rem;border:1px solid rgba(80,70,229,0.15)}
+.hero-badge-dot{width:8px;height:8px;background:var(--success);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;line-height:1.15;color:var(--gray-900);margin-bottom:1.5rem;letter-spacing:-0.02em}
+h1 .gradient-text{background:var(--gradient-2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-family:'Tiro Bangla',serif;font-size:1.15rem;color:var(--gray-500);line-height:1.8;margin-bottom:2rem;max-width:540px}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn{padding:0.9rem 1.8rem;border-radius:10px;font-size:0.95rem;font-weight:600;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.2s;font-family:'Tiro Bangla',serif}
+.btn-primary{background:var(--primary);color:white;box-shadow:0 4px 14px rgba(80,70,229,0.35)}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 8px 20px rgba(80,70,229,0.45)}
+.btn-outline{background:white;color:var(--gray-900);border:1.5px solid var(--gray-200)}
+.btn-outline:hover{border-color:var(--primary);color:var(--primary)}
+.trust-row{display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;color:var(--gray-500)}
+.trust-icon{width:20px;height:20px;color:var(--success)}
+
+/* HERO CARD */
+.hero-visual{position:relative}
+.hero-card{background:white;border-radius:20px;padding:2rem;box-shadow:var(--shadow-xl);border:1px solid var(--gray-200);position:relative}
+.hero-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--gray-100)}
+.hero-card-title{font-size:0.85rem;font-weight:600;color:var(--gray-500);text-transform:uppercase;letter-spacing:1px}
+.live-dot{display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:var(--success);font-weight:600}
+.live-dot::before{content:'';width:8px;height:8px;background:var(--success);border-radius:50%;animation:pulse 2s infinite}
+.exam-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem}
+.exam-item{background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:12px;padding:1rem;cursor:pointer;transition:all 0.2s;text-decoration:none;display:block;color:inherit}
+.exam-item:hover{border-color:var(--primary);background:rgba(80,70,229,0.03);transform:translateY(-2px)}
+.exam-item.active{border-color:var(--primary);background:rgba(80,70,229,0.05)}
+.exam-icon{font-size:1.5rem;margin-bottom:0.4rem}
+.exam-name{font-family:'Tiro Bangla',serif;font-size:0.9rem;font-weight:600;color:var(--gray-900)}
+.exam-count{font-size:0.75rem;color:var(--gray-500);margin-top:0.2rem}
+.floating-badge{position:absolute;background:white;border-radius:12px;padding:0.8rem 1.2rem;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;font-weight:600}
+.floating-badge-1{top:-20px;right:-20px;animation:float 3s ease-in-out infinite}
+.floating-badge-2{bottom:-20px;left:-20px;animation:float 3s ease-in-out infinite 1.5s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.floating-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem}
+
+/* STATS */
+.stats{padding:4rem 2rem;background:var(--dark);position:relative;overflow:hidden}
+.stats::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 20% 50%,rgba(80,70,229,0.15) 0%,transparent 50%),radial-gradient(circle at 80% 50%,rgba(6,182,212,0.1) 0%,transparent 50%)}
+.stats-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:3rem;position:relative;z-index:1}
+.stat-item{text-align:center}
+.stat-num{font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,#fff 0%,#cbd5e1 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:0.3rem}
+.stat-label{font-family:'Tiro Bangla',serif;font-size:0.9rem;color:rgba(255,255,255,0.6)}
+
+/* SECTIONS */
+section{padding:5rem 2rem}
+.section-inner{max-width:1280px;margin:0 auto}
+.section-header{text-align:center;max-width:680px;margin:0 auto 3.5rem}
+.section-tag{display:inline-block;font-size:0.75rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:2px;margin-bottom:0.8rem;padding:0.4rem 1rem;background:rgba(80,70,229,0.08);border-radius:100px}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--gray-900);margin-bottom:1rem;letter-spacing:-0.02em;line-height:1.2}
+.section-sub{font-family:'Tiro Bangla',serif;font-size:1.05rem;color:var(--gray-500);line-height:1.7}
+
+/* EXAMS SECTION */
+.exams-section{background:var(--gray-50)}
+.exam-tabs{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;background:white;padding:0.5rem;border-radius:12px;max-width:900px;margin-left:auto;margin-right:auto;box-shadow:var(--shadow-sm);border:1px solid var(--gray-200)}
+.exam-tab{padding:0.7rem 1.5rem;border-radius:8px;border:none;background:transparent;font-family:'Tiro Bangla',serif;font-size:0.9rem;font-weight:600;color:var(--gray-500);cursor:pointer;transition:all 0.2s}
+.exam-tab.active{background:var(--primary);color:white;box-shadow:0 4px 10px rgba(80,70,229,0.3)}
+.exam-tab:hover:not(.active){color:var(--primary);background:var(--gray-50)}
+.subjects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.2rem}
+.subject-card{background:white;border-radius:14px;padding:1.5rem;border:1.5px solid var(--gray-200);transition:all 0.3s;cursor:pointer}
+.subject-card:hover{border-color:var(--primary);box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.subject-icon-wrap{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1rem}
+.subject-title{font-family:'Tiro Bangla',serif;font-size:1.05rem;font-weight:700;color:var(--gray-900);margin-bottom:0.3rem}
+.subject-desc{font-size:0.85rem;color:var(--gray-500);margin-bottom:1rem;line-height:1.5}
+.subject-meta{display:flex;gap:0.5rem;flex-wrap:wrap}
+.subject-tag{font-size:0.7rem;font-weight:600;padding:0.25rem 0.6rem;border-radius:6px;background:rgba(80,70,229,0.08);color:var(--primary)}
+.subject-tag.green{background:rgba(16,185,129,0.1);color:var(--success)}
+
+/* FEATURES */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.feature-card{padding:2rem;border-radius:16px;background:white;border:1px solid var(--gray-200);transition:all 0.3s}
+.feature-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px);border-color:transparent}
+.feature-icon{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,rgba(80,70,229,0.1) 0%,rgba(139,92,246,0.1) 100%);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1.2rem}
+.feature-title{font-family:'Tiro Bangla',serif;font-size:1.2rem;font-weight:700;color:var(--gray-900);margin-bottom:0.5rem}
+.feature-desc{font-family:'Tiro Bangla',serif;font-size:0.95rem;color:var(--gray-500);line-height:1.7}
+
+/* PRICING */
+.pricing-section{background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%)}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;max-width:1200px;margin:0 auto}
+.price-card{background:white;border-radius:20px;padding:2rem 1.5rem;border:1.5px solid var(--gray-200);position:relative;transition:all 0.3s;display:flex;flex-direction:column}
+.price-card:hover{box-shadow:var(--shadow-xl);transform:translateY(-6px)}
+.price-card.popular{border-color:var(--primary);box-shadow:0 20px 40px rgba(80,70,229,0.2);transform:scale(1.03);background:linear-gradient(180deg,rgba(80,70,229,0.02) 0%,#ffffff 100%)}
+.price-card.popular:hover{transform:scale(1.03) translateY(-6px)}
+.popular-tag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gradient-2);color:white;font-size:0.75rem;font-weight:700;padding:0.4rem 1.2rem;border-radius:100px;white-space:nowrap;box-shadow:0 4px 12px rgba(80,70,229,0.3)}
+.price-plan{font-family:'Tiro Bangla',serif;font-size:1.05rem;font-weight:600;color:var(--gray-500);margin-bottom:0.5rem}
+.price-amount{font-size:2.8rem;font-weight:800;color:var(--gray-900);line-height:1;margin-bottom:0.3rem}
+.price-amount .currency{font-size:1.4rem;vertical-align:top;margin-right:0.2rem}
+.price-amount .period{font-size:0.9rem;font-weight:500;color:var(--gray-500)}
+.price-desc{font-family:'Tiro Bangla',serif;font-size:0.88rem;color:var(--gray-500);margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--gray-100);line-height:1.6;flex-grow:1}
+.price-features{list-style:none;margin-bottom:1.5rem;flex-grow:1}
+.price-features li{font-family:'Tiro Bangla',serif;font-size:0.88rem;color:var(--gray-700);padding:0.4rem 0;display:flex;align-items:center;gap:0.7rem}
+.check-icon{width:18px;height:18px;border-radius:50%;background:rgba(16,185,129,0.1);color:var(--success);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;flex-shrink:0}
+.price-btn{width:100%;padding:0.85rem;border-radius:10px;font-family:'Tiro Bangla',serif;font-size:0.95rem;font-weight:700;cursor:pointer;border:none;transition:all 0.2s}
+.price-btn.primary{background:var(--primary);color:white;box-shadow:0 4px 14px rgba(80,70,229,0.3)}
+.price-btn.primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
+.price-btn.outline{background:white;color:var(--primary);border:1.5px solid var(--primary)}
+.price-btn.outline:hover{background:rgba(80,70,229,0.05)}
+.save-badge{display:inline-block;background:rgba(245,158,11,0.1);color:var(--warning);font-size:0.7rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:6px;margin-left:0.5rem;vertical-align:middle}
+
+/* HOW IT WORKS */
+.how-section{background:var(--gray-50)}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;position:relative}
+.steps-grid::before{content:'';position:absolute;top:30px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,transparent,var(--gray-200),var(--gray-200),transparent);z-index:0}
+.step{text-align:center;position:relative;z-index:1}
+.step-num{width:60px;height:60px;border-radius:50%;background:white;border:2px solid var(--gray-200);display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:800;color:var(--primary);margin:0 auto 1.2rem;box-shadow:var(--shadow);transition:all 0.3s}
+.step:hover .step-num{background:var(--primary);color:white;border-color:var(--primary);transform:scale(1.1)}
+.step-title{font-family:'Tiro Bangla',serif;font-size:1.05rem;font-weight:700;color:var(--gray-900);margin-bottom:0.5rem}
+.step-desc{font-family:'Tiro Bangla',serif;font-size:0.9rem;color:var(--gray-500);line-height:1.6}
+
+/* CONTACT / CTA */
+.cta-section{background:var(--dark);position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 30% 50%,rgba(80,70,229,0.3) 0%,transparent 50%),radial-gradient(circle at 70% 50%,rgba(6,182,212,0.2) 0%,transparent 50%)}
+.cta-inner{max-width:900px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.cta-inner h2{color:white;margin-bottom:1rem}
+.cta-sub{font-family:'Tiro Bangla',serif;font-size:1.1rem;color:rgba(255,255,255,0.7);margin-bottom:2.5rem;line-height:1.7}
+.contact-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
+.contact-card{background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;text-align:center;transition:all 0.3s;text-decoration:none;display:block}
+.contact-card:hover{background:rgba(255,255,255,0.08);transform:translateY(-4px);border-color:rgba(255,255,255,0.2)}
+.contact-icon{width:64px;height:64px;border-radius:16px;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-light) 100%);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.8rem}
+.contact-title{color:white;font-family:'Tiro Bangla',serif;font-size:1.2rem;font-weight:700;margin-bottom:0.4rem}
+.contact-value{color:rgba(255,255,255,0.8);font-size:1rem;font-weight:500}
+.contact-hint{font-family:'Tiro Bangla',serif;font-size:0.85rem;color:rgba(255,255,255,0.5);margin-top:0.5rem}
+
+/* FAQ */
+.faq-grid{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:0.8rem}
+.faq-item{background:white;border:1.5px solid var(--gray-200);border-radius:12px;overflow:hidden;transition:all 0.2s}
+.faq-item.open{border-color:var(--primary);box-shadow:var(--shadow)}
+.faq-q{padding:1.2rem 1.5rem;font-family:'Tiro Bangla',serif;font-size:1rem;font-weight:600;color:var(--gray-900);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.faq-toggle{width:28px;height:28px;border-radius:50%;background:var(--gray-100);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--gray-500);transition:all 0.2s;flex-shrink:0}
+.faq-item.open .faq-toggle{background:var(--primary);color:white;transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease;padding:0 1.5rem}
+.faq-item.open .faq-a{max-height:300px;padding:0 1.5rem 1.2rem}
+.faq-a p{font-family:'Tiro Bangla',serif;font-size:0.95rem;color:var(--gray-500);line-height:1.7}
+
+/* FOOTER */
+footer{background:var(--dark-2);padding:3rem 2rem 1.5rem;border-top:1px solid rgba(255,255,255,0.05)}
+.footer-inner{max-width:1280px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.footer-brand{max-width:320px}
+.footer-brand .logo{color:white;margin-bottom:1rem}
+.footer-brand p{font-family:'Tiro Bangla',serif;font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.7}
+.footer-col h4{color:white;font-size:0.9rem;font-weight:700;margin-bottom:1rem;text-transform:uppercase;letter-spacing:1px}
+.footer-col a{display:block;color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.9rem;padding:0.3rem 0;transition:color 0.2s;font-family:'Tiro Bangla',serif}
+.footer-col a:hover{color:white}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:0.85rem;color:rgba(255,255,255,0.4);font-family:'Tiro Bangla',serif}
+.payment-badges{display:flex;gap:0.5rem;align-items:center}
+.payment-badge{background:rgba(255,255,255,0.08);padding:0.3rem 0.7rem;border-radius:6px;font-size:0.75rem;color:rgba(255,255,255,0.6);font-weight:600}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .pricing-grid{grid-template-columns:repeat(2,1fr)}
+  .price-card.popular{transform:none}
+  .price-card.popular:hover{transform:translateY(-6px)}
+}
+@media(max-width:968px){
+  .hero-inner{grid-template-columns:1fr;gap:3rem}
+  .stats-inner{grid-template-columns:repeat(2,1fr);gap:2rem}
+  .features-grid{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}
+  .steps-grid{grid-template-columns:repeat(2,1fr)}
+  .steps-grid::before{display:none}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
+  .contact-cards{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .mobile-toggle{display:block}
+  .hero{padding:6rem 1.5rem 3rem}
+  section{padding:3.5rem 1.5rem}
+  .floating-badge{display:none}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .trust-row{gap:1rem}
+  .exam-tabs{overflow-x:auto;justify-content:flex-start;padding:0.5rem}
+  .exam-tab{white-space:nowrap}
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp-float{position:fixed;bottom:24px;right:24px;width:60px;height:60px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,0.4);z-index:999;cursor:pointer;transition:all 0.3s;text-decoration:none}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 12px 32px rgba(37,211,102,0.5)}
+.whatsapp-float svg{width:32px;height:32px;fill:white}
+.whatsapp-float::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25d366;animation:ripple 2s infinite;opacity:0.5;z-index:-1}
+@keyframes ripple{0%{transform:scale(1);opacity:0.5}100%{transform:scale(1.5);opacity:0}}
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="logo" onclick="showPage('landing')">Test <span>Bazar</span></div>
-  <div class="nav-links">
-    <a href="#" onclick="showPage('landing')">বিষয়সমূহ</a>
-    <a href="#" onclick="showPage('landing')">মূল্য</a>
-    <a href="#" onclick="showPage('register')" class="nav-cta">Registration করুন</a>
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="logo-icon">T</div>
+      <span>Test<span style="color:var(--accent)">Bazar</span></span>
+    </div>
+    <div class="nav-links">
+      <a href="#exams">পরীক্ষাসমূহ</a>
+      <a href="#features">বৈশিষ্ট্য</a>
+      <a href="#pricing">মূল্য</a>
+      <a href="#faq">প্রশ্নোত্তর</a>
+      <a href="#contact" class="nav-cta">যোগাযোগ করুন</a>
+    </div>
+    <button class="mobile-toggle" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">☰</button>
   </div>
 </nav>
 
-<!-- LANDING PAGE -->
-<div id="page-landing" class="page active">
-  <section class="hero">
-    <div class="hero-inner">
-      <div>
-        <div class="hero-tag">Class 10 · HS Sem 1 · HS Sem 3</div>
-        <h1>পরীক্ষার প্রস্তুতি নাও <em>সঠিকভাবে</em></h1>
-        <p class="hero-sub">Test Bazar এ Chapter-wise MCQ Test, Mock Test — সব বাংলায়। Class 10, একাদশ ও দ্বাদশ শ্রেণির জন্য।</p>
-        <div class="hero-btns">
-          <button class="btn-primary" onclick="showPage('register')">এখনই শুরু করো →</button>
-          <button class="btn-secondary" onclick="document.getElementById('classes').scrollIntoView({behavior:'smooth'})">বিষয় দেখো</button>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span>India's Trusted Test Platform · ১০,০০০+ Students</span>
+      </div>
+      <h1>পরীক্ষার প্রস্তুতি নিন <span class="gradient-text">স্মার্ট উপায়ে</span></h1>
+      <p class="hero-sub">Class 10, 11, 12 এবং West Bengal Police (Constable & SI)-সহ সমস্ত প্রতিযোগিতামূলক পরীক্ষার জন্য Chapter-wise MCQ ও Mock Test। সম্পূর্ণ বাংলায়।</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-primary">অ্যাক্সেস নিন →</a>
+        <a href="#exams" class="btn btn-outline">পরীক্ষা দেখুন</a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item">
+          <svg class="trust-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+          <span>SSL Secured</span>
+        </div>
+        <div class="trust-item">
+          <svg class="trust-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+          <span>UPI Payment</span>
+        </div>
+        <div class="trust-item">
+          <svg class="trust-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+          <span>24/7 Support</span>
         </div>
       </div>
+    </div>
+    <div class="hero-visual">
       <div class="hero-card">
-        <div class="card-tag">কোন Class এর জন্য?</div>
-        <div class="class-grid">
-          <div class="class-card active" onclick="showClass(this,'c10')"><div class="class-num">10</div><div class="class-label">মাধ্যমিক</div></div>
-          <div class="class-card" onclick="showClass(this,'c11')"><div class="class-num">11</div><div class="class-label">Sem 1</div></div>
-          <div class="class-card" onclick="showClass(this,'c12')"><div class="class-num">12</div><div class="class-label">Sem 3</div></div>
+        <div class="hero-card-header">
+          <div class="hero-card-title">আমাদের পরীক্ষাসমূহ</div>
+          <div class="live-dot">LIVE</div>
         </div>
-        <div class="subjects-show active" id="c10"><div class="subj-item">বাংলা · ইংরেজি</div><div class="subj-item">গণিত · ইতিহাস</div><div class="subj-item">ভূগোল · জীবন বিজ্ঞান</div><div class="subj-item">ভৌত বিজ্ঞান</div></div>
-        <div class="subjects-show" id="c11"><div class="subj-item">বাংলা (Sem 1)</div><div class="subj-item">ইতিহাস · রাষ্ট্রবিজ্ঞান</div><div class="subj-item">ভূগোল · দর্শন</div></div>
-        <div class="subjects-show" id="c12"><div class="subj-item">বাংলা (Sem 3)</div><div class="subj-item">ইতিহাস · রাষ্ট্রবিজ্ঞান</div><div class="subj-item">ভূগোল · দর্শন</div></div>
-      </div>
-    </div>
-  </section>
-
-  <div class="stats">
-    <div class="stats-inner">
-      <div><div class="stat-num">৩টি</div><div class="stat-label">Class উপলব্ধ</div></div>
-      <div><div class="stat-num">১০+</div><div class="stat-label">বিষয়</div></div>
-      <div><div class="stat-num">Chapter-wise</div><div class="stat-label">MCQ Test</div></div>
-      <div><div class="stat-num">Mock Test</div><div class="stat-label">প্রতি বিষয়ে</div></div>
-    </div>
-  </div>
-
-  <section class="classes" id="classes">
-    <div class="section-inner">
-      <div class="section-label">বিষয়সমূহ</div>
-      <h2>Chapter-wise Test যা পাবে</h2>
-      <p class="section-sub">প্রতিটি chapter আলাদা test · শেষে Mock Test</p>
-      <div class="class-tabs">
-        <button class="tab active" onclick="switchTab(this,'tab10')">Class 10</button>
-        <button class="tab" onclick="switchTab(this,'tab11')">Class 11 (Sem 1 · Arts)</button>
-        <button class="tab" onclick="switchTab(this,'tab12')">Class 12 (Sem 3 · Arts)</button>
-      </div>
-      <div id="tab10" class="subject-grid">
-        <div class="subject-card"><div class="subject-icon">📖</div><div class="subject-name">বাংলা</div><div class="subject-info">Chapter-wise + Mock</div><div class="subject-badge">সব chapter</div></div>
-        <div class="subject-card"><div class="subject-icon">🔤</div><div class="subject-name">ইংরেজি</div><div class="subject-info">Grammar + Literature</div><div class="subject-badge">সব chapter</div></div>
-        <div class="subject-card"><div class="subject-icon">📐</div><div class="subject-name">গণিত</div><div class="subject-info">Chapter-wise + Mock</div><div class="subject-badge">সব chapter</div></div>
-        <div class="subject-card"><div class="subject-icon">🌿</div><div class="subject-name">জীবন বিজ্ঞান</div><div class="subject-info">Chapter-wise + Mock</div><div class="subject-badge">সব chapter</div></div>
-        <div class="subject-card"><div class="subject-icon">⚡</div><div class="subject-name">ভৌত বিজ্ঞান</div><div class="subject-info">Chapter-wise + Mock</div><div class="subject-badge">সব chapter</div></div>
-        <div class="subject-card"><div class="subject-icon">🌍</div><div class="subject-name">ভূগোল</div><div class="subject-info">Chapter-wise + Mock</div><div class="subject-badge">সব chapter</div></div>
-        <div class="subject-card"><div class="subject-icon">📜</div><div class="subject-name">ইতিহাস</div><div class="subject-info">Chapter-wise + Mock</div><div class="subject-badge">সব chapter</div></div>
-      </div>
-      <div id="tab11" class="subject-grid" style="display:none">
-        <div class="subject-card"><div class="subject-icon">📖</div><div class="subject-name">বাংলা</div><div class="subject-info">Sem 1 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
-        <div class="subject-card"><div class="subject-icon">📜</div><div class="subject-name">ইতিহাস</div><div class="subject-info">Sem 1 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
-        <div class="subject-card"><div class="subject-icon">🏛️</div><div class="subject-name">রাষ্ট্রবিজ্ঞান</div><div class="subject-info">Sem 1 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
-        <div class="subject-card"><div class="subject-icon">🌍</div><div class="subject-name">ভূগোল</div><div class="subject-info">Sem 1 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
-        <div class="subject-card"><div class="subject-icon">🧠</div><div class="subject-name">দর্শন</div><div class="subject-info">Sem 1 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
-        <div class="subject-card coming-soon"><div class="subject-icon">🔬</div><div class="subject-name">Science</div><div class="subject-info">শীঘ্রই আসছে</div><div class="subject-badge coming-badge">Coming Soon</div></div>
-      </div>
-      <div id="tab12" class="subject-grid" style="display:none">
-        <div class="subject-card"><div class="subject-icon">📖</div><div class="subject-name">বাংলা</div><div class="subject-info">Sem 3 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
-        <div class="subject-card"><div class="subject-icon">📜</div><div class="subject-name">ইতিহাস</div><div class="subject-info">Sem 3 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
-        <div class="subject-card"><div class="subject-icon">🏛️</div><div class="subject-name">রাষ্ট্রবিজ্ঞান</div><div class="subject-info">Sem 3 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
-        <div class="subject-card"><div class="subject-icon">🌍</div><div class="subject-name">ভূগোল</div><div class="subject-info">Sem 3 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
-        <div class="subject-card"><div class="subject-icon">🧠</div><div class="subject-name">দর্শন</div><div class="subject-info">Sem 3 · Chapter-wise</div><div class="subject-badge">Arts</div></div>
-        <div class="subject-card coming-soon"><div class="subject-icon">🔬</div><div class="subject-name">Science</div><div class="subject-info">শীঘ্রই আসছে</div><div class="subject-badge coming-badge">Coming Soon</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="pricing" id="pricing">
-    <div class="section-inner">
-      <div style="text-align:center;margin-bottom:2.5rem">
-        <div class="section-label">মূল্য পরিকল্পনা</div>
-        <h2>তোমার বাজেট অনুযায়ী বেছে নাও</h2>
-        <p class="section-sub">UPI / GPay / PhonePe / Paytm এ payment করা যাবে</p>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto">
-
-        <!-- Class 10 -->
-        <div class="price-card popular">
-          <div class="popular-badge">সবচেয়ে জনপ্রিয়</div>
-          <div class="price-plan">Class 10 — সব বিষয়</div>
-          <div class="price-amount">₹৪৯৯ <span>/ বছর</span></div>
-          <hr class="price-divider">
-          <div class="price-feat">সব বিষয়ের test</div>
-          <div class="price-feat">Chapter-wise MCQ</div>
-          <div class="price-feat">Mock test</div>
-          <div class="price-feat">Result analysis</div>
-          <div class="price-feat">সারা বছর access</div>
-          <button class="price-btn filled" onclick="showPage('register')">এখনই নাও</button>
+        <div class="exam-grid">
+          <!-- Class 10 Link Added -->
+          <a href="https://tetsbazar.github.io/Class-10th-/" target="_blank" class="exam-item active">
+            <div class="exam-icon">📚</div>
+            <div class="exam-name">Class 10</div>
+            <div class="exam-count">Demo Test দেখুন →</div>
+          </a>
+          <!-- Class 11 Link Added -->
+          <a href="https://tetsbazar.github.io/Class-11th/" target="_blank" class="exam-item">
+            <div class="exam-icon">🎓</div>
+            <div class="exam-name">Class 11</div>
+            <div class="exam-count">Demo Test দেখুন →</div>
+          </a>
+          <!-- Class 12 Link Added -->
+          <a href="https://tetsbazar.github.io/Class-12th-/" target="_blank" class="exam-item">
+            <div class="exam-icon">🚀</div>
+            <div class="exam-name">Class 12</div>
+            <div class="exam-count">Demo Test দেখুন →</div>
+          </a>
+          <div class="exam-item">
+            <div class="exam-icon">🚔</div>
+            <div class="exam-name">WB Police SI</div>
+            <div class="exam-count">Prelims + Mains</div>
+          </div>
         </div>
-
-        <!-- Arts Monthly -->
-        <div class="price-card">
-          <div class="price-plan">Arts — মাসিক</div>
-          <div class="price-amount">₹৯৯ <span>/ মাস</span></div>
-          <hr class="price-divider">
-          <div class="price-feat">Class 11 ও 12</div>
-          <div class="price-feat">Chapter-wise MCQ</div>
-          <div class="price-feat">Mock test</div>
-          <div class="price-feat">Result analysis</div>
-          <div class="price-feat no">বার্ষিক discount</div>
-          <button class="price-btn outline" onclick="showPage('register')">মাসিক নাও</button>
-        </div>
-
-        <!-- Arts Yearly -->
-        <div class="price-card">
-          <div class="price-plan">Arts — বার্ষিক</div>
-          <div class="price-amount">₹৪৯৯ <span>/ বছর</span></div>
-          <hr class="price-divider">
-          <div class="price-feat">Class 11 ও 12</div>
-          <div class="price-feat">Chapter-wise MCQ</div>
-          <div class="price-feat">Mock test</div>
-          <div class="price-feat">Result analysis</div>
-          <div class="price-feat" style="color:#e8730a;font-weight:700">৫ মাস ফ্রি! 🎉</div>
-          <button class="price-btn outline" onclick="showPage('register')">বার্ষিক নাও</button>
-        </div>
-
-        <!-- Science Monthly -->
-        <div class="price-card">
-          <div class="price-plan">Science — মাসিক</div>
-          <div class="price-amount">₹৯৯ <span>/ মাস</span></div>
-          <hr class="price-divider">
-          <div class="price-feat">Class 11 ও 12</div>
-          <div class="price-feat">Chapter-wise MCQ</div>
-          <div class="price-feat">Mock test</div>
-          <div class="price-feat">Result analysis</div>
-          <div class="price-feat no">বার্ষিক discount</div>
-          <button class="price-btn outline" onclick="showPage('register')">মাসিক নাও</button>
-        </div>
-
-        <!-- Science Yearly -->
-        <div class="price-card">
-          <div class="price-plan">Science — বার্ষিক</div>
-          <div class="price-amount">₹৬৯৯ <span>/ বছর</span></div>
-          <hr class="price-divider">
-          <div class="price-feat">Class 11 ও 12</div>
-          <div class="price-feat">Chapter-wise MCQ</div>
-          <div class="price-feat">Mock test</div>
-          <div class="price-feat">Result analysis</div>
-          <div class="price-feat" style="color:#e8730a;font-weight:700">৩ মাস ফ্রি! 🎉</div>
-          <button class="price-btn outline" onclick="showPage('register')">বার্ষিক নাও</button>
-        </div>
-
       </div>
-      <p style="text-align:center;font-family:'Tiro Bangla',serif;font-size:0.85rem;color:var(--muted);margin-top:1.5rem">
-        💳 UPI: <strong style="color:var(--green)">ajsuajsu71@oksbi</strong> · WhatsApp: <strong style="color:var(--green)">+91 8710032880</strong>
-      </p>
-    </div>
-  </section>
-
-  <section class="howitworks">
-    <div class="section-inner">
-      <div style="text-align:center">
-        <div class="section-label">কীভাবে কাজ করে</div>
-        <h2>মাত্র ৪টা ধাপ</h2>
-        <p class="section-sub">Registration থেকে Test — সব সহজ</p>
-      </div>
-      <div class="steps">
-        <div class="step"><div class="step-num">১</div><div class="step-title">Registration করো</div><div class="step-desc">নাম, email, mobile দিয়ে register করো</div></div>
-        <div class="step"><div class="step-num">২</div><div class="step-title">Payment করো</div><div class="step-desc">UPI তে payment করো, screenshot WhatsApp এ পাঠাও</div></div>
-        <div class="step"><div class="step-num">৩</div><div class="step-title">ID পাও</div><div class="step-desc">WhatsApp এ User ID ও Password পাবে</div></div>
-        <div class="step"><div class="step-num">৪</div><div class="step-title">Test দাও</div><div class="step-desc">Login করে chapter-wise ও mock test দাও</div></div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p><strong style="color:#2aad68">Test Bazar</strong> — Class 10 · HS Sem 1 · HS Sem 3</p>
-    <p>UPI: ajsuajsu71@oksbi · WhatsApp: +91 8710032880</p>
-  </footer>
-</div>
-
-<!-- REGISTRATION PAGE -->
-<div id="page-register" class="page">
-  <div class="reg-page">
-    <div class="reg-container">
-      <div class="reg-header">
-        <h2>Test <span>Bazar</span></h2>
-        <p>Registration করুন এবং test শুরু করুন</p>
-      </div>
-      <div class="reg-body">
-        <div class="success-msg" id="successMsg">
-          <div class="success-icon">🎉</div>
-          <h3>Registration সফল!</h3>
-          <p>আপনার তথ্য পাওয়া গেছে।<br>Payment verify হলে WhatsApp এ<br><strong>User ID ও Password</strong> পাঠানো হবে।<br>সাধারণত ১-২ ঘণ্টার মধ্যে।</p>
-          <div class="confirm-box" id="confirmInfo"></div>
-          <button class="submit-btn" style="margin-top:1rem" onclick="showPage('landing')">← Home এ ফিরে যাও</button>
+      <div class="floating-badge floating-badge-1">
+        <div class="floating-icon" style="background:rgba(16,185,129,0.1);color:var(--success)">✓</div>
+        <div>
+          <div style="font-size:0.75rem;color:var(--gray-500)">Active Users</div>
+          <div style="font-weight:700">১০,০০০+</div>
         </div>
-
-        <div id="regForm">
-          <div class="form-error" id="errorMsg">সব তথ্য সঠিকভাবে পূরণ করুন।</div>
-          <div class="form-group">
-            <label>পূর্ণ নাম *</label>
-            <input type="text" id="regName" placeholder="আপনার নাম লিখুন">
-          </div>
-          <div class="form-group">
-            <label>Email Address * (এটাই আপনার User ID হবে)</label>
-            <input type="email" id="regEmail" placeholder="example@gmail.com">
-          </div>
-          <div class="form-group">
-            <label>Mobile নম্বর * (এটাই আপনার Password হবে)</label>
-            <input type="tel" id="regMobile" placeholder="আপনার mobile নম্বর">
-          </div>
-          <div class="form-group">
-            <label>Class *</label>
-            <select id="regClass" onchange="updateGroups()">
-              <option value="">বেছে নিন</option>
-              <option value="10">Class 10 (মাধ্যমিক)</option>
-              <option value="11">Class 11 (HS Sem 1)</option>
-              <option value="12">Class 12 (HS Sem 3)</option>
-            </select>
-          </div>
-          <div class="form-group" id="groupDiv" style="display:none">
-            <label>বিভাগ *</label>
-            <select id="regGroup">
-              <option value="">বেছে নিন</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Plan *</label>
-            <select id="regPlan" onchange="updateAmount()">
-              <option value="">বেছে নিন</option>
-              <option value="class10|499">Class 10 — সব বিষয় (বার্ষিক ₹৪৯৯)</option>
-              <option value="arts_monthly|99">Arts মাসিক — ₹৯৯</option>
-              <option value="arts_yearly|499">Arts বার্ষিক — ₹৪৯৯ (৫ মাস ফ্রি!)</option>
-              <option value="science_monthly|99">Science মাসিক — ₹৯৯</option>
-              <option value="science_yearly|699">Science বার্ষিক — ₹৬৯৯ (৩ মাস ফ্রি!)</option>
-            </select>
-          </div>
-
-          <div class="payment-box">
-            <p>Plan অনুযায়ী নিচের বাটনে click করুন — payment app খুলবে:</p>
-            <div class="upi-id">ajsuajsu71@oksbi</div>
-            <a href="upi://pay?pa=ajsuajsu71@oksbi&pn=Test%20Bazar&am=499&cu=INR" class="upi-pay-btn" style="display:block;margin-top:0.5rem">📲 Class 10 বার্ষিক ₹৪৯৯</a>
-            <a href="upi://pay?pa=ajsuajsu71@oksbi&pn=Test%20Bazar&am=99&cu=INR" class="upi-pay-btn" style="display:block;margin-top:0.5rem">📲 Arts/Science মাসিক ₹৯৯</a>
-            <a href="upi://pay?pa=ajsuajsu71@oksbi&pn=Test%20Bazar&am=499&cu=INR" class="upi-pay-btn" style="display:block;margin-top:0.5rem;background:#0f5c38">📲 Arts বার্ষিক ₹৪৯৯</a>
-            <a href="upi://pay?pa=ajsuajsu71@oksbi&pn=Test%20Bazar&am=699&cu=INR" class="upi-pay-btn" style="display:block;margin-top:0.5rem;background:#0a4a2e">📲 Science বার্ষিক ₹৬৯৯</a>
-            <p class="upi-text">GPay / PhonePe / Paytm — যেকোনো app এ কাজ করবে</p>
-          </div>
-
-          <div class="form-group">
-            <label>Payment Proof কীভাবে দেবেন? *</label>
-            <select id="proofType" onchange="toggleProof()">
-              <option value="">বেছে নিন</option>
-              <option value="txn">Transaction ID দেব</option>
-              <option value="screenshot">Screenshot WhatsApp এ পাঠাবো</option>
-              <option value="both">দুটোই দেব</option>
-            </select>
-          </div>
-          <div class="form-group txn-box" id="txnBox">
-            <label>Transaction ID</label>
-            <input type="text" id="txnId" placeholder="যেমন: T2401234567890">
-          </div>
-          <div class="screenshot-box" id="screenshotBox">
-            <p>📸 Payment screenshot পাঠান এই WhatsApp এ:<br>
-            <span class="whatsapp-num">+91 8710032880</span><br>
-            <small>Caption এ আপনার নাম ও email লিখুন</small></p>
-          </div>
-
-          <button class="submit-btn" id="submitBtn" onclick="submitReg()">Registration করুন →</button>
-          <div class="sending-msg" id="sendingMsg">⏳ তথ্য পাঠানো হচ্ছে...</div>
-          <div class="back-link" onclick="showPage('landing')">← Landing Page এ ফিরে যান</div>
+      </div>
+      <div class="floating-badge floating-badge-2">
+        <div class="floating-icon" style="background:rgba(245,158,11,0.1);color:var(--warning)">★</div>
+        <div>
+          <div style="font-size:0.75rem;color:var(--gray-500)">Rating</div>
+          <div style="font-weight:700">4.9/5</div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">১০K+</div>
+      <div class="stat-label">সক্রিয় শিক্ষার্থী</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">৫০০+</div>
+      <div class="stat-label">Mock Test</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">৫০K+</div>
+      <div class="stat-label">MCQ Questions</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4.9★</div>
+      <div class="stat-label">User Rating</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXAMS -->
+<section class="exams-section" id="exams">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">পরীক্ষাসমূহ</div>
+      <h2>আপনার লক্ষ্য অনুযায়ী প্রস্তুতি নিন</h2>
+      <p class="section-sub">প্রতিটি পরীক্ষার জন্য আলাদাভাবে সাজানো Chapter-wise Test ও Mock Test</p>
+    </div>
+
+    <div class="exam-tabs">
+      <button class="exam-tab active" onclick="switchExam(this,'exam10')">Class 10</button>
+      <button class="exam-tab" onclick="switchExam(this,'exam11')">Class 11 (HS)</button>
+      <button class="exam-tab" onclick="switchExam(this,'exam12')">Class 12 (HS)</button>
+      <button class="exam-tab" onclick="switchExam(this,'examPC')">WB Constable</button>
+      <button class="exam-tab" onclick="switchExam(this,'examSI')">WB Police SI</button>
+    </div>
+
+    <div id="exam10" class="subjects-grid">
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(239,68,68,0.1);color:#ef4444">📖</div>
+        <div class="subject-title">বাংলা</div>
+        <div class="subject-desc">সব chapter এর MCQ ও Mock Test</div>
+        <div class="subject-meta"><span class="subject-tag">Chapter-wise</span><span class="subject-tag green">Mock Test</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(59,130,246,0.1);color:#3b82f6">🔤</div>
+        <div class="subject-title">ইংরেজি</div>
+        <div class="subject-desc">Grammar ও Literature সম্পূর্ণ</div>
+        <div class="subject-meta"><span class="subject-tag">All Chapters</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(168,85,247,0.1);color:#a855f7">📐</div>
+        <div class="subject-title">গণিত</div>
+        <div class="subject-desc">Chapter-wise সমস্ত অঙ্ক</div>
+        <div class="subject-meta"><span class="subject-tag">Chapter-wise</span><span class="subject-tag green">Mock</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(16,185,129,0.1);color:#10b981">🌿</div>
+        <div class="subject-title">জীবন বিজ্ঞান</div>
+        <div class="subject-desc">সমস্ত chapter cover</div>
+        <div class="subject-meta"><span class="subject-tag">Full Syllabus</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(245,158,11,0.1);color:#f59e0b">⚡</div>
+        <div class="subject-title">ভৌত বিজ্ঞান</div>
+        <div class="subject-desc">Physics এর সব topic</div>
+        <div class="subject-meta"><span class="subject-tag">Chapter-wise</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(6,182,212,0.1);color:#06b6d4">🌍</div>
+        <div class="subject-title">ভূগোল</div>
+        <div class="subject-desc">Geography সম্পূর্ণ</div>
+        <div class="subject-meta"><span class="subject-tag">Full Syllabus</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(139,92,246,0.1);color:#8b5cf6">📜</div>
+        <div class="subject-title">ইতিহাস</div>
+        <div class="subject-desc">History এর সব অধ্যায়</div>
+        <div class="subject-meta"><span class="subject-tag">Chapter-wise</span></div>
+      </div>
+    </div>
+
+    <div id="exam11" class="subjects-grid" style="display:none">
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(239,68,68,0.1);color:#ef4444">📖</div>
+        <div class="subject-title">বাংলা (Sem 1)</div>
+        <div class="subject-desc">HS Sem 1 এর সম্পূর্ণ সিলেবাস</div>
+        <div class="subject-meta"><span class="subject-tag">Arts</span><span class="subject-tag green">Sem 1</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(139,92,246,0.1);color:#8b5cf6">📜</div>
+        <div class="subject-title">ইতিহাস</div>
+        <div class="subject-desc">History Sem 1</div>
+        <div class="subject-meta"><span class="subject-tag">Arts</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(59,130,246,0.1);color:#3b82f6">🏛️</div>
+        <div class="subject-title">রাষ্ট্রবিজ্ঞান</div>
+        <div class="subject-desc">Political Science Sem 1</div>
+        <div class="subject-meta"><span class="subject-tag">Arts</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(6,182,212,0.1);color:#06b6d4">🌍</div>
+        <div class="subject-title">ভূগোল</div>
+        <div class="subject-desc">Geography Sem 1</div>
+        <div class="subject-meta"><span class="subject-tag">Arts</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(245,158,11,0.1);color:#f59e0b">🧠</div>
+        <div class="subject-title">দর্শন</div>
+        <div class="subject-desc">Philosophy Sem 1</div>
+        <div class="subject-meta"><span class="subject-tag">Arts</span></div>
+      </div>
+    </div>
+
+    <div id="exam12" class="subjects-grid" style="display:none">
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(239,68,68,0.1);color:#ef4444">📖</div>
+        <div class="subject-title">বাংলা (Sem 3)</div>
+        <div class="subject-desc">HS Sem 3 এর সম্পূর্ণ সিলেবাস</div>
+        <div class="subject-meta"><span class="subject-tag">Arts</span><span class="subject-tag green">Sem 3</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(139,92,246,0.1);color:#8b5cf6">📜</div>
+        <div class="subject-title">ইতিহাস</div>
+        <div class="subject-desc">History Sem 3</div>
+        <div class="subject-meta"><span class="subject-tag">Arts</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(59,130,246,0.1);color:#3b82f6">🏛️</div>
+        <div class="subject-title">রাষ্ট্রবিজ্ঞান</div>
+        <div class="subject-desc">Political Science Sem 3</div>
+        <div class="subject-meta"><span class="subject-tag">Arts</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(6,182,212,0.1);color:#06b6d4">🌍</div>
+        <div class="subject-title">ভূগোল</div>
+        <div class="subject-desc">Geography Sem 3</div>
+        <div class="subject-meta"><span class="subject-tag">Arts</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(245,158,11,0.1);color:#f59e0b">🧠</div>
+        <div class="subject-title">দর্শন</div>
+        <div class="subject-desc">Philosophy Sem 3</div>
+        <div class="subject-meta"><span class="subject-tag">Arts</span></div>
+      </div>
+    </div>
+
+    <div id="examPC" class="subjects-grid" style="display:none">
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(239,68,68,0.1);color:#ef4444">🌍</div>
+        <div class="subject-title">General Studies</div>
+        <div class="subject-desc">History, Geography, Polity, Science</div>
+        <div class="subject-meta"><span class="subject-tag">High Weightage</span><span class="subject-tag green">Important</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(168,85,247,0.1);color:#a855f7">🧮</div>
+        <div class="subject-title">Elementary Mathematics</div>
+        <div class="subject-desc">Arithmetic ও Algebra</div>
+        <div class="subject-meta"><span class="subject-tag">Basic Level</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(59,130,246,0.1);color:#3b82f6">🧩</div>
+        <div class="subject-title">Reasoning</div>
+        <div class="subject-desc">Logical ও Analytical Reasoning</div>
+        <div class="subject-meta"><span class="subject-tag">High Weightage</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(16,185,129,0.1);color:#10b981">🔤</div>
+        <div class="subject-title">English</div>
+        <div class="subject-desc">Grammar ও Vocabulary</div>
+        <div class="subject-meta"><span class="subject-tag">Qualifying</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(245,158,11,0.1);color:#f59e0b">📖</div>
+        <div class="subject-title">Bengali</div>
+        <div class="subject-desc">Grammar ও Literature</div>
+        <div class="subject-meta"><span class="subject-tag">Qualifying</span></div>
+      </div>
+    </div>
+
+    <div id="examSI" class="subjects-grid" style="display:none">
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(239,68,68,0.1);color:#ef4444">🌍</div>
+        <div class="subject-title">General Studies</div>
+        <div class="subject-desc">Detailed Syllabus for SI Exam</div>
+        <div class="subject-meta"><span class="subject-tag">Prelims + Mains</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(168,85,247,0.1);color:#a855f7">🧮</div>
+        <div class="subject-title">Arithmetic</div>
+        <div class="subject-desc">Advanced Math Practice</div>
+        <div class="subject-meta"><span class="subject-tag">Prelims & Mains</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(59,130,246,0.1);color:#3b82f6">🧩</div>
+        <div class="subject-title">Reasoning</div>
+        <div class="subject-desc">Verbal ও Non-Verbal</div>
+        <div class="subject-meta"><span class="subject-tag">Prelims & Mains</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(16,185,129,0.1);color:#10b981">✍️</div>
+        <div class="subject-title">English Composition</div>
+        <div class="subject-desc">Letter ও Essay Writing</div>
+        <div class="subject-meta"><span class="subject-tag green">Mains Only</span></div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon-wrap" style="background:rgba(245,158,11,0.1);color:#f59e0b">✍️</div>
+        <div class="subject-title">Bengali Composition</div>
+        <div class="subject-desc">Letter ও Essay Writing</div>
+        <div class="subject-meta"><span class="subject-tag green">Mains Only</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">বৈশিষ্ট্যসমূহ</div>
+      <h2>কেন Test Bazar বেছে নেবেন?</h2>
+      <p class="section-sub">আধুনিক প্রযুক্তি ও অভিজ্ঞ শিক্ষকদের দ্বারা তৈরি সেরা প্ল্যাটফর্ম</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <div class="feature-title">Chapter-wise MCQ Test</div>
+        <div class="feature-desc">প্রতিটি chapter আলাদাভাবে অনুশীলন করুন। ধাপে ধাপে সম্পূর্ণ সিলেবাস কভার করুন।</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-title">Full Mock Tests</div>
+        <div class="feature-desc">আসল পরীক্ষার প্যাটার্ন অনুসারে Full Length Mock Test দিন। নিজেকে যাচাই করুন।</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Detailed Analysis</div>
+        <div class="feature-desc">প্রতিটি test এর পর বিস্তারিত performance analysis পান। দুর্বল জায়গা চিহ্নিত করুন।</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🇮🇳</div>
+        <div class="feature-title">সম্পূর্ণ বাংলায়</div>
+        <div class="feature-desc">সব প্রশ্ন, explanation ও solution সম্পূর্ণ বাংলায়। বুঝে শেখা সহজ হয়।</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <div class="feature-title">Mobile Friendly</div>
+        <div class="feature-desc">যেকোনো device থেকে যেকোনো সময় test দিন। Mobile, tablet বা computer — সব জায়গায়।</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <div class="feature-title">24/7 Support</div>
+        <div class="feature-desc">WhatsApp এ সরাসরি সাপোর্ট পান। যেকোনো সমস্যায় আমরা আপনার পাশে আছি।</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">মূল্য পরিকল্পনা</div>
+      <h2>সবার জন্য সাশ্রয়ী মূল্য</h2>
+      <p class="section-sub">UPI, GPay, PhonePe, Paytm — যেকোনো মাধ্যমে payment করুন</p>
+    </div>
+    <div class="pricing-grid">
+      <!-- Class 10 -->
+      <div class="price-card">
+        <div class="price-plan">Class 10</div>
+        <div class="price-amount"><span class="currency">₹</span>১৯৯<span class="period">/বছর</span></div>
+        <div class="price-desc">মাধ্যমিক পরীক্ষার্থীদের জন্য সম্পূর্ণ প্যাকেজ</div>
+        <ul class="price-features">
+          <li><span class="check-icon">✓</span>সব বিষয়ের test</li>
+          <li><span class="check-icon">✓</span>Chapter-wise MCQ</li>
+          <li><span class="check-icon">✓</span>Full Mock Tests</li>
+          <li><span class="check-icon">✓</span>Result Analysis</li>
+          <li><span class="check-icon">✓</span>সারা বছর access</li>
+          <li><span class="check-icon">✓</span>24/7 Support</li>
+        </ul>
+        <button class="price-btn outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">যোগাযোগ করুন</button>
+      </div>
+
+      <!-- HS (11/12) -->
+      <div class="price-card">
+        <div class="price-plan">HS (Class 11 & 12)</div>
+        <div class="price-amount"><span class="currency">₹</span>৯৯<span class="period">/বছর</span></div>
+        <div class="price-desc">HS Sem 1 ও Sem 3 Arts stream এর জন্য</div>
+        <ul class="price-features">
+          <li><span class="check-icon">✓</span>Class 11 Sem 1</li>
+          <li><span class="check-icon">✓</span>Class 12 Sem 3</li>
+          <li><span class="check-icon">✓</span>Arts Stream Subjects</li>
+          <li><span class="check-icon">✓</span>Mock Tests</li>
+          <li><span class="check-icon">✓</span>Result Analysis</li>
+          <li><span class="check-icon">✓</span>সারা বছর access</li>
+        </ul>
+        <button class="price-btn outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">যোগাযোগ করুন</button>
+      </div>
+
+      <!-- Competitive -->
+      <div class="price-card">
+        <div class="price-plan">Competitive Exams</div>
+        <div class="price-amount"><span class="currency">₹</span>১৯৯<span class="period">/কোর্স</span></div>
+        <div class="price-desc">WB Police Constable, SI ও অন্যান্য পরীক্ষা</div>
+        <ul class="price-features">
+          <li><span class="check-icon">✓</span>WB Constable Course</li>
+          <li><span class="check-icon">✓</span>WB Police SI Course</li>
+          <li><span class="check-icon">✓</span>GS, Math, Reasoning</li>
+          <li><span class="check-icon">✓</span>English & Bengali</li>
+          <li><span class="check-icon">✓</span>Previous Year Qs</li>
+          <li><span class="check-icon">✓</span>Mock Tests</li>
+        </ul>
+        <button class="price-btn outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">যোগাযোগ করুন</button>
+      </div>
+
+      <!-- Combined (Popular) -->
+      <div class="price-card popular">
+        <div class="popular-tag">⭐ সেরা অফার</div>
+        <div class="price-plan">Combined <span class="save-badge">SAVE 60%</span></div>
+        <div class="price-amount"><span class="currency">₹</span>২৯৯<span class="period">/সব কিছু</span></div>
+        <div class="price-desc">Class 10 + HS + Competitive — সব একসাথে!</div>
+        <ul class="price-features">
+          <li><span class="check-icon">✓</span>Class 10 সব বিষয়</li>
+          <li><span class="check-icon">✓</span>Class 11 & 12 (HS)</li>
+          <li><span class="check-icon">✓</span>WB Constable Full</li>
+          <li><span class="check-icon">✓</span>WB Police SI Full</li>
+          <li><span class="check-icon">✓</span>Unlimited Mock Tests</li>
+          <li><span class="check-icon">✓</span>Priority Support</li>
+          <li><span class="check-icon">✓</span>সারা বছর access</li>
+        </ul>
+        <button class="price-btn primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">এখনই নিন →</button>
+      </div>
+    </div>
+    <p style="text-align:center;font-family:'Tiro Bangla',serif;font-size:0.9rem;color:var(--gray-500);margin-top:2.5rem">
+      💳 Secure Payment via UPI · GPay · PhonePe · Paytm
+    </p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">কীভাবে শুরু করবেন</div>
+      <h2>মাত্র ৪টি সহজ ধাপ</h2>
+      <p class="section-sub">যোগাযোগ করুন, payment করুন, এবং test শুরু করুন</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">১</div>
+        <div class="step-title">যোগাযোগ করুন</div>
+        <div class="step-desc">WhatsApp বা SMS এ আমাদের সাথে যোগাযোগ করুন</div>
+      </div>
+      <div class="step">
+        <div class="step-num">২</div>
+        <div class="step-title">Plan বেছে নিন</div>
+        <div class="step-desc">আপনার প্রয়োজন অনুযায়ী plan নির্বাচন করুন</div>
+      </div>
+      <div class="step">
+        <div class="step-num">৩</div>
+        <div class="step-title">Payment করুন</div>
+        <div class="step-desc">UPI তে secure payment করুন</div>
+      </div>
+      <div class="step">
+        <div class="step-num">৪</div>
+        <div class="step-title">Test দিন</div>
+        <div class="step-desc">Login credentials পেয়ে test শুরু করুন</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div class="section-tag" style="background:rgba(255,255,255,0.1);color:white">যোগাযোগ</div>
+    <h2>আজই শুরু করুন আপনার প্রস্তুতি</h2>
+    <p class="cta-sub">WhatsApp বা SMS এ আমাদের সাথে যোগাযোগ করুন। আমরা আপনাকে Username ও Password পাঠাবো, যার মাধ্যমে আপনি test দিতে পারবেন।</p>
+    
+    <div class="contact-cards">
+      <a href="https://wa.me/918710032880?text=Hello%20Test%20Bazar,%20I%20want%20to%20know%20more%20about%20your%20courses" class="contact-card" target="_blank">
+        <div class="contact-icon" style="background:linear-gradient(135deg,#25d366 0%,#128c7e 100%)">💬</div>
+        <div class="contact-title">WhatsApp এ মেসেজ করুন</div>
+        <div class="contact-value">+91 87100 32880</div>
+        <div class="contact-hint">দ্রুত response পাবেন</div>
+      </a>
+      <a href="sms:+918710032880" class="contact-card">
+        <div class="contact-icon" style="background:linear-gradient(135deg,#06b6d4 0%,#0891b2 100%)">📱</div>
+        <div class="contact-title">SMS করুন</div>
+        <div class="contact-value">+91 87100 32880</div>
+        <div class="contact-hint">যেকোনো সময় মেসেজ পাঠান</div>
+      </a>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:1.5rem 2rem;display:inline-block;margin-top:1rem">
+      <div style="font-family:'Tiro Bangla',serif;font-size:0.9rem;color:rgba(255,255,255,0.6);margin-bottom:0.5rem">Payment UPI ID</div>
+      <div style="color:white;font-size:1.2rem;font-weight:700;letter-spacing:0.5px">ajsuajsu71@oksbi</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">প্রশ্নোত্তর</div>
+      <h2>সচরাচর জিজ্ঞাসা</h2>
+      <p class="section-sub">আপনার প্রশ্নের উত্তর এখানে পাবেন</p>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>কীভাবে test এর access পাবো?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">
+          <p>WhatsApp বা SMS এ আমাদের সাথে যোগাযোগ করুন। Payment verify হলে আমরা আপনাকে Username ও Password পাঠাবো, যার মাধ্যমে আপনি test দিতে পারবেন।</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Payment কীভাবে করবো?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">
+          <p>UPI ID (ajsuajsu71@oksbi) তে GPay, PhonePe, Paytm বা যেকোনো UPI app থেকে payment করতে পারবেন। Payment এর পর screenshot WhatsApp এ পাঠান।</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Combined Plan এ কী কী পাবো?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">
+          <p>Combined Plan এ Class 10, Class 11-12 (HS), WB Police Constable এবং WB Police SI — সবকিছুর access পাবেন মাত্র ₹২৯৯ তে। এটি সবচেয়ে সাশ্রয়ী option।</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>একটি account কতদিন ব্যবহার করতে পারবো?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">
+          <p>বার্ষিক plan গুলো ১ বছরের জন্য valid। এর মধ্যে আপনি যতবার খুশি test দিতে পারবেন।</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Mobile এ test দিতে পারবো?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">
+          <p>হ্যাঁ, আমাদের প্ল্যাটফর্ম সম্পূর্ণ mobile responsive। Mobile, tablet বা computer — যেকোনো device থেকে test দিতে পারবেন।</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>কোনো সমস্যা হলে কাকে জানাবো?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">
+          <p>WhatsApp এ +91 8710032880 নম্বরে যোগাযোগ করুন। আমরা ২৪ ঘণ্টার মধ্যে সমাধান দেওয়ার চেষ্টা করি।</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">T</div>
+          <span>Test<span style="color:var(--accent)">Bazar</span></span>
+        </div>
+        <p>India's trusted online test platform for Class 10, 11, 12 and competitive exams like WB Police Constable & SI.</p>
+      </div>
+      <div class="footer-col">
+        <h4>পরীক্ষাসমূহ</h4>
+        <a href="#exams">Class 10</a>
+        <a href="#exams">Class 11 (HS)</a>
+        <a href="#exams">Class 12 (HS)</a>
+        <a href="#exams">WB Constable</a>
+        <a href="#exams">WB Police SI</a>
+      </div>
+      <div class="footer-col">
+        <h4>কোম্পানি</h4>
+        <a href="#features">বৈশিষ্ট্য</a>
+        <a href="#pricing">মূল্য</a>
+        <a href="#faq">প্রশ্নোত্তর</a>
+        <a href="#contact">যোগাযোগ</a>
+      </div>
+      <div class="footer-col">
+        <h4>যোগাযোগ</h4>
+        <a href="https://wa.me/918710032880" target="_blank">WhatsApp</a>
+        <a href="sms:+918710032880">SMS: +91 87100 32880</a>
+        <a href="#">UPI: ajsuajsu71@oksbi</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Test Bazar. All rights reserved. Made with ❤️ in India</p>
+      <div class="payment-badges">
+        <span class="payment-badge">UPI</span>
+        <span class="payment-badge">GPay</span>
+        <span class="payment-badge">PhonePe</span>
+        <span class="payment-badge">Paytm</span>
+        <span class="payment-badge">🔒 SSL Secure</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/918710032880?text=Hello%20Test%20Bazar" class="whatsapp-float" target="_blank" title="WhatsApp এ যোগাযোগ করুন">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <script>
-const BOT_TOKEN = '8985545033:AAEermxWkGUXFG4EsXmjXqdsRnDhmTiCSJo';
-const CHAT_ID = '8506538601';
+// Navbar scroll effect
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);
+});
 
-function showPage(p) {
-  document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
-  document.getElementById('page-' + p).classList.add('active');
-  window.scrollTo(0, 0);
-}
-
-function showClass(el, id) {
-  document.querySelectorAll('.class-card').forEach(c => c.classList.remove('active'));
-  document.querySelectorAll('.subjects-show').forEach(s => s.classList.remove('active'));
+// Exam tab switch
+function switchExam(el,id){
+  document.querySelectorAll('.exam-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.subjects-grid').forEach(g=>g.style.display='none');
   el.classList.add('active');
-  document.getElementById(id).classList.add('active');
+  document.getElementById(id).style.display='grid';
 }
 
-function switchTab(el, tabId) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.subject-grid').forEach(g => g.style.display = 'none');
-  el.classList.add('active');
-  document.getElementById(tabId).style.display = 'grid';
+// FAQ toggle
+function toggleFaq(el){
+  const item=el.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
 }
 
-function updateGroups() {
-  const cls = document.getElementById('regClass').value;
-  const groupDiv = document.getElementById('groupDiv');
-  const group = document.getElementById('regGroup');
-  group.innerHTML = '<option value="">বেছে নিন</option>';
-  if (cls === '10') {
-    groupDiv.style.display = 'none';
-  } else {
-    groupDiv.style.display = 'block';
-    ['Arts (কলা বিভাগ)', 'Science (শীঘ্রই আসছে)'].forEach(o => {
-      const opt = document.createElement('option');
-      opt.value = o; opt.textContent = o;
-      group.appendChild(opt);
-    });
-  }
-}
-
-function updateAmount() {
-  const plan = document.getElementById('regPlan').value;
-  const amountShow = document.getElementById('amountShow');
-  const upiBtn = document.getElementById('upiBtn');
-  if (plan) {
-    const amount = plan.split('|')[1];
-    amountShow.textContent = '₹' + amount + ' পাঠান';
-    amountShow.style.display = 'block';
-    upiBtn.href = 'upi://pay?pa=ajsuajsu71@oksbi&pn=Test%20Bazar&am=' + amount + '&cu=INR';
-    upiBtn.style.display = 'block';
-  } else {
-    amountShow.style.display = 'none';
-    upiBtn.style.display = 'none';
-  }
-}
-
-function toggleProof() {
-  const val = document.getElementById('proofType').value;
-  document.getElementById('txnBox').style.display = (val === 'txn' || val === 'both') ? 'block' : 'none';
-  document.getElementById('screenshotBox').style.display = (val === 'screenshot' || val === 'both') ? 'block' : 'none';
-}
-
-async function submitReg() {
-  const name = document.getElementById('regName').value.trim();
-  const email = document.getElementById('regEmail').value.trim();
-  const mobile = document.getElementById('regMobile').value.trim();
-  const cls = document.getElementById('regClass').value;
-  const plan = document.getElementById('regPlan').value;
-  const proof = document.getElementById('proofType').value;
-  const txnId = document.getElementById('txnId').value.trim();
-
-  if (!name || !email || !mobile || !cls || !plan || !proof) {
-    document.getElementById('errorMsg').classList.add('show');
-    return;
-  }
-  document.getElementById('errorMsg').classList.remove('show');
-
-  const btn = document.getElementById('submitBtn');
-  const sending = document.getElementById('sendingMsg');
-  btn.disabled = true;
-  btn.textContent = '⏳ পাঠানো হচ্ছে...';
-  sending.style.display = 'block';
-
-  const planLabel = plan.includes('monthly') ? 'মাসিক — ₹৯৯' : 'বার্ষিক — ₹৯৯৯';
-  const clsLabel = cls === '10' ? 'Class 10' : cls === '11' ? 'Class 11 (Sem 1)' : 'Class 12 (Sem 3)';
-
-  const message = `🔔 নতুন Registration!
-
-👤 নাম: ${name}
-📧 Email: ${email}
-📱 Mobile: ${mobile}
-📚 Class: ${clsLabel}
-💳 Plan: ${planLabel}
-📋 Payment Proof: ${proof}
-🔖 Transaction ID: ${txnId || 'দেয়নি'}
-
-✅ UPI verify করুন: ajsuajsu71@oksbi
-💬 WhatsApp এ User ID ও Password পাঠান!`;
-
-  try {
-    await fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: CHAT_ID, text: message })
-    });
-  } catch(e) {}
-
-  document.getElementById('regForm').style.display = 'none';
-  document.getElementById('successMsg').classList.add('show');
-
-  document.getElementById('confirmInfo').innerHTML =
-    '<div class="confirm-row">👤 নাম: <strong>' + name + '</strong></div>' +
-    '<div class="confirm-row">📧 User ID: <strong>' + email + '</strong></div>' +
-    '<div class="confirm-row">🔑 Password: <strong>' + mobile + '</strong></div>' +
-    '<div class="confirm-row">📚 Class: <strong>' + clsLabel + '</strong></div>' +
-    '<div class="confirm-row">💳 Plan: <strong>' + planLabel + '</strong></div>';
-}
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const target=document.querySelector(a.getAttribute('href'));
+    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'});}
+  });
+});
 </script>
 </body>
 </html>
