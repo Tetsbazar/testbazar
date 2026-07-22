@@ -7,28 +7,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root{
-  --green:#1a7a4a;
-  --green-light:#2aad68;
-  --green-pale:#e8f7ef;
-  --green-dark:#0f5c38;
-  --saffron:#e8730a;
-  --saffron-light:#f59e0b;
-  --saffron-pale:#faeeda;
-  --dark:#0f1a14;
-  --dark-2:#1c2e24;
-  --text:#1c2e24;
-  --muted:#5a7a66;
-  --border:#c5dccb;
-  --white:#f8fdf9;
-  --gray-50:#f0faf4;
-  --gradient:linear-gradient(135deg,#1a7a4a 0%,#2aad68 100%);
-  --gradient-2:linear-gradient(135deg,#0f5c38 0%,#1a7a4a 100%);
-  --shadow-sm:0 1px 2px 0 rgba(15,26,20,0.05);
-  --shadow:0 4px 6px -1px rgba(15,26,20,0.1),0 2px 4px -1px rgba(15,26,20,0.06);
-  --shadow-md:0 10px 15px -3px rgba(15,26,20,0.1),0 4px 6px -2px rgba(15,26,20,0.05);
-  --shadow-lg:0 20px 25px -5px rgba(15,26,20,0.1),0 10px 10px -5px rgba(15,26,20,0.04);
-  --shadow-xl:0 25px 50px -12px rgba(15,26,20,0.25);
+--green:#1a7a4a;
+--green-light:#2aad68;
+--green-pale:#e8f7ef;
+--green-dark:#0f5c38;
+--saffron:#e8730a;
+--saffron-light:#f59e0b;
+--saffron-pale:#faeeda;
+--dark:#0f1a14;
+--dark-2:#1c2e24;
+--text:#1c2e24;
+--muted:#5a7a66;
+--border:#c5dccb;
+--white:#f8fdf9;
+--gray-50:#f0faf4;
+--gradient:linear-gradient(135deg,#1a7a4a 0%,#2aad68 100%);
+--gradient-2:linear-gradient(135deg,#0f5c38 0%,#1a7a4a 100%);
+--shadow-sm:0 1px 2px 0 rgba(15,26,20,0.05);
+--shadow:0 4px 6px -1px rgba(15,26,20,0.1),0 2px 4px -1px rgba(15,26,20,0.06);
+--shadow-md:0 10px 15px -3px rgba(15,26,20,0.1),0 4px 6px -2px rgba(15,26,20,0.05);
+--shadow-lg:0 20px 25px -5px rgba(15,26,20,0.1),0 10px 10px -5px rgba(15,26,20,0.04);
+--shadow-xl:0 25px 50px -12px rgba(15,26,20,0.25);
 }
+
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;line-height:1.6}
@@ -207,31 +208,31 @@ footer{background:var(--dark);padding:3rem 2rem 1.5rem;border-top:1px solid rgba
 
 /* RESPONSIVE */
 @media(max-width:1024px){
-  .pricing-grid{grid-template-columns:repeat(2,1fr)}
-  .price-card.popular{transform:none}
-  .price-card.popular:hover{transform:translateY(-6px)}
+.pricing-grid{grid-template-columns:repeat(2,1fr)}
+.price-card.popular{transform:none}
+.price-card.popular:hover{transform:translateY(-6px)}
 }
 @media(max-width:968px){
-  .hero-inner{grid-template-columns:1fr;gap:3rem}
-  .stats-inner{grid-template-columns:repeat(2,1fr);gap:2rem}
-  .features-grid{grid-template-columns:1fr}
-  .pricing-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}
-  .steps-grid{grid-template-columns:repeat(2,1fr)}
-  .steps-grid::before{display:none}
-  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
-  .contact-cards{grid-template-columns:1fr}
+.hero-inner{grid-template-columns:1fr;gap:3rem}
+.stats-inner{grid-template-columns:repeat(2,1fr);gap:2rem}
+.features-grid{grid-template-columns:1fr}
+.pricing-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}
+.steps-grid{grid-template-columns:repeat(2,1fr)}
+.steps-grid::before{display:none}
+.footer-top{grid-template-columns:1fr 1fr;gap:2rem}
+.contact-cards{grid-template-columns:1fr}
 }
 @media(max-width:640px){
-  .nav-links{display:none}
-  .mobile-toggle{display:block}
-  .hero{padding:6rem 1.5rem 3rem}
-  section{padding:3.5rem 1.5rem}
-  .floating-badge{display:none}
-  .footer-top{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column;text-align:center}
-  .trust-row{gap:1rem}
-  .exam-tabs{overflow-x:auto;justify-content:flex-start;padding:0.5rem}
-  .exam-tab{white-space:nowrap}
+.nav-links{display:none}
+.mobile-toggle{display:block}
+.hero{padding:6rem 1.5rem 3rem}
+section{padding:3.5rem 1.5rem}
+.floating-badge{display:none}
+.footer-top{grid-template-columns:1fr}
+.footer-bottom{flex-direction:column;text-align:center}
+.trust-row{gap:1rem}
+.exam-tabs{overflow-x:auto;justify-content:flex-start;padding:0.5rem}
+.exam-tab{white-space:nowrap}
 }
 
 /* WHATSAPP FLOAT */
@@ -246,675 +247,676 @@ footer{background:var(--dark);padding:3rem 2rem 1.5rem;border-top:1px solid rgba
 
 <!-- NAVBAR -->
 <nav id="navbar">
-  <div class="nav-inner">
-    <div class="logo">
-      <div class="logo-icon">T</div>
-      <span>Test <span>Bazar</span></span>
-    </div>
-    <div class="nav-links">
-      <a href="#exams">পরীক্ষাসমূহ</a>
-      <a href="#features">বৈশিষ্ট্য</a>
-      <a href="#pricing">মূল্য</a>
-      <a href="#faq">প্রশ্নোত্তর</a>
-      <a href="#contact" class="nav-cta">যোগাযোগ করুন</a>
-    </div>
-    <button class="mobile-toggle" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">☰</button>
-  </div>
+<div class="nav-inner">
+<div class="logo">
+<div class="logo-icon">T</div>
+<span>Test <span>Bazar</span></span>
+</div>
+<div class="nav-links">
+<a href="#exams">পরীক্ষাসমূহ</a>
+<a href="#features">বৈশিষ্ট্য</a>
+<a href="#pricing">মূল্য</a>
+<a href="#faq">প্রশ্নোত্তর</a>
+<a href="#contact" class="nav-cta">যোগাযোগ করুন</a>
+</div>
+<button class="mobile-toggle" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">☰</button>
+</div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
-    <div>
-      <div class="hero-badge">
-        <span class="hero-badge-dot"></span>
-        <span>India's Trusted Test Platform · ১০,০০০+ Students</span>
-      </div>
-      <h1>পরীক্ষার প্রস্তুতি নিন <em>স্মার্ট উপায়ে</em></h1>
-      <p class="hero-sub">Class 10, 11, 12 এবং West Bengal Police (Constable & SI)-সহ সমস্ত প্রতিযোগিতামূলক পরীক্ষার জন্য Chapter-wise MCQ ও Mock Test। সম্পূর্ণ বাংলায়।</p>
-      <div class="hero-btns">
-        <a href="#contact" class="btn btn-primary">অ্যাক্সেস নিন →</a>
-        <a href="#exams" class="btn btn-outline">পরীক্ষা দেখুন</a>
-      </div>
-      <div class="trust-row">
-        <div class="trust-item">
-          <svg class="trust-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
-          <span>SSL Secured</span>
-        </div>
-        <div class="trust-item">
-          <svg class="trust-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
-          <span>UPI Payment</span>
-        </div>
-        <div class="trust-item">
-          <svg class="trust-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
-          <span>24/7 Support</span>
-        </div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-card">
-        <div class="hero-card-header">
-          <div class="hero-card-title">আমাদের পরীক্ষাসমূহ</div>
-          <div class="live-dot">LIVE</div>
-        </div>
-        <div class="exam-grid">
-          <a href="https://tetsbazar.github.io/Class-10th-/" target="_blank" class="exam-item active">
-            <div class="exam-icon">📚</div>
-            <div class="exam-name">Class 10</div>
-            <div class="exam-count">Demo Test দেখুন →</div>
-          </a>
-          <a href="https://tetsbazar.github.io/Class-11th/" target="_blank" class="exam-item">
-            <div class="exam-icon">🎓</div>
-            <div class="exam-name">Class 11</div>
-            <div class="exam-count">Demo Test দেখুন →</div>
-          </a>
-          <a href="https://tetsbazar.github.io/Class-12th-/" target="_blank" class="exam-item">
-            <div class="exam-icon">🚀</div>
-            <div class="exam-name">Class 12 (Arts)</div>
-            <div class="exam-count">Demo Test দেখুন →</div>
-          </a>
-          <a href="https://tetsbazar.github.io/Class-12th-3rd-Sem-Scinence/" target="_blank" class="exam-item">
-            <div class="exam-icon">🔬</div>
-            <div class="exam-name">Class 12 (Science)</div>
-            <div class="exam-count">Demo Test দেখুন →</div>
-          </a>
-        </div>
-      </div>
-      <div class="floating-badge floating-badge-1">
-        <div class="floating-icon" style="background:var(--green-pale);color:var(--green)">✓</div>
-        <div>
-          <div style="font-size:0.75rem;color:var(--muted)">Active Users</div>
-          <div style="font-weight:700;color:var(--dark)">১০,০০০+</div>
-        </div>
-      </div>
-      <div class="floating-badge floating-badge-2">
-        <div class="floating-icon" style="background:var(--saffron-pale);color:var(--saffron)">★</div>
-        <div>
-          <div style="font-size:0.75rem;color:var(--muted)">Rating</div>
-          <div style="font-weight:700;color:var(--dark)">4.9/5</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="hero-inner">
+<div>
+<div class="hero-badge">
+<span class="hero-badge-dot"></span>
+<span>India's Trusted Test Platform · ১০,০০০+ Students</span>
+</div>
+<h1>পরীক্ষার প্রস্তুতি নিন <em>স্মার্ট উপায়ে</em></h1>
+<p class="hero-sub">Class 10, 11, 12 এবং West Bengal Police (Constable & SI)-সহ সমস্ত প্রতিযোগিতামূলক পরীক্ষার জন্য Chapter-wise MCQ ও Mock Test। সম্পূর্ণ বাংলায়।</p>
+<div class="hero-btns">
+<a href="#contact" class="btn btn-primary">অ্যাক্সেস নিন →</a>
+<a href="#exams" class="btn btn-outline">পরীক্ষা দেখুন</a>
+</div>
+<div class="trust-row">
+<div class="trust-item">
+<svg class="trust-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+<span>SSL Secured</span>
+</div>
+<div class="trust-item">
+<svg class="trust-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+<span>UPI Payment</span>
+</div>
+<div class="trust-item">
+<svg class="trust-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+<span>24/7 Support</span>
+</div>
+</div>
+</div>
+<div class="hero-visual">
+<div class="hero-card">
+<div class="hero-card-header">
+<div class="hero-card-title">আমাদের পরীক্ষাসমূহ</div>
+<div class="live-dot">LIVE</div>
+</div>
+<div class="exam-grid">
+<a href="https://tetsbazar.github.io/Class-10th-/" target="_blank" class="exam-item active">
+<div class="exam-icon">📚</div>
+<div class="exam-name">Class 10</div>
+<div class="exam-count">Demo Test দেখুন →</div>
+</a>
+<a href="https://tetsbazar.github.io/Class-11th/" target="_blank" class="exam-item">
+<div class="exam-icon">🎓</div>
+<div class="exam-name">Class 11</div>
+<div class="exam-count">Demo Test দেখুন →</div>
+</a>
+<a href="https://tetsbazar.github.io/Class-12th-/" target="_blank" class="exam-item">
+<div class="exam-icon">🚀</div>
+<div class="exam-name">Class 12 (Arts)</div>
+<div class="exam-count">Demo Test দেখুন →</div>
+</a>
+<a href="https://tetsbazar.github.io/Class-12th-3rd-Sem-Scinence/" target="_blank" class="exam-item">
+<div class="exam-icon">🔬</div>
+<div class="exam-name">Class 12 (Science)</div>
+<div class="exam-count">Demo Test দেখুন →</div>
+</a>
+<a href="https://tetsbazar.github.io/West-Bengal-Police/" target="_blank" class="exam-item">
+<div class="exam-icon">👮</div>
+<div class="exam-name">WB Police</div>
+<div class="exam-count">Demo Test দেখুন →</div>
+</a>
+</div>
+</div>
+<div class="floating-badge floating-badge-1">
+<div class="floating-icon" style="background:var(--green-pale);color:var(--green)">✓</div>
+<div>
+<div style="font-size:0.75rem;color:var(--muted)">Active Users</div>
+<div style="font-weight:700;color:var(--dark)">১০,০০০+</div>
+</div>
+</div>
+<div class="floating-badge floating-badge-2">
+<div class="floating-icon" style="background:var(--saffron-pale);color:var(--saffron)">★</div>
+<div>
+<div style="font-size:0.75rem;color:var(--muted)">Rating</div>
+<div style="font-weight:700;color:var(--dark)">4.9/5</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 
 <!-- STATS -->
 <section class="stats">
-  <div class="stats-inner">
-    <div class="stat-item">
-      <div class="stat-num">১০K+</div>
-      <div class="stat-label">সক্রিয় শিক্ষার্থী</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">৫০০+</div>
-      <div class="stat-label">Mock Test</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">৫০K+</div>
-      <div class="stat-label">MCQ Questions</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">4.9★</div>
-      <div class="stat-label">User Rating</div>
-    </div>
-  </div>
+<div class="stats-inner">
+<div class="stat-item">
+<div class="stat-num">১০K+</div>
+<div class="stat-label">সক্রিয় শিক্ষার্থী</div>
+</div>
+<div class="stat-item">
+<div class="stat-num">৫০০+</div>
+<div class="stat-label">Mock Test</div>
+</div>
+<div class="stat-item">
+<div class="stat-num">৫০K+</div>
+<div class="stat-label">MCQ Questions</div>
+</div>
+<div class="stat-item">
+<div class="stat-num">4.9★</div>
+<div class="stat-label">User Rating</div>
+</div>
+</div>
 </section>
 
 <!-- EXAMS -->
 <section class="exams-section" id="exams">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="section-tag">পরীক্ষাসমূহ</div>
-      <h2>আপনার লক্ষ্য অনুযায়ী প্রস্তুতি নিন</h2>
-      <p class="section-sub">প্রতিটি পরীক্ষার জন্য আলাদাভাবে সাজানো Chapter-wise Test ও Mock Test</p>
-    </div>
+<div class="section-inner">
+<div class="section-header">
+<div class="section-tag">পরীক্ষাসমূহ</div>
+<h2>আপনার লক্ষ্য অনুযায়ী প্রস্তুতি নিন</h2>
+<p class="section-sub">প্রতিটি পরীক্ষার জন্য আলাদাভাবে সাজানো Chapter-wise Test ও Mock Test</p>
+</div>
+<div class="exam-tabs">
+<button class="exam-tab active" onclick="switchExam(this,'exam10')">Class 10</button>
+<button class="exam-tab" onclick="switchExam(this,'exam11')">Class 11 (HS)</button>
+<button class="exam-tab" onclick="switchExam(this,'exam12')">Class 12 (HS)</button>
+<button class="exam-tab" onclick="switchExam(this,'examPC')">WB Constable</button>
+<button class="exam-tab" onclick="switchExam(this,'examSI')">WB Police SI</button>
+</div>
 
-    <div class="exam-tabs">
-      <button class="exam-tab active" onclick="switchExam(this,'exam10')">Class 10</button>
-      <button class="exam-tab" onclick="switchExam(this,'exam11')">Class 11 (HS)</button>
-      <button class="exam-tab" onclick="switchExam(this,'exam12')">Class 12 (HS)</button>
-      <button class="exam-tab" onclick="switchExam(this,'examPC')">WB Constable</button>
-      <button class="exam-tab" onclick="switchExam(this,'examSI')">WB Police SI</button>
-    </div>
+<!-- Class 10 -->
+<div id="exam10" class="subjects-grid">
+<a href="https://tetsbazar.github.io/Class-10th-/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">📖</div>
+<div class="subject-title">বাংলা</div>
+<div class="subject-desc">সব chapter এর MCQ ও Mock Test</div>
+<div class="subject-meta"><span class="subject-tag">Chapter-wise</span><span class="subject-tag green">Mock Test</span></div>
+</a>
+<a href="https://tetsbazar.github.io/Class-10th-/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">🔤</div>
+<div class="subject-title">ইংরেজি</div>
+<div class="subject-desc">Grammar ও Literature সম্পূর্ণ</div>
+<div class="subject-meta"><span class="subject-tag">All Chapters</span></div>
+</a>
+<a href="https://tetsbazar.github.io/Class-10th-/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">📐</div>
+<div class="subject-title">গণিত</div>
+<div class="subject-desc">Chapter-wise সমস্ত অঙ্ক</div>
+<div class="subject-meta"><span class="subject-tag">Chapter-wise</span><span class="subject-tag green">Mock</span></div>
+</a>
+<a href="https://tetsbazar.github.io/Class-10th-/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">🌿</div>
+<div class="subject-title">জীবন বিজ্ঞান</div>
+<div class="subject-desc">সমস্ত chapter cover</div>
+<div class="subject-meta"><span class="subject-tag">Full Syllabus</span></div>
+</a>
+<a href="https://tetsbazar.github.io/Class-10th-/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">⚡</div>
+<div class="subject-title">ভৌত বিজ্ঞান</div>
+<div class="subject-desc">Physics এর সব topic</div>
+<div class="subject-meta"><span class="subject-tag">Chapter-wise</span></div>
+</a>
+<a href="https://tetsbazar.github.io/Class-10th-/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">🌍</div>
+<div class="subject-title">ভূগোল</div>
+<div class="subject-desc">Geography সম্পূর্ণ</div>
+<div class="subject-meta"><span class="subject-tag">Full Syllabus</span></div>
+</a>
+<a href="https://tetsbazar.github.io/Class-10th-/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">📜</div>
+<div class="subject-title">ইতিহাস</div>
+<div class="subject-desc">History এর সব অধ্যায়</div>
+<div class="subject-meta"><span class="subject-tag">Chapter-wise</span></div>
+</a>
+</div>
 
-    <!-- Class 10 -->
-    <div id="exam10" class="subjects-grid">
-      <a href="https://tetsbazar.github.io/Class-10th-/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">📖</div>
-        <div class="subject-title">বাংলা</div>
-        <div class="subject-desc">সব chapter এর MCQ ও Mock Test</div>
-        <div class="subject-meta"><span class="subject-tag">Chapter-wise</span><span class="subject-tag green">Mock Test</span></div>
-      </a>
-      <a href="https://tetsbazar.github.io/Class-10th-/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">🔤</div>
-        <div class="subject-title">ইংরেজি</div>
-        <div class="subject-desc">Grammar ও Literature সম্পূর্ণ</div>
-        <div class="subject-meta"><span class="subject-tag">All Chapters</span></div>
-      </a>
-      <a href="https://tetsbazar.github.io/Class-10th-/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">📐</div>
-        <div class="subject-title">গণিত</div>
-        <div class="subject-desc">Chapter-wise সমস্ত অঙ্ক</div>
-        <div class="subject-meta"><span class="subject-tag">Chapter-wise</span><span class="subject-tag green">Mock</span></div>
-      </a>
-      <a href="https://tetsbazar.github.io/Class-10th-/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">🌿</div>
-        <div class="subject-title">জীবন বিজ্ঞান</div>
-        <div class="subject-desc">সমস্ত chapter cover</div>
-        <div class="subject-meta"><span class="subject-tag">Full Syllabus</span></div>
-      </a>
-      <a href="https://tetsbazar.github.io/Class-10th-/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">⚡</div>
-        <div class="subject-title">ভৌত বিজ্ঞান</div>
-        <div class="subject-desc">Physics এর সব topic</div>
-        <div class="subject-meta"><span class="subject-tag">Chapter-wise</span></div>
-      </a>
-      <a href="https://tetsbazar.github.io/Class-10th-/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">🌍</div>
-        <div class="subject-title">ভূগোল</div>
-        <div class="subject-desc">Geography সম্পূর্ণ</div>
-        <div class="subject-meta"><span class="subject-tag">Full Syllabus</span></div>
-      </a>
-      <a href="https://tetsbazar.github.io/Class-10th-/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">📜</div>
-        <div class="subject-title">ইতিহাস</div>
-        <div class="subject-desc">History এর সব অধ্যায়</div>
-        <div class="subject-meta"><span class="subject-tag">Chapter-wise</span></div>
-      </a>
-    </div>
+<!-- Class 11 -->
+<div id="exam11" class="subjects-grid" style="display:none">
+<a href="https://tetsbazar.github.io/Class-11th/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">📖</div>
+<div class="subject-title">বাংলা (Sem 1)</div>
+<div class="subject-desc">HS Sem 1 এর সম্পূর্ণ সিলেবাস</div>
+<div class="subject-meta"><span class="subject-tag">Arts</span><span class="subject-tag green">Sem 1</span></div>
+</a>
+<a href="https://tetsbazar.github.io/Class-11th/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">📜</div>
+<div class="subject-title">ইতিহাস</div>
+<div class="subject-desc">History Sem 1</div>
+<div class="subject-meta"><span class="subject-tag">Arts</span></div>
+</a>
+<a href="https://tetsbazar.github.io/Class-11th/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">🏛️</div>
+<div class="subject-title">রাষ্ট্রবিজ্ঞান</div>
+<div class="subject-desc">Political Science Sem 1</div>
+<div class="subject-meta"><span class="subject-tag">Arts</span></div>
+</a>
+<a href="https://tetsbazar.github.io/Class-11th/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">🌍</div>
+<div class="subject-title">ভূগোল</div>
+<div class="subject-desc">Geography Sem 1</div>
+<div class="subject-meta"><span class="subject-tag">Arts</span></div>
+</a>
+<a href="https://tetsbazar.github.io/Class-11th/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">🧠</div>
+<div class="subject-title">দর্শন</div>
+<div class="subject-desc">Philosophy Sem 1</div>
+<div class="subject-meta"><span class="subject-tag">Arts</span></div>
+</a>
+</div>
 
-    <!-- Class 11 -->
-    <div id="exam11" class="subjects-grid" style="display:none">
-      <a href="https://tetsbazar.github.io/Class-11th/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">📖</div>
-        <div class="subject-title">বাংলা (Sem 1)</div>
-        <div class="subject-desc">HS Sem 1 এর সম্পূর্ণ সিলেবাস</div>
-        <div class="subject-meta"><span class="subject-tag">Arts</span><span class="subject-tag green">Sem 1</span></div>
-      </a>
-      <a href="https://tetsbazar.github.io/Class-11th/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">📜</div>
-        <div class="subject-title">ইতিহাস</div>
-        <div class="subject-desc">History Sem 1</div>
-        <div class="subject-meta"><span class="subject-tag">Arts</span></div>
-      </a>
-      <a href="https://tetsbazar.github.io/Class-11th/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">🏛️</div>
-        <div class="subject-title">রাষ্ট্রবিজ্ঞান</div>
-        <div class="subject-desc">Political Science Sem 1</div>
-        <div class="subject-meta"><span class="subject-tag">Arts</span></div>
-      </a>
-      <a href="https://tetsbazar.github.io/Class-11th/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">🌍</div>
-        <div class="subject-title">ভূগোল</div>
-        <div class="subject-desc">Geography Sem 1</div>
-        <div class="subject-meta"><span class="subject-tag">Arts</span></div>
-      </a>
-      <a href="https://tetsbazar.github.io/Class-11th/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">🧠</div>
-        <div class="subject-title">দর্শন</div>
-        <div class="subject-desc">Philosophy Sem 1</div>
-        <div class="subject-meta"><span class="subject-tag">Arts</span></div>
-      </a>
-    </div>
+<!-- Class 12 (Arts + Science) -->
+<div id="exam12" class="subjects-grid" style="display:none">
+<!-- ARTS Stream -->
+<div style="grid-column:1/-1;text-align:center;padding:0.5rem 0 0.2rem;font-weight:700;color:var(--green);font-family:'Tiro Bangla',serif;font-size:1.1rem;border-bottom:2px dashed var(--border)">🎨 Arts Stream (Sem 3)</div>
+<a href="https://tetsbazar.github.io/Class-12th-/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">📖</div>
+<div class="subject-title">বাংলা (Sem 3)</div>
+<div class="subject-desc">HS Sem 3 এর সম্পূর্ণ সিলেবাস</div>
+<div class="subject-meta"><span class="subject-tag">Arts</span><span class="subject-tag green">Sem 3</span></div>
+</a>
+<a href="https://tetsbazar.github.io/Class-12th-/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">📜</div>
+<div class="subject-title">ইতিহাস</div>
+<div class="subject-desc">History Sem 3</div>
+<div class="subject-meta"><span class="subject-tag">Arts</span></div>
+</a>
+<a href="https://tetsbazar.github.io/Class-12th-/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">🏛️</div>
+<div class="subject-title">রাষ্ট্রবিজ্ঞান</div>
+<div class="subject-desc">Political Science Sem 3</div>
+<div class="subject-meta"><span class="subject-tag">Arts</span></div>
+</a>
+<a href="https://tetsbazar.github.io/Class-12th-/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">🌍</div>
+<div class="subject-title">ভূগোল</div>
+<div class="subject-desc">Geography Sem 3</div>
+<div class="subject-meta"><span class="subject-tag">Arts</span></div>
+</a>
+<a href="https://tetsbazar.github.io/Class-12th-/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">🧠</div>
+<div class="subject-title">দর্শন</div>
+<div class="subject-desc">Philosophy Sem 3</div>
+<div class="subject-meta"><span class="subject-tag">Arts</span></div>
+</a>
 
-    <!-- Class 12 (Arts + Science) -->
-    <div id="exam12" class="subjects-grid" style="display:none">
-      <!-- ARTS Stream -->
-      <div style="grid-column:1/-1;text-align:center;padding:0.5rem 0 0.2rem;font-weight:700;color:var(--green);font-family:'Tiro Bangla',serif;font-size:1.1rem;border-bottom:2px dashed var(--border)">🎨 Arts Stream (Sem 3)</div>
-      <a href="https://tetsbazar.github.io/Class-12th-/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">📖</div>
-        <div class="subject-title">বাংলা (Sem 3)</div>
-        <div class="subject-desc">HS Sem 3 এর সম্পূর্ণ সিলেবাস</div>
-        <div class="subject-meta"><span class="subject-tag">Arts</span><span class="subject-tag green">Sem 3</span></div>
-      </a>
-      <a href="https://tetsbazar.github.io/Class-12th-/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">📜</div>
-        <div class="subject-title">ইতিহাস</div>
-        <div class="subject-desc">History Sem 3</div>
-        <div class="subject-meta"><span class="subject-tag">Arts</span></div>
-      </a>
-      <a href="https://tetsbazar.github.io/Class-12th-/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">🏛️</div>
-        <div class="subject-title">রাষ্ট্রবিজ্ঞান</div>
-        <div class="subject-desc">Political Science Sem 3</div>
-        <div class="subject-meta"><span class="subject-tag">Arts</span></div>
-      </a>
-      <a href="https://tetsbazar.github.io/Class-12th-/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">🌍</div>
-        <div class="subject-title">ভূগোল</div>
-        <div class="subject-desc">Geography Sem 3</div>
-        <div class="subject-meta"><span class="subject-tag">Arts</span></div>
-      </a>
-      <a href="https://tetsbazar.github.io/Class-12th-/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">🧠</div>
-        <div class="subject-title">দর্শন</div>
-        <div class="subject-desc">Philosophy Sem 3</div>
-        <div class="subject-meta"><span class="subject-tag">Arts</span></div>
-      </a>
+<!-- SCIENCE Stream -->
+<div style="grid-column:1/-1;text-align:center;padding:1rem 0 0.2rem;font-weight:700;color:var(--green);font-family:'Tiro Bangla',serif;font-size:1.1rem;border-bottom:2px dashed var(--border);margin-top:0.5rem">🔬 Science Stream (Sem 3)</div>
+<a href="https://tetsbazar.github.io/Class-12th-3rd-Sem-Scinence/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(59,130,246,0.1);color:#3b82f6">🧪</div>
+<div class="subject-title">রসায়ন (Sem 3)</div>
+<div class="subject-desc">Chemistry Sem 3 সম্পূর্ণ সিলেবাস</div>
+<div class="subject-meta"><span class="subject-tag blue">Science</span><span class="subject-tag green">Sem 3</span></div>
+</a>
+<a href="https://tetsbazar.github.io/Class-12th-3rd-Sem-Scinence/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">⚛️</div>
+<div class="subject-title">পদার্থবিদ্যা (Sem 3)</div>
+<div class="subject-desc">Physics Sem 3 সম্পূর্ণ সিলেবাস</div>
+<div class="subject-meta"><span class="subject-tag blue">Science</span><span class="subject-tag green">Sem 3</span></div>
+</a>
+<a href="https://tetsbazar.github.io/Class-12th-3rd-Sem-Scinence/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">🧬</div>
+<div class="subject-title">জীববিজ্ঞান (Sem 3)</div>
+<div class="subject-desc">Biology Sem 3 সম্পূর্ণ সিলেবাস</div>
+<div class="subject-meta"><span class="subject-tag blue">Science</span><span class="subject-tag green">Sem 3</span></div>
+</a>
+<a href="https://tetsbazar.github.io/Class-12th-3rd-Sem-Scinence/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">📐</div>
+<div class="subject-title">গণিত (Sem 3)</div>
+<div class="subject-desc">Mathematics Sem 3 সম্পূর্ণ সিলেবাস</div>
+<div class="subject-meta"><span class="subject-tag blue">Science</span><span class="subject-tag green">Sem 3</span></div>
+</a>
+</div>
 
-      <!-- SCIENCE Stream -->
-      <div style="grid-column:1/-1;text-align:center;padding:1rem 0 0.2rem;font-weight:700;color:var(--green);font-family:'Tiro Bangla',serif;font-size:1.1rem;border-bottom:2px dashed var(--border);margin-top:0.5rem">🔬 Science Stream (Sem 3)</div>
-      <a href="https://tetsbazar.github.io/Class-12th-3rd-Sem-Scinence/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:rgba(59,130,246,0.1);color:#3b82f6">🧪</div>
-        <div class="subject-title">রসায়ন (Sem 3)</div>
-        <div class="subject-desc">Chemistry Sem 3 সম্পূর্ণ সিলেবাস</div>
-        <div class="subject-meta"><span class="subject-tag blue">Science</span><span class="subject-tag green">Sem 3</span></div>
-      </a>
-      <a href="https://tetsbazar.github.io/Class-12th-3rd-Sem-Scinence/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">⚛️</div>
-        <div class="subject-title">পদার্থবিদ্যা (Sem 3)</div>
-        <div class="subject-desc">Physics Sem 3 সম্পূর্ণ সিলেবাস</div>
-        <div class="subject-meta"><span class="subject-tag blue">Science</span><span class="subject-tag green">Sem 3</span></div>
-      </a>
-      <a href="https://tetsbazar.github.io/Class-12th-3rd-Sem-Scinence/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">🧬</div>
-        <div class="subject-title">জীববিজ্ঞান (Sem 3)</div>
-        <div class="subject-desc">Biology Sem 3 সম্পূর্ণ সিলেবাস</div>
-        <div class="subject-meta"><span class="subject-tag blue">Science</span><span class="subject-tag green">Sem 3</span></div>
-      </a>
-      <a href="https://tetsbazar.github.io/Class-12th-3rd-Sem-Scinence/" target="_blank" class="subject-card clickable">
-        <div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">📐</div>
-        <div class="subject-title">গণিত (Sem 3)</div>
-        <div class="subject-desc">Mathematics Sem 3 সম্পূর্ণ সিলেবাস</div>
-        <div class="subject-meta"><span class="subject-tag blue">Science</span><span class="subject-tag green">Sem 3</span></div>
-      </a>
-    </div>
+<!-- WB Constable -->
+<div id="examPC" class="subjects-grid" style="display:none">
+<a href="https://tetsbazar.github.io/West-Bengal-Police/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">🌍</div>
+<div class="subject-title">General Studies</div>
+<div class="subject-desc">History, Geography, Polity, Science</div>
+<div class="subject-meta"><span class="subject-tag">High Weightage</span><span class="subject-tag green">Important</span></div>
+</a>
+<a href="https://tetsbazar.github.io/West-Bengal-Police/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">🧮</div>
+<div class="subject-title">Elementary Mathematics</div>
+<div class="subject-desc">Arithmetic ও Algebra</div>
+<div class="subject-meta"><span class="subject-tag">Basic Level</span></div>
+</a>
+<a href="https://tetsbazar.github.io/West-Bengal-Police/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">🧩</div>
+<div class="subject-title">Reasoning</div>
+<div class="subject-desc">Logical ও Analytical Reasoning</div>
+<div class="subject-meta"><span class="subject-tag">High Weightage</span></div>
+</a>
+<a href="https://tetsbazar.github.io/West-Bengal-Police/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">🔤</div>
+<div class="subject-title">English</div>
+<div class="subject-desc">Grammar ও Vocabulary</div>
+<div class="subject-meta"><span class="subject-tag">Qualifying</span></div>
+</a>
+<a href="https://tetsbazar.github.io/West-Bengal-Police/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">📖</div>
+<div class="subject-title">Bengali</div>
+<div class="subject-desc">Grammar ও Literature</div>
+<div class="subject-meta"><span class="subject-tag">Qualifying</span></div>
+</a>
+</div>
 
-    <!-- WB Constable -->
-    <div id="examPC" class="subjects-grid" style="display:none">
-      <div class="subject-card">
-        <div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">🌍</div>
-        <div class="subject-title">General Studies</div>
-        <div class="subject-desc">History, Geography, Polity, Science</div>
-        <div class="subject-meta"><span class="subject-tag">High Weightage</span><span class="subject-tag green">Important</span></div>
-      </div>
-      <div class="subject-card">
-        <div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">🧮</div>
-        <div class="subject-title">Elementary Mathematics</div>
-        <div class="subject-desc">Arithmetic ও Algebra</div>
-        <div class="subject-meta"><span class="subject-tag">Basic Level</span></div>
-      </div>
-      <div class="subject-card">
-        <div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">🧩</div>
-        <div class="subject-title">Reasoning</div>
-        <div class="subject-desc">Logical ও Analytical Reasoning</div>
-        <div class="subject-meta"><span class="subject-tag">High Weightage</span></div>
-      </div>
-      <div class="subject-card">
-        <div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">🔤</div>
-        <div class="subject-title">English</div>
-        <div class="subject-desc">Grammar ও Vocabulary</div>
-        <div class="subject-meta"><span class="subject-tag">Qualifying</span></div>
-      </div>
-      <div class="subject-card">
-        <div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">📖</div>
-        <div class="subject-title">Bengali</div>
-        <div class="subject-desc">Grammar ও Literature</div>
-        <div class="subject-meta"><span class="subject-tag">Qualifying</span></div>
-      </div>
-    </div>
-
-    <!-- WB Police SI -->
-    <div id="examSI" class="subjects-grid" style="display:none">
-      <div class="subject-card">
-        <div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">🌍</div>
-        <div class="subject-title">General Studies</div>
-        <div class="subject-desc">Detailed Syllabus for SI Exam</div>
-        <div class="subject-meta"><span class="subject-tag">Prelims + Mains</span></div>
-      </div>
-      <div class="subject-card">
-        <div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">🧮</div>
-        <div class="subject-title">Arithmetic</div>
-        <div class="subject-desc">Advanced Math Practice</div>
-        <div class="subject-meta"><span class="subject-tag">Prelims & Mains</span></div>
-      </div>
-      <div class="subject-card">
-        <div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">🧩</div>
-        <div class="subject-title">Reasoning</div>
-        <div class="subject-desc">Verbal ও Non-Verbal</div>
-        <div class="subject-meta"><span class="subject-tag">Prelims & Mains</span></div>
-      </div>
-      <div class="subject-card">
-        <div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">✍️</div>
-        <div class="subject-title">English Composition</div>
-        <div class="subject-desc">Letter ও Essay Writing</div>
-        <div class="subject-meta"><span class="subject-tag green">Mains Only</span></div>
-      </div>
-      <div class="subject-card">
-        <div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">✍️</div>
-        <div class="subject-title">Bengali Composition</div>
-        <div class="subject-desc">Letter ও Essay Writing</div>
-        <div class="subject-meta"><span class="subject-tag green">Mains Only</span></div>
-      </div>
-    </div>
-  </div>
+<!-- WB Police SI -->
+<div id="examSI" class="subjects-grid" style="display:none">
+<a href="https://tetsbazar.github.io/West-Bengal-Police/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">🌍</div>
+<div class="subject-title">General Studies</div>
+<div class="subject-desc">Detailed Syllabus for SI Exam</div>
+<div class="subject-meta"><span class="subject-tag">Prelims + Mains</span></div>
+</a>
+<a href="https://tetsbazar.github.io/West-Bengal-Police/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">🧮</div>
+<div class="subject-title">Arithmetic</div>
+<div class="subject-desc">Advanced Math Practice</div>
+<div class="subject-meta"><span class="subject-tag">Prelims & Mains</span></div>
+</a>
+<a href="https://tetsbazar.github.io/West-Bengal-Police/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">🧩</div>
+<div class="subject-title">Reasoning</div>
+<div class="subject-desc">Verbal ও Non-Verbal</div>
+<div class="subject-meta"><span class="subject-tag">Prelims & Mains</span></div>
+</a>
+<a href="https://tetsbazar.github.io/West-Bengal-Police/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:var(--green-pale);color:var(--green)">✍️</div>
+<div class="subject-title">English Composition</div>
+<div class="subject-desc">Letter ও Essay Writing</div>
+<div class="subject-meta"><span class="subject-tag green">Mains Only</span></div>
+</a>
+<a href="https://tetsbazar.github.io/West-Bengal-Police/" target="_blank" class="subject-card clickable">
+<div class="subject-icon-wrap" style="background:rgba(232,115,10,0.1);color:var(--saffron)">✍️</div>
+<div class="subject-title">Bengali Composition</div>
+<div class="subject-desc">Letter ও Essay Writing</div>
+<div class="subject-meta"><span class="subject-tag green">Mains Only</span></div>
+</a>
+</div>
+</div>
 </section>
 
 <!-- FEATURES -->
 <section id="features" style="background:var(--gray-50)">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="section-tag">বৈশিষ্ট্যসমূহ</div>
-      <h2>কেন Test Bazar বেছে নেবেন?</h2>
-      <p class="section-sub">আধুনিক প্রযুক্তি ও অভিজ্ঞ শিক্ষকদের দ্বারা তৈরি সেরা প্ল্যাটফর্ম</p>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">📝</div>
-        <div class="feature-title">Chapter-wise MCQ Test</div>
-        <div class="feature-desc">প্রতিটি chapter আলাদাভাবে অনুশীলন করুন। ধাপে ধাপে সম্পূর্ণ সিলেবাস কভার করুন।</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🎯</div>
-        <div class="feature-title">Full Mock Tests</div>
-        <div class="feature-desc">আসল পরীক্ষার প্যাটার্ন অনুসারে Full Length Mock Test দিন। নিজেকে যাচাই করুন।</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📊</div>
-        <div class="feature-title">Detailed Analysis</div>
-        <div class="feature-desc">প্রতিটি test এর পর বিস্তারিত performance analysis পান। দুর্বল জায়গা চিহ্নিত করুন।</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🇮🇳</div>
-        <div class="feature-title">সম্পূর্ণ বাংলায়</div>
-        <div class="feature-desc">সব প্রশ্ন, explanation ও solution সম্পূর্ণ বাংলায়। বুঝে শেখা সহজ হয়।</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📱</div>
-        <div class="feature-title">Mobile Friendly</div>
-        <div class="feature-desc">যেকোনো device থেকে যেকোনো সময় test দিন। Mobile, tablet বা computer — সব জায়গায়।</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">💬</div>
-        <div class="feature-title">24/7 Support</div>
-        <div class="feature-desc">WhatsApp এ সরাসরি সাপোর্ট পান। যেকোনো সমস্যায় আমরা আপনার পাশে আছি।</div>
-      </div>
-    </div>
-  </div>
+<div class="section-inner">
+<div class="section-header">
+<div class="section-tag">বৈশিষ্ট্যসমূহ</div>
+<h2>কেন Test Bazar বেছে নেবেন?</h2>
+<p class="section-sub">আধুনিক প্রযুক্তি ও অভিজ্ঞ শিক্ষকদের দ্বারা তৈরি সেরা প্ল্যাটফর্ম</p>
+</div>
+<div class="features-grid">
+<div class="feature-card">
+<div class="feature-icon">📝</div>
+<div class="feature-title">Chapter-wise MCQ Test</div>
+<div class="feature-desc">প্রতিটি chapter আলাদাভাবে অনুশীলন করুন। ধাপে ধাপে সম্পূর্ণ সিলেবাস কভার করুন।</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🎯</div>
+<div class="feature-title">Full Mock Tests</div>
+<div class="feature-desc">আসল পরীক্ষার প্যাটার্ন অনুসারে Full Length Mock Test দিন। নিজেকে যাচাই করুন।</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">📊</div>
+<div class="feature-title">Detailed Analysis</div>
+<div class="feature-desc">প্রতিটি test এর পর বিস্তারিত performance analysis পান। দুর্বল জায়গা চিহ্নিত করুন।</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🇮🇳</div>
+<div class="feature-title">সম্পূর্ণ বাংলায়</div>
+<div class="feature-desc">সব প্রশ্ন, explanation ও solution সম্পূর্ণ বাংলায়। বুঝে শেখা সহজ হয়।</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">📱</div>
+<div class="feature-title">Mobile Friendly</div>
+<div class="feature-desc">যেকোনো device থেকে যেকোনো সময় test দিন। Mobile, tablet বা computer — সব জায়গায়।</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">💬</div>
+<div class="feature-title">24/7 Support</div>
+<div class="feature-desc">WhatsApp এ সরাসরি সাপোর্ট পান। যেকোনো সমস্যায় আমরা আপনার পাশে আছি।</div>
+</div>
+</div>
+</div>
 </section>
 
 <!-- PRICING -->
 <section class="pricing-section" id="pricing">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="section-tag">মূল্য পরিকল্পনা</div>
-      <h2>সবার জন্য সাশ্রয়ী মূল্য</h2>
-      <p class="section-sub">UPI, GPay, PhonePe, Paytm — যেকোনো মাধ্যমে payment করুন</p>
-    </div>
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-plan">Class 10</div>
-        <div class="price-amount"><span class="currency">₹</span>১৯৯<span class="period">/বছর</span></div>
-        <div class="price-desc">মাধ্যমিক পরীক্ষার্থীদের জন্য সম্পূর্ণ প্যাকেজ</div>
-        <ul class="price-features">
-          <li><span class="check-icon">✓</span>সব বিষয়ের test</li>
-          <li><span class="check-icon">✓</span>Chapter-wise MCQ</li>
-          <li><span class="check-icon">✓</span>Full Mock Tests</li>
-          <li><span class="check-icon">✓</span>Result Analysis</li>
-          <li><span class="check-icon">✓</span>সারা বছর access</li>
-          <li><span class="check-icon">✓</span>24/7 Support</li>
-        </ul>
-        <button class="price-btn outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">যোগাযোগ করুন</button>
-      </div>
-
-      <div class="price-card">
-        <div class="price-plan">HS (Class 11 & 12)</div>
-        <div class="price-amount"><span class="currency">₹</span>৯৯<span class="period">/বছর</span></div>
-        <div class="price-desc">HS Sem 1 ও Sem 3 Arts stream এর জন্য</div>
-        <ul class="price-features">
-          <li><span class="check-icon">✓</span>Class 11 Sem 1</li>
-          <li><span class="check-icon">✓</span>Class 12 Sem 3</li>
-          <li><span class="check-icon">✓</span>Arts Stream Subjects</li>
-          <li><span class="check-icon">✓</span>Mock Tests</li>
-          <li><span class="check-icon">✓</span>Result Analysis</li>
-          <li><span class="check-icon">✓</span>সারা বছর access</li>
-        </ul>
-        <button class="price-btn outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">যোগাযোগ করুন</button>
-      </div>
-
-      <div class="price-card">
-        <div class="price-plan">Competitive Exams</div>
-        <div class="price-amount"><span class="currency">₹</span>১৯৯<span class="period">/কোর্স</span></div>
-        <div class="price-desc">WB Police Constable, SI ও অন্যান্য পরীক্ষা</div>
-        <ul class="price-features">
-          <li><span class="check-icon">✓</span>WB Constable Course</li>
-          <li><span class="check-icon">✓</span>WB Police SI Course</li>
-          <li><span class="check-icon">✓</span>GS, Math, Reasoning</li>
-          <li><span class="check-icon">✓</span>English & Bengali</li>
-          <li><span class="check-icon">✓</span>Previous Year Qs</li>
-          <li><span class="check-icon">✓</span>Mock Tests</li>
-        </ul>
-        <button class="price-btn outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">যোগাযোগ করুন</button>
-      </div>
-
-      <div class="price-card popular">
-        <div class="popular-tag">⭐ সেরা অফার</div>
-        <div class="price-plan">Combined <span class="save-badge">SAVE 60%</span></div>
-        <div class="price-amount"><span class="currency">₹</span>২৯৯<span class="period">/সব কিছু</span></div>
-        <div class="price-desc">Class 10 + HS + Competitive — সব একসাথে!</div>
-        <ul class="price-features">
-          <li><span class="check-icon">✓</span>Class 10 সব বিষয়</li>
-          <li><span class="check-icon">✓</span>Class 11 & 12 (HS)</li>
-          <li><span class="check-icon">✓</span>WB Constable Full</li>
-          <li><span class="check-icon">✓</span>WB Police SI Full</li>
-          <li><span class="check-icon">✓</span>Unlimited Mock Tests</li>
-          <li><span class="check-icon">✓</span>Priority Support</li>
-          <li><span class="check-icon">✓</span>সারা বছর access</li>
-        </ul>
-        <button class="price-btn primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">এখনই নিন →</button>
-      </div>
-    </div>
-    <p style="text-align:center;font-family:'Tiro Bangla',serif;font-size:0.9rem;color:var(--muted);margin-top:2.5rem">
-      💳 Secure Payment via UPI · GPay · PhonePe · Paytm
-    </p>
-  </div>
+<div class="section-inner">
+<div class="section-header">
+<div class="section-tag">মূল্য পরিকল্পনা</div>
+<h2>সবার জন্য সাশ্রয়ী মূল্য</h2>
+<p class="section-sub">UPI, GPay, PhonePe, Paytm — যেকোনো মাধ্যমে payment করুন</p>
+</div>
+<div class="pricing-grid">
+<div class="price-card">
+<div class="price-plan">Class 10</div>
+<div class="price-amount"><span class="currency">₹</span>১৯৯<span class="period">/বছর</span></div>
+<div class="price-desc">মাধ্যমিক পরীক্ষার্থীদের জন্য সম্পূর্ণ প্যাকেজ</div>
+<ul class="price-features">
+<li><span class="check-icon">✓</span>সব বিষয়ের test</li>
+<li><span class="check-icon">✓</span>Chapter-wise MCQ</li>
+<li><span class="check-icon">✓</span>Full Mock Tests</li>
+<li><span class="check-icon">✓</span>Result Analysis</li>
+<li><span class="check-icon">✓</span>সারা বছর access</li>
+<li><span class="check-icon">✓</span>24/7 Support</li>
+</ul>
+<button class="price-btn outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">যোগাযোগ করুন</button>
+</div>
+<div class="price-card">
+<div class="price-plan">HS (Class 11 & 12)</div>
+<div class="price-amount"><span class="currency">₹</span>৯৯<span class="period">/বছর</span></div>
+<div class="price-desc">HS Sem 1 ও Sem 3 Arts stream এর জন্য</div>
+<ul class="price-features">
+<li><span class="check-icon">✓</span>Class 11 Sem 1</li>
+<li><span class="check-icon">✓</span>Class 12 Sem 3</li>
+<li><span class="check-icon">✓</span>Arts Stream Subjects</li>
+<li><span class="check-icon">✓</span>Mock Tests</li>
+<li><span class="check-icon">✓</span>Result Analysis</li>
+<li><span class="check-icon">✓</span>সারা বছর access</li>
+</ul>
+<button class="price-btn outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">যোগাযোগ করুন</button>
+</div>
+<div class="price-card">
+<div class="price-plan">Competitive Exams</div>
+<div class="price-amount"><span class="currency">₹</span>১৯৯<span class="period">/কোর্স</span></div>
+<div class="price-desc">WB Police Constable, SI ও অন্যান্য পরীক্ষা</div>
+<ul class="price-features">
+<li><span class="check-icon">✓</span>WB Constable Course</li>
+<li><span class="check-icon">✓</span>WB Police SI Course</li>
+<li><span class="check-icon">✓</span>GS, Math, Reasoning</li>
+<li><span class="check-icon">✓</span>English & Bengali</li>
+<li><span class="check-icon">✓</span>Previous Year Qs</li>
+<li><span class="check-icon">✓</span>Mock Tests</li>
+</ul>
+<button class="price-btn outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">যোগাযোগ করুন</button>
+</div>
+<div class="price-card popular">
+<div class="popular-tag">⭐ সেরা অফার</div>
+<div class="price-plan">Combined <span class="save-badge">SAVE 60%</span></div>
+<div class="price-amount"><span class="currency">₹</span>২৯৯<span class="period">/সব কিছু</span></div>
+<div class="price-desc">Class 10 + HS + Competitive — সব একসাথে!</div>
+<ul class="price-features">
+<li><span class="check-icon">✓</span>Class 10 সব বিষয়</li>
+<li><span class="check-icon">✓</span>Class 11 & 12 (HS)</li>
+<li><span class="check-icon">✓</span>WB Constable Full</li>
+<li><span class="check-icon">✓</span>WB Police SI Full</li>
+<li><span class="check-icon">✓</span>Unlimited Mock Tests</li>
+<li><span class="check-icon">✓</span>Priority Support</li>
+<li><span class="check-icon">✓</span>সারা বছর access</li>
+</ul>
+<button class="price-btn primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">এখনই নিন →</button>
+</div>
+</div>
+<p style="text-align:center;font-family:'Tiro Bangla',serif;font-size:0.9rem;color:var(--muted);margin-top:2.5rem">
+💳 Secure Payment via UPI · GPay · PhonePe · Paytm
+</p>
+</div>
 </section>
 
 <!-- HOW IT WORKS -->
 <section class="how-section">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="section-tag">কীভাবে শুরু করবেন</div>
-      <h2>মাত্র ৪টি সহজ ধাপ</h2>
-      <p class="section-sub">যোগাযোগ করুন, payment করুন, এবং test শুরু করুন</p>
-    </div>
-    <div class="steps-grid">
-      <div class="step">
-        <div class="step-num">১</div>
-        <div class="step-title">যোগাযোগ করুন</div>
-        <div class="step-desc">WhatsApp বা SMS এ আমাদের সাথে যোগাযোগ করুন</div>
-      </div>
-      <div class="step">
-        <div class="step-num">২</div>
-        <div class="step-title">Plan বেছে নিন</div>
-        <div class="step-desc">আপনার প্রয়োজন অনুযায়ী plan নির্বাচন করুন</div>
-      </div>
-      <div class="step">
-        <div class="step-num">৩</div>
-        <div class="step-title">Payment করুন</div>
-        <div class="step-desc">UPI তে secure payment করুন</div>
-      </div>
-      <div class="step">
-        <div class="step-num">৪</div>
-        <div class="step-title">Test দিন</div>
-        <div class="step-desc">Login credentials পেয়ে test শুরু করুন</div>
-      </div>
-    </div>
-  </div>
+<div class="section-inner">
+<div class="section-header">
+<div class="section-tag">কীভাবে শুরু করবেন</div>
+<h2>মাত্র ৪টি সহজ ধাপ</h2>
+<p class="section-sub">যোগাযোগ করুন, payment করুন, এবং test শুরু করুন</p>
+</div>
+<div class="steps-grid">
+<div class="step">
+<div class="step-num">১</div>
+<div class="step-title">যোগাযোগ করুন</div>
+<div class="step-desc">WhatsApp বা SMS এ আমাদের সাথে যোগাযোগ করুন</div>
+</div>
+<div class="step">
+<div class="step-num">২</div>
+<div class="step-title">Plan বেছে নিন</div>
+<div class="step-desc">আপনার প্রয়োজন অনুযায়ী plan নির্বাচন করুন</div>
+</div>
+<div class="step">
+<div class="step-num">৩</div>
+<div class="step-title">Payment করুন</div>
+<div class="step-desc">UPI তে secure payment করুন</div>
+</div>
+<div class="step">
+<div class="step-num">৪</div>
+<div class="step-title">Test দিন</div>
+<div class="step-desc">Login credentials পেয়ে test শুরু করুন</div>
+</div>
+</div>
+</div>
 </section>
 
 <!-- CTA / CONTACT -->
 <section class="cta-section" id="contact">
-  <div class="cta-inner">
-    <div class="section-tag" style="background:rgba(42,173,104,0.15);color:var(--green-light)">যোগাযোগ</div>
-    <h2>আজই শুরু করুন আপনার প্রস্তুতি</h2>
-    <p class="cta-sub">WhatsApp বা SMS এ আমাদের সাথে যোগাযোগ করুন। আমরা আপনাকে Username ও Password পাঠাবো, যার মাধ্যমে আপনি test দিতে পারবেন।</p>
-    
-    <div class="contact-cards">
-      <a href="https://wa.me/918710032880?text=Hello%20Test%20Bazar,%20I%20want%20to%20know%20more%20about%20your%20courses" class="contact-card" target="_blank">
-        <div class="contact-icon">💬</div>
-        <div class="contact-title">WhatsApp এ মেসেজ করুন</div>
-        <div class="contact-value">+91 87100 32880</div>
-        <div class="contact-hint">দ্রুত response পাবেন</div>
-      </a>
-      <a href="sms:+918710032880" class="contact-card">
-        <div class="contact-icon" style="background:linear-gradient(135deg,var(--saffron) 0%,var(--saffron-light) 100%)">📱</div>
-        <div class="contact-title">SMS করুন</div>
-        <div class="contact-value">+91 87100 32880</div>
-        <div class="contact-hint">যেকোনো সময় মেসেজ পাঠান</div>
-      </a>
-    </div>
-
-    <div style="background:rgba(42,173,104,0.1);backdrop-filter:blur(10px);border:1px solid rgba(42,173,104,0.3);border-radius:16px;padding:1.5rem 2rem;display:inline-block;margin-top:1rem">
-      <div style="font-family:'Tiro Bangla',serif;font-size:0.9rem;color:rgba(255,255,255,0.6);margin-bottom:0.5rem">Payment UPI ID</div>
-      <div style="color:var(--green-light);font-size:1.2rem;font-weight:700;letter-spacing:0.5px">ajsuajsu71@oksbi</div>
-    </div>
-  </div>
+<div class="cta-inner">
+<div class="section-tag" style="background:rgba(42,173,104,0.15);color:var(--green-light)">যোগাযোগ</div>
+<h2>আজই শুরু করুন আপনার প্রস্তুতি</h2>
+<p class="cta-sub">WhatsApp বা SMS এ আমাদের সাথে যোগাযোগ করুন। আমরা আপনাকে Username ও Password পাঠাবো, যার মাধ্যমে আপনি test দিতে পারবেন।</p>
+<div class="contact-cards">
+<a href="https://wa.me/918710032880?text=Hello%20Test%20Bazar,%20I%20want%20to%20know%20more%20about%20your%20courses" class="contact-card" target="_blank">
+<div class="contact-icon">💬</div>
+<div class="contact-title">WhatsApp এ মেসেজ করুন</div>
+<div class="contact-value">+91 87100 32880</div>
+<div class="contact-hint">দ্রুত response পাবেন</div>
+</a>
+<a href="sms:+918710032880" class="contact-card">
+<div class="contact-icon" style="background:linear-gradient(135deg,var(--saffron) 0%,var(--saffron-light) 100%)">📱</div>
+<div class="contact-title">SMS করুন</div>
+<div class="contact-value">+91 87100 32880</div>
+<div class="contact-hint">যেকোনো সময় মেসেজ পাঠান</div>
+</a>
+</div>
+<div style="background:rgba(42,173,104,0.1);backdrop-filter:blur(10px);border:1px solid rgba(42,173,104,0.3);border-radius:16px;padding:1.5rem 2rem;display:inline-block;margin-top:1rem">
+<div style="font-family:'Tiro Bangla',serif;font-size:0.9rem;color:rgba(255,255,255,0.6);margin-bottom:0.5rem">Payment UPI ID</div>
+<div style="color:var(--green-light);font-size:1.2rem;font-weight:700;letter-spacing:0.5px">ajsuajsu71@oksbi</div>
+</div>
+</div>
 </section>
 
 <!-- FAQ -->
 <section id="faq" style="background:var(--gray-50)">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="section-tag">প্রশ্নোত্তর</div>
-      <h2>সচরাচর জিজ্ঞাসা</h2>
-      <p class="section-sub">আপনার প্রশ্নের উত্তর এখানে পাবেন</p>
-    </div>
-    <div class="faq-grid">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>কীভাবে test এর access পাবো?</span>
-          <div class="faq-toggle">+</div>
-        </div>
-        <div class="faq-a">
-          <p>WhatsApp বা SMS এ আমাদের সাথে যোগাযোগ করুন। Payment verify হলে আমরা আপনাকে Username ও Password পাঠাবো, যার মাধ্যমে আপনি test দিতে পারবেন।</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>Payment কীভাবে করবো?</span>
-          <div class="faq-toggle">+</div>
-        </div>
-        <div class="faq-a">
-          <p>UPI ID (ajsuajsu71@oksbi) তে GPay, PhonePe, Paytm বা যেকোনো UPI app থেকে payment করতে পারবেন। Payment এর পর screenshot WhatsApp এ পাঠান।</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>Combined Plan এ কী কী পাবো?</span>
-          <div class="faq-toggle">+</div>
-        </div>
-        <div class="faq-a">
-          <p>Combined Plan এ Class 10, Class 11-12 (HS), WB Police Constable এবং WB Police SI — সবকিছুর access পাবেন মাত্র ₹২৯৯ তে। এটি সবচেয়ে সাশ্রয়ী option।</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>একটি account কতদিন ব্যবহার করতে পারবো?</span>
-          <div class="faq-toggle">+</div>
-        </div>
-        <div class="faq-a">
-          <p>বার্ষিক plan গুলো ১ বছরের জন্য valid। এর মধ্যে আপনি যতবার খুশি test দিতে পারবেন।</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>Mobile এ test দিতে পারবো?</span>
-          <div class="faq-toggle">+</div>
-        </div>
-        <div class="faq-a">
-          <p>হ্যাঁ, আমাদের প্ল্যাটফর্ম সম্পূর্ণ mobile responsive। Mobile, tablet বা computer — যেকোনো device থেকে test দিতে পারবেন।</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>কোনো সমস্যা হলে কাকে জানাবো?</span>
-          <div class="faq-toggle">+</div>
-        </div>
-        <div class="faq-a">
-          <p>WhatsApp এ +91 8710032880 নম্বরে যোগাযোগ করুন। আমরা ২৪ ঘণ্টার মধ্যে সমাধান দেওয়ার চেষ্টা করি।</p>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="section-inner">
+<div class="section-header">
+<div class="section-tag">প্রশ্নোত্তর</div>
+<h2>সচরাচর জিজ্ঞাসা</h2>
+<p class="section-sub">আপনার প্রশ্নের উত্তর এখানে পাবেন</p>
+</div>
+<div class="faq-grid">
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">
+<span>কীভাবে test এর access পাবো?</span>
+<div class="faq-toggle">+</div>
+</div>
+<div class="faq-a">
+<p>WhatsApp বা SMS এ আমাদের সাথে যোগাযোগ করুন। Payment verify হলে আমরা আপনাকে Username ও Password পাঠাবো, যার মাধ্যমে আপনি test দিতে পারবেন।</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">
+<span>Payment কীভাবে করবো?</span>
+<div class="faq-toggle">+</div>
+</div>
+<div class="faq-a">
+<p>UPI ID (ajsuajsu71@oksbi) তে GPay, PhonePe, Paytm বা যেকোনো UPI app থেকে payment করতে পারবেন। Payment এর পর screenshot WhatsApp এ পাঠান।</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">
+<span>Combined Plan এ কী কী পাবো?</span>
+<div class="faq-toggle">+</div>
+</div>
+<div class="faq-a">
+<p>Combined Plan এ Class 10, Class 11-12 (HS), WB Police Constable এবং WB Police SI — সবকিছুর access পাবেন মাত্র ₹২৯৯ তে। এটি সবচেয়ে সাশ্রয়ী option।</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">
+<span>একটি account কতদিন ব্যবহার করতে পারবো?</span>
+<div class="faq-toggle">+</div>
+</div>
+<div class="faq-a">
+<p>বার্ষিক plan গুলো ১ বছরের জন্য valid। এর মধ্যে আপনি যতবার খুশি test দিতে পারবেন।</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">
+<span>Mobile এ test দিতে পারবো?</span>
+<div class="faq-toggle">+</div>
+</div>
+<div class="faq-a">
+<p>হ্যাঁ, আমাদের প্ল্যাটফর্ম সম্পূর্ণ mobile responsive। Mobile, tablet বা computer — যেকোনো device থেকে test দিতে পারবেন।</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="toggleFaq(this)">
+<span>কোনো সমস্যা হলে কাকে জানাবো?</span>
+<div class="faq-toggle">+</div>
+</div>
+<div class="faq-a">
+<p>WhatsApp এ +91 8710032880 নম্বরে যোগাযোগ করুন। আমরা ২৪ ঘণ্টার মধ্যে সমাধান দেওয়ার চেষ্টা করি।</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="logo">
-          <div class="logo-icon">T</div>
-          <span>Test <span>Bazar</span></span>
-        </div>
-        <p>India's trusted online test platform for Class 10, 11, 12 and competitive exams like WB Police Constable & SI.</p>
-      </div>
-      <div class="footer-col">
-        <h4>পরীক্ষাসমূহ</h4>
-        <a href="#exams">Class 10</a>
-        <a href="#exams">Class 11 (HS)</a>
-        <a href="#exams">Class 12 (HS)</a>
-        <a href="#exams">WB Constable</a>
-        <a href="#exams">WB Police SI</a>
-      </div>
-      <div class="footer-col">
-        <h4>কোম্পানি</h4>
-        <a href="#features">বৈশিষ্ট্য</a>
-        <a href="#pricing">মূল্য</a>
-        <a href="#faq">প্রশ্নোত্তর</a>
-        <a href="#contact">যোগাযোগ</a>
-      </div>
-      <div class="footer-col">
-        <h4>যোগাযোগ</h4>
-        <a href="https://wa.me/918710032880" target="_blank">WhatsApp</a>
-        <a href="sms:+918710032880">SMS: +91 87100 32880</a>
-        <a href="#">UPI: ajsuajsu71@oksbi</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Test Bazar. All rights reserved. Made with ❤️ in India</p>
-      <div class="payment-badges">
-        <span class="payment-badge">UPI</span>
-        <span class="payment-badge">GPay</span>
-        <span class="payment-badge">PhonePe</span>
-        <span class="payment-badge">Paytm</span>
-        <span class="payment-badge">🔒 SSL Secure</span>
-      </div>
-    </div>
-  </div>
+<div class="footer-inner">
+<div class="footer-top">
+<div class="footer-brand">
+<div class="logo">
+<div class="logo-icon">T</div>
+<span>Test <span>Bazar</span></span>
+</div>
+<p>India's trusted online test platform for Class 10, 11, 12 and competitive exams like WB Police Constable & SI.</p>
+</div>
+<div class="footer-col">
+<h4>পরীক্ষাসমূহ</h4>
+<a href="#exams">Class 10</a>
+<a href="#exams">Class 11 (HS)</a>
+<a href="#exams">Class 12 (HS)</a>
+<a href="#exams">WB Constable</a>
+<a href="#exams">WB Police SI</a>
+</div>
+<div class="footer-col">
+<h4>কোম্পানি</h4>
+<a href="#features">বৈশিষ্ট্য</a>
+<a href="#pricing">মূল্য</a>
+<a href="#faq">প্রশ্নোত্তর</a>
+<a href="#contact">যোগাযোগ</a>
+</div>
+<div class="footer-col">
+<h4>যোগাযোগ</h4>
+<a href="https://wa.me/918710032880" target="_blank">WhatsApp</a>
+<a href="sms:+918710032880">SMS: +91 87100 32880</a>
+<a href="#">UPI: ajsuajsu71@oksbi</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Test Bazar. All rights reserved. Made with ❤️ in India</p>
+<div class="payment-badges">
+<span class="payment-badge">UPI</span>
+<span class="payment-badge">GPay</span>
+<span class="payment-badge">PhonePe</span>
+<span class="payment-badge">Paytm</span>
+<span class="payment-badge">🔒 SSL Secure</span>
+</div>
+</div>
+</div>
 </footer>
 
 <!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/918710032880?text=Hello%20Test%20Bazar" class="whatsapp-float" target="_blank" title="WhatsApp এ যোগাযোগ করুন">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <script>
 window.addEventListener('scroll',()=>{
-  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);
+document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);
 });
 
 function switchExam(el,id){
-  document.querySelectorAll('.exam-tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.subjects-grid').forEach(g=>g.style.display='none');
-  el.classList.add('active');
-  document.getElementById(id).style.display='grid';
+document.querySelectorAll('.exam-tab').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('.subjects-grid').forEach(g=>g.style.display='none');
+el.classList.add('active');
+document.getElementById(id).style.display='grid';
 }
 
 function toggleFaq(el){
-  const item=el.parentElement;
-  const wasOpen=item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-  if(!wasOpen) item.classList.add('open');
+const item=el.parentElement;
+const wasOpen=item.classList.contains('open');
+document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+if(!wasOpen) item.classList.add('open');
 }
 
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const target=document.querySelector(a.getAttribute('href'));
-    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'});}
-  });
+a.addEventListener('click',e=>{
+const target=document.querySelector(a.getAttribute('href'));
+if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'});}
+});
 });
 </script>
 </body>
 </html>
+
+
